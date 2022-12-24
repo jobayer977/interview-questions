@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-cloudflare": "^1.0.0",
 		"@tailwindcss/line-clamp": "^0.4.2"
 	}
 }
