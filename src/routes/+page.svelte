@@ -1,8 +1,7 @@
-<script>
-	import { page } from '$app/stores';
-	let items = $page?.data?.data || [];
+<script lang="ts">
+	export let data = [];
 	let searchTerm = '';
-	$: sortedTopics = items?.filter((post) =>
+	$: sortedTopics = data?.data?.filter((post) =>
 		post.title.toLowerCase().includes(searchTerm.toLowerCase())
 	);
 </script>
