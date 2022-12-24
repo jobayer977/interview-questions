@@ -8,16 +8,18 @@
 
 <div class="container">
 	<div class="pt-24">
-		<h1 class="text-[56px] font-bold text-left text-primary">EconHub</h1>
-		<h1 class="text-[56px] font-bold text-left">Get the files you need for free,</h1>
-		<h1 class="text-[56px] font-bold text-left">anytime, anywhere.</h1>
-		<p class="text-[24px] text-left text-gray-dark my-3 max-w-2xl">
+		<h1 class="text-xl lg:leading-none md:text-[56px] font-bold text-left text-primary">EconHub</h1>
+		<h1 class="text-xl lg:leading-none md:text-[56px] font-bold text-left">
+			Get the files you need for free,
+		</h1>
+		<h1 class="text-xl lg:leading-none md:text-[56px] font-bold text-left">anytime, anywhere.</h1>
+		<p class="text-sm lg:text-[24px] text-left text-gray-dark my-3 max-w-2xl">
 			Your one-stop shop for free file downloads.
 		</p>
 	</div>
 	<!-- Global Search -->
 	<div class="mt-12">
-		<div class="relative rounded-md shadow-sm w-2/6 border-solid border-2">
+		<div class="relative rounded-md shadow-sm w-full lg:w-2/6 border-solid border-2">
 			<input
 				id="search"
 				type="search"
@@ -39,7 +41,7 @@
 	<!-- Global Search -->
 	<!-- Search Results -->
 	<div class="my-12">
-		<div class="grid grid-cols-3 gap-4">
+		<div class="grid lg:grid-cols-3 gap-4">
 			{#each sortedTopics as item}
 				<div class="bg-light rounded-lg">
 					<div class="relative h-[200px]">
