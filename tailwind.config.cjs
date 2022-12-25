@@ -8,7 +8,7 @@ module.exports = {
 				padding: '1rem'
 			},
 			colors: {
-				primary: '#42B983',
+				primary: '#130B43',
 				dark: '#213547',
 				light: '#F9F9F9',
 				gray: '#E5E5E5',
