@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div class="bg-white box px-4 py-2">
+<a href="/topic-slug" class="bg-white box px-4 py-2">
 	<div class="flex">
 		<div class="mr-4">
 			<img
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</a>
 
 <style lang="postcss">
 	.box {
