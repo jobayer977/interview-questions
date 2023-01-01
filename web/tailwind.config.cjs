@@ -15,6 +15,5 @@ module.exports = {
 				'gray-dark': '#767676'
 			}
 		}
-	},
-	plugins: [require('@tailwindcss/line-clamp')]
+	}
 };

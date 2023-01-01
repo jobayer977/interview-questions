@@ -1,12 +1,21 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import TopicCard from '../components/TopicCard.svelte';
-	let data = [];
+	let data:any[] = [];
 	let searchTerm = '';
-	$: sortedTopics = data?.data?.filter((post) =>
+	$: sortedTopics = data?.filter((post) =>
 		post.title.toLowerCase().includes(searchTerm.toLowerCase())
 	);
+	const fetchTopics = async () => {
+		const res = await fetch('/sections.json');
+		const items = await res.json();
+		console.log("🚀 ~ file: +page.svelte:12 ~ fetchTopics ~ items", items)
+		data = items|| [];
+	};
+	onMount(() => {
+		fetchTopics();
+	});
 </script>
-
 <div class="container">
 	<div class="pt-16 text-center">
 		<img src="/download.png" alt="" class="h-20 mb-2 w-full object-contain" />
@@ -45,28 +54,11 @@
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
 		<div class="grid lg:grid-cols-2 gap-4">
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
-			<TopicCard />
+			{#each sortedTopics||[] as item}
+				<a href={item?.link}>
+					<TopicCard data={item}/>
+				</a>
+			{/each}
 		</div>
 	</div>
 </div>

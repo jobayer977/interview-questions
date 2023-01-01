@@ -1,7 +1,19 @@
-<script>
+<script lang="ts">
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	import TopicItem from '../../components/TopicItem.svelte';
+	console.log($page?.params?.slug);
+	let topics:any[] = []
+	let searchTerm = '';
+	$: sortedTopics = topics?.filter((post) =>
+		post.title.toLowerCase().includes(searchTerm.toLowerCase())
+	);
+	onMount(async () => {
+		const res = await fetch('/topics.json');
+		const data = await res.json();
+		topics = data[$page.params.slug] || [];
+	});
 </script>
-
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
 		<div class="flex space-x-3">
@@ -21,21 +33,11 @@
 		</div>
 	</div>
 	<div class="container mt-20">
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
-		<TopicItem />
+		{#each topics as item}
+			<TopicItem data={item}/>
+		{/each}
 	</div>
 </div>
-
 <style>
 	.box {
 		background-clip: padding-box, border-box;

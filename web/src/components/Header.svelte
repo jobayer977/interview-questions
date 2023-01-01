@@ -1,6 +1,5 @@
 <script>
 </script>
-
 <header class="header">
 	<div class="container">
 		<div class="header-inner">
@@ -18,7 +17,6 @@
 		</div>
 	</div>
 </header>
-
 <style>
 	.header-inner {
 		height: 64px;
@@ -41,6 +39,7 @@
 	}
 	.navs ul {
 		display: flex;
+		list-style: none;
 	}
 	.navs ul li a {
 		align-items: center;

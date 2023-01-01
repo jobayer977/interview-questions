@@ -18,13 +18,14 @@
 		"@sveltejs/adapter-cloudflare": "^1.0.0",
 		"@sveltejs/kit": "^1.0.0",
 		"@sveltejs/package": "^1.0.0",
-		"@tailwindcss/line-clamp": "^0.4.2",
+		"@types/markdown-it": "^12.2.3",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.13",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"highlight.js": "^11.7.0",
 		"postcss": "^8.4.20",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
@@ -38,6 +39,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-static": "^1.0.0"
+		"@sveltejs/adapter-static": "^1.0.0",
+		"cssnano": "^5.1.14",
+		"markdown-it": "^13.0.1"
 	}
 }

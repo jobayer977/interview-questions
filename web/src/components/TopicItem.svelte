@@ -1,8 +1,23 @@
-<script>
+<script lang="ts">
 	import { slide } from 'svelte/transition';
+	import hljs from 'highlight.js';
+	import md from 'markdown-it';
+	import { readingTime } from '../utils';
 	let isOpen = false;
+	export let data;
+	const markdonw = md({
+		langPrefix: 'language-',
+		highlight: function (str, lang) {
+			if (lang && hljs.getLanguage(lang)) {
+				try {
+					return hljs.highlight(str, { language: lang }).value;
+				} catch (__) {}
+			}
+			return '';
+		},
+		html: true
+	});
 </script>
-
 <div class="mb-8 relative">
 	<div class="item flex space-x-2 mb-3 cursor-pointer " on:click={() => (isOpen = !isOpen)}>
 		<img
@@ -12,21 +27,18 @@
 		/>
 		<div class="">
 			<h2 class="text-base font-medium">
-				Dwivedirahul44 published a new Exercise: Difference of Squares
+				{data.title}
 			</h2>
-			<p class="text-xs mt-2">1 week ago</p>
+			<p class="text-xs mt-2">{readingTime(data?.content)}</p>
 		</div>
 	</div>
 	{#if isOpen}
-		<div class="pl-[60px] pb-5 pt-2" transition:slide>
-			<p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure inventore possimus aspernatur
-				minima? Sint, temporibus amet fugiat id, dicta natus distinctio officia alias maxime tempora
-				laborum sapiente impedit suscipit. Voluptate.
-			</p>
+		<div class="pb-5 pt-2" transition:slide>
+			<div class="markdown-body px-5 pt-2 pb-10 lg:pl-10">
+				{@html markdonw.render(data?.content)}
+			</div>
 		</div>
 	{/if}
 </div>
-
 <style>
 </style>
