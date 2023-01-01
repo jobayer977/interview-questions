@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import TopicItem from '../../components/TopicItem.svelte';
-	console.log($page?.params?.slug);
-	let topics:any[] = []
-	let searchTerm = '';
-	$: sortedTopics = topics?.filter((post) =>
-		post.title.toLowerCase().includes(searchTerm.toLowerCase())
-	);
-	onMount(async () => {
-		const res = await fetch('/topics.json');
-		const data = await res.json();
-		topics = data[$page.params.slug] || [];
-	});
+	export let data:any[] = []
+	console.log("🚀 ~ file: +page.svelte:4 ~ data", data)
+	// let topics:any[] = []
+	// let searchTerm = '';
+	// $: sortedTopics = data?.data?.filter((post:any) =>
+	// 	post.title.toLowerCase().includes(searchTerm.toLowerCase())
+	// );
+	// onMount(async () => {
+	// 	const res = await fetch('/topics.json');
+	// 	const data = await res.json();
+	// 	topics = data[$page.params.slug] || [];
+	// });
+	// console.log("🚀 ~ file: +page.svelte:17 ~ data", data)
 </script>
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	<div class="container mt-20">
-		{#each topics as item}
+		{#each data?.data ||[] as item}
 			<TopicItem data={item}/>
 		{/each}
 	</div>
