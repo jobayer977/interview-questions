@@ -1,0 +1,630 @@
+{
+	"angular": [
+		{
+			"title": "What is Node.js?",
+			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is web server ?",
+			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is node jS http module ?",
+			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is the purpose of HTTP Header",
+			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
+			"section": "angular"
+		},
+		{
+			"title": "How nodejs process works ?",
+			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What are the features of nodejs",
+			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is purpose of node js url module",
+			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is Buffers data type?",
+			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is EventEmitter in Node.js?",
+			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is process events in nodejs",
+			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
+			"section": "angular"
+		},
+		{
+			"title": "How can we read a file content in nodejs",
+			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
+			"section": "angular"
+		},
+		{
+			"title": "What Is a Node.js Stream?",
+			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is HTTP ?",
+			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is cluster in nodejs",
+			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is difference between concurrency and parallelism ?",
+			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is JWT ?",
+			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
+			"section": "angular"
+		},
+		{
+			"title": "what is middleware in node js",
+			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is use of middleware in node js ?",
+			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
+			"section": "angular"
+		},
+		{
+			"title": "what is the use of helmet in node js",
+			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
+			"section": "angular"
+		},
+		{
+			"title": "what is rest api in nodejs?",
+			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What's the difference between req.params and req.query?",
+			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is routing in nodejs ?",
+			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is child process in nodejs ?",
+			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
+			"section": "angular"
+		},
+		{
+			"title": "what are http methods ?",
+			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is crypto in node js?",
+			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is ftp protocol ?",
+			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is thread in computer ?",
+			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
+			"section": "angular"
+		},
+		{
+			"title": "How Node.js works",
+			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What is cpu intensive tasks in NodeJS ?",
+			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
+			"section": "angular"
+		},
+		{
+			"title": "Is node js really single threaded ?",
+			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
+			"section": "angular"
+		},
+		{
+			"title": "What Can Node.js Do?",
+			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
+			"section": "angular"
+		}
+	],
+	"nodejs": [
+		{
+			"title": "What is Node.js?",
+			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is web server ?",
+			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is node jS http module ?",
+			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is the purpose of HTTP Header",
+			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "How nodejs process works ?",
+			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What are the features of nodejs",
+			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is purpose of node js url module",
+			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is Buffers data type?",
+			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is EventEmitter in Node.js?",
+			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is process events in nodejs",
+			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "How can we read a file content in nodejs",
+			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What Is a Node.js Stream?",
+			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is HTTP ?",
+			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is cluster in nodejs",
+			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is difference between concurrency and parallelism ?",
+			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is JWT ?",
+			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "what is middleware in node js",
+			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is use of middleware in node js ?",
+			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "what is the use of helmet in node js",
+			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "what is rest api in nodejs?",
+			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What's the difference between req.params and req.query?",
+			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is routing in nodejs ?",
+			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is child process in nodejs ?",
+			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "what are http methods ?",
+			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is crypto in node js?",
+			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is ftp protocol ?",
+			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is thread in computer ?",
+			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "How Node.js works",
+			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What is cpu intensive tasks in NodeJS ?",
+			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "Is node js really single threaded ?",
+			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
+			"section": "nodejs"
+		},
+		{
+			"title": "What Can Node.js Do?",
+			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
+			"section": "nodejs"
+		}
+	],
+	"react": [
+		{
+			"title": "What is Node.js?",
+			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is web server ?",
+			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
+			"section": "react"
+		},
+		{
+			"title": "What is node jS http module ?",
+			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
+			"section": "react"
+		},
+		{
+			"title": "What is the purpose of HTTP Header",
+			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
+			"section": "react"
+		},
+		{
+			"title": "How nodejs process works ?",
+			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
+			"section": "react"
+		},
+		{
+			"title": "What are the features of nodejs",
+			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
+			"section": "react"
+		},
+		{
+			"title": "What is purpose of node js url module",
+			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
+			"section": "react"
+		},
+		{
+			"title": "What is Buffers data type?",
+			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
+			"section": "react"
+		},
+		{
+			"title": "What is EventEmitter in Node.js?",
+			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is process events in nodejs",
+			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
+			"section": "react"
+		},
+		{
+			"title": "How can we read a file content in nodejs",
+			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
+			"section": "react"
+		},
+		{
+			"title": "What Is a Node.js Stream?",
+			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is HTTP ?",
+			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is cluster in nodejs",
+			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
+			"section": "react"
+		},
+		{
+			"title": "What is difference between concurrency and parallelism ?",
+			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is JWT ?",
+			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
+			"section": "react"
+		},
+		{
+			"title": "what is middleware in node js",
+			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
+			"section": "react"
+		},
+		{
+			"title": "What is use of middleware in node js ?",
+			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
+			"section": "react"
+		},
+		{
+			"title": "what is the use of helmet in node js",
+			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
+			"section": "react"
+		},
+		{
+			"title": "what is rest api in nodejs?",
+			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
+			"section": "react"
+		},
+		{
+			"title": "What's the difference between req.params and req.query?",
+			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is routing in nodejs ?",
+			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is child process in nodejs ?",
+			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
+			"section": "react"
+		},
+		{
+			"title": "what are http methods ?",
+			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is crypto in node js?",
+			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is ftp protocol ?",
+			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is thread in computer ?",
+			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
+			"section": "react"
+		},
+		{
+			"title": "How Node.js works",
+			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
+			"section": "react"
+		},
+		{
+			"title": "What is cpu intensive tasks in NodeJS ?",
+			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
+			"section": "react"
+		},
+		{
+			"title": "Is node js really single threaded ?",
+			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
+			"section": "react"
+		},
+		{
+			"title": "What Can Node.js Do?",
+			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
+			"section": "react"
+		}
+	],
+	"svelte": [
+		{
+			"title": "What is Node.js?",
+			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is web server ?",
+			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is node jS http module ?",
+			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is the purpose of HTTP Header",
+			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
+			"section": "svelte"
+		},
+		{
+			"title": "How nodejs process works ?",
+			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What are the features of nodejs",
+			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is purpose of node js url module",
+			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is Buffers data type?",
+			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is EventEmitter in Node.js?",
+			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is process events in nodejs",
+			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "How can we read a file content in nodejs",
+			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What Is a Node.js Stream?",
+			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is HTTP ?",
+			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is cluster in nodejs",
+			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is difference between concurrency and parallelism ?",
+			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is JWT ?",
+			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "what is middleware in node js",
+			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is use of middleware in node js ?",
+			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "what is the use of helmet in node js",
+			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
+			"section": "svelte"
+		},
+		{
+			"title": "what is rest api in nodejs?",
+			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What's the difference between req.params and req.query?",
+			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is routing in nodejs ?",
+			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is child process in nodejs ?",
+			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "what are http methods ?",
+			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is crypto in node js?",
+			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is ftp protocol ?",
+			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is thread in computer ?",
+			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "How Node.js works",
+			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What is cpu intensive tasks in NodeJS ?",
+			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
+			"section": "svelte"
+		},
+		{
+			"title": "Is node js really single threaded ?",
+			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
+			"section": "svelte"
+		},
+		{
+			"title": "What Can Node.js Do?",
+			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
+			"section": "svelte"
+		}
+	]
+}
