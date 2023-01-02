@@ -1,10 +1,10 @@
 [
 	{
-		"title": "Angular",
-		"link": "/angular",
-		"image": "/sections-icons/angular.svg",
-		"tags": ["python", "programming", "computer science"],
-		"topics": "50+",
-		"duration": "10.5 hours"
+		"title": "JavaScript",
+		"contentFolder": "js",
+		"image": "/sections-icons/javascript.svg",
+		"tags": ["javascript", "js", "es6"],
+		"topics": "150+",
+		"duration": "7.5 hours"
 	}
 ]

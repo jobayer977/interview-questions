@@ -1,630 +1,1012 @@
 {
-	"angular": [
+	"js": [
 		{
-			"title": "What is Node.js?",
-			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
-			"section": "angular"
+			"title": "Can I redeclare let and const variables?",
+			"content": "\nNo, you cannot redeclare let and const variables. If you do, it throws below error\n\n```properties\nUncaught SyntaxError: Identifier 'someVariable' has already been declared\n```\n",
+			"section": "js",
+			"source": ""
 		},
 		{
-			"title": "What is web server ?",
-			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
-			"section": "angular"
+			"title": "Difference between Function Scope vs Block Scope in JavaScript?",
+			"content": "\n**Function Scope**:\nvariables defined inside a function are not accessible outside the function.\n\n```javascript\nfunction foo() {\n\tvar a = 1;\n\tfunction bar() {\n\t\tconsole.log(a); // 1\n\t}\n\tbar();\n}\n\nfoo(); // 1\n```\n\n**Block Scope :**\n\nThis scope restricts the variable that is declared inside a specific block, from access by the outside of the block. The let & const keyword facilitates the variables to be block scoped.\n\n```javascript\nif (true) {\n\tlet a = 1;\n\tconsole.log(a); // 1\n}\nconsole.log(a); // ReferenceError: a is not defined\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is node jS http module ?",
-			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
-			"section": "angular"
+			"title": "Difference between Local and Global Variable ?",
+			"content": "\n**KEY DIFFERENCE**\n\n- Local variable is declared inside a function or block scope whereas Global variable is declared outside the function.\n- Local variables are created when the function has started execution and is lost when the function terminates, on the other hand, Global variable is created as execution starts and is lost when the program ends.\n- Local variable doesn’t provide data sharing whereas Global variable provides data sharing.\n- Local variables are stored on the stack whereas the Global variable are stored on a fixed location decided by the compiler.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is the purpose of HTTP Header",
-			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
-			"section": "angular"
+			"title": "Difference between var and let in JavaScript?",
+			"content": "\nThe main difference between let and var is that scope of a variable defined with let is limited to the block in which it is declared while variable declared with var has the global scope. So we can say that var is rather a keyword which defines a variable globally regardless of block scope.\n\nAlso, one difference between var and let is variable with var can be redeclared to some other value while variable could not be redeclared if it is defined with let.\n",
+			"section": "js"
 		},
 		{
-			"title": "How nodejs process works ?",
-			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
-			"section": "angular"
+			"title": "How garbage collection works in JavaScript ?",
+			"content": "\nIn JavaScript, the memory management process is automated. The browser takes care of that thing for us. When a variable function or object is created in javascript the memory space is created for the reading and write operations. after the operations are done and no longer references are connected to the variable then the garbage collector release the variables from memory spaces. The Garbage Collection mechanism in JavaScript is governed by two algorithms\n\n**Reference Counting Algorithm**\nIt determines the usefulness of an object by finding out if the object is being referenced by some other object or not.\n\n**Mark and Sweep Algorithm.**\nIf an object is having zero references then it is effectively unreachable. So it is fit to be a garbage.\n",
+			"section": "js"
 		},
 		{
-			"title": "What are the features of nodejs",
-			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
-			"section": "angular"
+			"title": "List down some of the features of ES6 ?",
+			"content": "\nBelow are the list of some new features of ES6,\n\n- Support for constants or immutable variables\n- Block-scope support for variables, constants and functions\n- Arrow functions\n- Default parameters\n- Rest and Spread Parameters\n- Template Literals\n- Multi-line Strings\n- Destructuring Assignment\n- Enhanced Object Literals\n- Promises\n- Classes\n- Modules\n",
+			"section": "js"
 		},
 		{
-			"title": "What is purpose of node js url module",
-			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
-			"section": "angular"
+			"title": "What are global variables ?",
+			"content": "\nGlobal variables are those that are available throughout the length of the code without any scope. The var keyword is used to declare a local variable but if you omit it then it will become global variable\n\n```javascript\nmsg = 'Hello'; // var is missing, it becomes global variable\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is Buffers data type?",
-			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
-			"section": "angular"
+			"title": "What are  namespaces?",
+			"content": "\nThe namespace is a programming paradigm it's used to avoid variable naming collisions. Help to organize code into logical groups. JavaScript does not provide namespace by default. However, we can replicate this functionality by making a global object which can contain all functions and variables.\n\n**Example**\n\n```javascript\nconst service = {\n\tget: function () {\n\t\t// Get Api Implemented\n\t},\n\tput: function () {\n\t\t// put Api Implemented\n\t},\n\tpost: function () {\n\t\t// post Api Implmented\n\t}\n};\n\nservice.get();\nservice.post();\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is EventEmitter in Node.js?",
-			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
-			"section": "angular"
+			"title": "What are PWAs used for?",
+			"content": "\nProgressive Web Apps (PWAs) are web apps that use service workers, manifests, and other web-platform features in combination with progressive enhancement to give users an experience on par with native apps.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is process events in nodejs",
-			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
-			"section": "angular"
+			"title": "What are raw strings?",
+			"content": "\nIt's used to get the raw string form of template literals without processing to escape sequences (e.g. \\n).\n\n```javascript\nvar str = `Hello world \\n Jon Snow`;\nconsole.log(str);\n// Hello world\n//  Jon Snow\n\nvar rawStr = String.raw`Hello world \\n Jon Snow`;\nconsole.log(rawStr); //Hello world \\n Jon Snow\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "How can we read a file content in nodejs",
-			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
-			"section": "angular"
+			"title": "What are some unique features of JavaScript ?",
+			"content": "\nThere are at least three great things about JavaScript:\n\n1. Full integration with HTML/CSS.\n2. Simple and easy to understand syntax.\n3. Supported by all modern browsers and enabled by default in all modern browsers.\n",
+			"section": "js"
 		},
 		{
-			"title": "What Is a Node.js Stream?",
-			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
-			"section": "angular"
+			"title": "What are the benefit of event delegation?",
+			"content": "\nEvent Delegation is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular target using the .target property of the event object.\n\n- No need to add many handlers.\n- When adding or removing elements, no need to add/remove handlers.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is HTTP ?",
-			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "angular"
+			"title": "What does dynamic mean in JavaScript?",
+			"content": "\nJavaScript is a loosely typed or dynamic language because variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned/reassigned with values of all types.\n\n```javascript\nlet age = 50; // age is a number now\nage = 'old'; // age is a string now\nage = true; // age is a boolean\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is cluster in nodejs",
-			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
-			"section": "angular"
+			"title": "What does it mean that JavaScript is \"dynamic\"?",
+			"content": "\nJavaScript is called a dynamic language because it doesn't just have a few dynamic aspects, pretty much everything is dynamic.\n\nAll variables are dynamic (both in type and existance), and even the code is dynamic. You can create new variables at runtime, and the type of variables is determined at runtime\n",
+			"section": "js"
 		},
 		{
-			"title": "What is difference between concurrency and parallelism ?",
-			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
-			"section": "angular"
+			"title": "What is ES6 ?",
+			"content": "\nES6 stands for ECMAScript 6. ECMAScript was created to standardize JavaScript, and ES6 is the 6th version of ECMAScript, it was published in 2015, and is also known as ECMAScript 2015.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is JWT ?",
-			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
-			"section": "angular"
+			"title": "what is function declaration and function expression ?",
+			"content": "\n**Function Declaration**\nA function created with a function declaration is a Function object and has all the properties, methods and behavior of Function\n\n```javascript\nfunction add(a, b) {\n\treturn a + b;\n}\n```\n\n**Function Expression**\nA Functions stored in variables do not need function names. They are always invoked (called) using the variable name.\n\n```javascript\nconst add = function (a, b) {\n\treturn a + b;\n};\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "what is middleware in node js",
-			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
-			"section": "angular"
+			"title": "What is Hoisting ?",
+			"content": "\nIn JavaScript, Hoisting is the default behavior of moving all the declarations at the top of the scope before code execution. Basically, it gives us an advantage that no matter where functions and variables are declared, they are moved to the top of their scope regardless of whether their scope is global or local.\n\nIt allows us to call functions before even writing them in our code.\n\nNote: JavaScript only hoists declarations, not the initializations.\n\nJavaScript allocates memory for all variables and functions defined in the program before execution. [Reference](https://www.geeksforgeeks.org/javascript-hoisting/)\n",
+			"section": "js"
 		},
 		{
-			"title": "What is use of middleware in node js ?",
-			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
-			"section": "angular"
+			"title": "What is JavaScript?",
+			"content": "\nJavascript is a synchronized single-threaded programming language.\n",
+			"section": "js"
 		},
 		{
-			"title": "what is the use of helmet in node js",
-			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
-			"section": "angular"
+			"title": "What is polyfill used for?",
+			"content": "\nPolyfills allow web developers to use an API regardless of whether or not it is supported by a browser, and usually with minimal overhead. Typically they first check if a browser supports an API, and use it if available, otherwise using their own implementation.\n",
+			"section": "js"
 		},
 		{
-			"title": "what is rest api in nodejs?",
-			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
-			"section": "angular"
+			"title": "What is scope of variable in JavaScript ?",
+			"content": "\nThe scope of a variable is the region of your program in which it is defined. JavaScript variables have only two scopes.\n\n- **Global Variables** − A global variable has global scope which means it can be defined anywhere in your JavaScript code\n- **Local Variables** − A local variable will be visible only within a function or block (let,const) where it is defined. Function parameters are always local to that function\n",
+			"section": "js"
 		},
 		{
-			"title": "What's the difference between req.params and req.query?",
-			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
-			"section": "angular"
+			"title": "What is shallow copied in javascript?",
+			"content": "\nA shallow copy is a copy of the object itself. It does not copy the properties of the object. It just copies the reference to the object.\n\n```javascript\nconst obj = {\n\ta: 1,\n\tb: 2\n};\n\nconst obj2 = obj;\nobj2.a = 2;\n\nconsole.log(obj2); // {a: 2, b: 2}\nconsole.log(obj); // {a: 2, b: 2}\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is routing in nodejs ?",
-			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
-			"section": "angular"
+			"title": "What is Stack overflow in Javascript?",
+			"content": "\nThe call stack has a maximum size assigned. Stack Overflow occurs when the number of function calls added to the stack increases the stack’s maximum limit (the call stack has a maximum size). A classic example to cause such a situation is Recursion. Recursion is a process in which a function calls itself until a terminating condition is found.\n\n```javascript\nfunction recursion() {\n\trecursion(); //a function calling itself\n}\nrecursion();\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is child process in nodejs ?",
-			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
-			"section": "angular"
+			"title": "What is the aim of the let keyword?",
+			"content": "\nlet allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used, unlike the var keyword, which declares a variable globally, or locally to an entire function regardless of block scope.\n\n```js\nfunction varTest() {\n\tvar x = 1;\n\t{\n\t\tvar x = 2; // same variable!\n\t\tconsole.log(x); // 2\n\t}\n\tconsole.log(x); // 2\n}\n\nfunction letTest() {\n\tlet x = 1;\n\t{\n\t\tlet x = 2; // different variable\n\t\tconsole.log(x); // 2\n\t}\n\tconsole.log(x); // 1\n}\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "what are http methods ?",
-			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
-			"section": "angular"
+			"title": "What is the Call Stack in JavaScript ?",
+			"content": "\nThe call stack is used by JavaScript to keep track of multiple function calls. It is like a real stack in data structures where data can be pushed and popped and follows the Last In First Out (LIFO) principle. We use call stack for memorizing which function is running right now. The below example demonstrates the call stack.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is crypto in node js?",
-			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
-			"section": "angular"
+			"title": "What is the creation phase and execution phase in Javascript?",
+			"content": "\n**Creation Phase**\nIt picks all function declarations and stores them in memory with their reference. Also picks all variables and assigns undefined to them.\n\n**Execution Phase**\nIn that phase read the code line by line and assigns variable values. and execute functions.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is ftp protocol ?",
-			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "angular"
+			"title": "What is the difference between DOM and BOM?",
+			"content": "\nThey're just different objects you're dealing with:\n\n**DOM**\n\nThe DOM is the **Document object model** which is deals with the document, the HTML elements themselves, e.g `document` and all traversal you would do in it, events, etc.\n\n**BOM**\n\nThe BOM is the Browser Object Model, which deals with browser components aside from the document, like history, location, navigator and screen (as well as some others that vary by browser).\n\n| BOM                                                                               | DOM                                                      |\n| --------------------------------------------------------------------------------- | -------------------------------------------------------- |\n| Is Browser Object Model                                                           | Is Document Object Model                                 |\n| Used for access and manipulation of the browser window                            | Used to manipulate the HTML document.                    |\n| No standard set of rules, each browser has its own standards for implementing BOM | Has a set standard of rules to be used across documents. |\n",
+			"section": "js"
 		},
 		{
-			"title": "What is thread in computer ?",
-			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
-			"section": "angular"
+			"title": "What is the difference between java and javascript",
+			"content": "\nBoth are totally unrelated programming languages and no relation between them. Java is statically typed, compiled, runs on its own VM. Whereas Javascript is dynamically typed, interpreted, and runs in a browser and nodejs environments. Let's see the major differences in a tabular format,\n\n| Feature     | Java                           | JavaScript                                            |\n| ----------- | ------------------------------ | ----------------------------------------------------- |\n| Typed       | It's a strongly typed language | It's a dynamic typed language                         |\n| Paradigm    | Object oriented programming    | Prototype based programming                           |\n| Scoping     | Block scoped                   | Function-scoped                                       |\n| Concurrency | Thread based                   | event based                                           |\n| Memory      | Uses more memory               | Uses less memory. Hence it will be used for web pages |\n",
+			"section": "js"
 		},
 		{
-			"title": "How Node.js works",
-			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
-			"section": "angular"
+			"title": "What is the difference between Shallow and Deep copy",
+			"content": "\n**Shallow Copy:** Shallow copy is a bitwise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.\n\n```javascript\nvar empDetails = {\n\tname: 'John',\n\tage: 25,\n\texpertise: 'Software Developer'\n};\n```\n\nto create a duplicate\n\n```javascript\nvar empDetailsShallowCopy = empDetails; //Shallow copying!\n```\n\nif we change some property value in the duplicate one like this:\n\n```javascript\nempDetailsShallowCopy.name = 'Johnson';\n```\n\nThe above statement will also change the name of empDetails, since we have a shallow copy. That means we're losing the original data as well.\n\n**Deep copy:** A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.\n\n```javascript\nvar empDetails = {\n\tname: 'John',\n\tage: 25,\n\texpertise: 'Software Developer'\n};\n```\n\nCreate a deep copy by using the properties from the original object into new variable\n\n```javascript\nvar empDetailsDeepCopy = {\n\tname: empDetails.name,\n\tage: empDetails.age,\n\texpertise: empDetails.expertise\n};\n```\n\nNow if you change empDetailsDeepCopy.name, it will only affect empDetailsDeepCopy & not empDetails\n",
+			"section": "js"
 		},
 		{
-			"title": "What is cpu intensive tasks in NodeJS ?",
-			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
-			"section": "angular"
+			"title": "What is the Temporal Dead Zone (TDZ) in JavaScript?",
+			"content": "\nA temporal dead zone (TDZ) is the area of a block where a variable is inaccessible until the moment the computer completely initializes it with a value.\n\n```js\nfunction somemethod() {\n\tconsole.log(counter1); // undefined\n\tconsole.log(counter2); // ReferenceError\n\tvar counter1 = 1;\n\tlet counter2 = 2;\n}\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "Is node js really single threaded ?",
-			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
-			"section": "angular"
+			"title": "What is use strict mode?",
+			"content": "\nECMAScript 5 introduced the concept of \"strict mode\" . It allows you to place a program, or a function, in a \"strict\" operating context. This strict context prevents certain actions from being taken and throws more exceptions . Its main purpose is to do more checking.\n\n**With Strict Mode**\n\n```javascript\n'use strict';\nusername = 'Jon';\nconsole.log(username);\n// Uncaught ReferenceError: username is not defined\n```\n\n**WithOut Strict Mode**\n\n```javascript\nusername = 'Jon';\nconsole.log(username);\n//Jon\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What Can Node.js Do?",
-			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
-			"section": "angular"
-		}
-	],
-	"nodejs": [
+			"title": "What paradigm is Javascript ?",
+			"content": "\nJavaScript is a multi-paradigm language, supporting imperative/procedural programming, Object-Oriented Programming and functional programming. JavaScript supports Object-Oriented Programming with prototypical inheritance.\n",
+			"section": "js"
+		},
+		{
+			"title": "when does  document load  get executed?",
+			"content": "\nThe load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).\n",
+			"section": "js"
+		},
+		{
+			"title": "when does DOMContentLoaded get executed?",
+			"content": "\nwhen the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading\n",
+			"section": "js"
+		},
+		{
+			"title": "Why should we use ES6 classes?",
+			"content": "\nES6 classes are syntactic sugar for the prototypical class system we use today. They make code more concise and self-documenting, which is reason enough to use them.\n\n- The syntax is more clear and less error-prone\n- The syntax is also way more clean and easier to understand.\n- Setting up inheritance is really easy.\n- You can inherit from Array, which wasn't possible before.\n- In a subclass, calling a parent's function is very easy: just type super.\n\n**WithOut ES6 class:**\n\n```javascript\nvar Foo = (function () {\n\tfunction Foo(bar) {\n\t\tthis._bar = bar;\n\t}\n\n\tFoo.prototype.getBar = function () {\n\t\treturn this._bar;\n\t};\n\n\treturn Foo;\n})();\n```\n\n**With ES6 class:**\nThe syntax is also way more clean and easier to understand.\n\n```javascript\nclass Foo {\n\tconstructor(bar) {\n\t\tthis._bar = bar;\n\t}\n\n\tgetBar() {\n\t\treturn this._bar;\n\t}\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do you load CSS and JS files dynamically ?",
+			"content": "\nYou can create both link and script elements in the DOM and append them as children to the head tag. Let's create a function to add script and style resources as below,\n\n```javascript\nfunction loadAssets(filename, filetype) {\n\tif (filetype == 'css') {\n\t\t// External CSS file\n\t\tvar fileReference = document.createElement('link');\n\t\tfileReference.setAttribute('rel', 'stylesheet');\n\t\tfileReference.setAttribute('type', 'text/css');\n\t\tfileReference.setAttribute('href', filename);\n\t} else if (filetype == 'js') {\n\t\t// External JavaScript file\n\t\tvar fileReference = document.createElement('script');\n\t\tfileReference.setAttribute('type', 'text/javascript');\n\t\tfileReference.setAttribute('src', filename);\n\t}\n\tif (typeof fileReference != 'undefined')\n\t\tdocument.getElementsByTagName('head')[0].appendChild(fileReference);\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do you run multiple promises together?",
+			"content": "\nHandle multiple promises and complete each one before starting the next one. The `Promise.all` It takes an array of promises and returns a single promise.\n\n```javascript\nconst promiseOne = new Promise((resolve, reject) => {\n\tsetTimeout(() => {\n\t\tresolve('one');\n\t}, 1000);\n});\n\nconst promiseTwo = new Promise((resolve, reject) => {\n\tsetTimeout(() => {\n\t\tresolve('two');\n\t}, 2000);\n});\n\nconst promiseThree = new Promise((resolve, reject) => {\n\tsetTimeout(() => {\n\t\tresolve('three');\n\t}, 3000);\n});\n\nconst resolved = Promise.all([promiseOne, promiseTwo, promiseThree]).then((results) => {\n\tconsole.log(results);\n});\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Polyfill promise.all function in js ?",
+			"content": "\n```javascript\nfunction all(promises) {\n\treturn new Promise((resolve, reject) => {\n\t\tlet count = 0;\n\t\tlet results = [];\n\t\tpromises.forEach((promise, index) => {\n\t\t\tpromise\n\t\t\t\t.then((result) => {\n\t\t\t\t\tresults[index] = result;\n\t\t\t\t\tcount++;\n\t\t\t\t\tif (count === promises.length) {\n\t\t\t\t\t\tresolve(results);\n\t\t\t\t\t}\n\t\t\t\t})\n\t\t\t\t.catch(reject);\n\t\t});\n\t});\n}\n```\n\n```javascript\nconst promiseOne = new Promise((resolve, reject) => {\n\tsetTimeout(() => {\n\t\tresolve('one');\n\t}, 1000);\n});\n\nconst promiseTwo = new Promise((resolve, reject) => {\n\tsetTimeout(() => {\n\t\tresolve('two');\n\t}, 2000);\n});\n\nconst promiseThree = new Promise((resolve, reject) => {\n\tsetTimeout(() => {\n\t\tresolve('three');\n\t}, 3000);\n});\n\nconst resolved = all([promiseOne, promiseTwo, promiseThree]).then((results) => {\n\tconsole.log(results);\n});\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What are the 3 states of promise?",
+			"content": "\n**Pending**\nthe promise has been created, and the asynchronous function it's associated with has not succeeded or failed yet. This is the state your promise is in when it's returned from a call to fetch(), and the request is still being made.\n\n**Fulfilled**\nThe asynchronous function has succeeded. When a promise is fulfilled, its then() handler is called.\n\n**Rejected**\nThe asynchronous function has failed. When a promise is rejected, its catch() handler is called.\n",
+			"section": "js"
+		},
+		{
+			"title": "How to Scoping variables in JavaScript switch statement?",
+			"content": "\nwhen you declare variable in case statements, they would hoisted to the switch statement. I would show you a very simple way to make sure the variables you declare in your case statements can only be accessed from that block.\n\nOne important point to remember is that each case statement is not a block. Variables declared anywhere within the switch statement is locally scoped to the switch statement.\n\n```js\n    let number  = 2;\n\n    switch (number) {\n        case 1:\n            let message = \"first number\";\n            console.log(message)\n            break;\n        case 2:\n            let message = \"second number\";\n            console.log(message)\n            break;\n    case 3:\n            let message = \"third number\";\n            console.log(message)\n            break;\n        default\n            let message = \"second number\";\n            console.log(message)\n            break;\n    }\n\n    //This throws a syntax error: identifier \"message\"\n    //has already been declared\n```\n\nThere are cases where you might need yo hold different variable values in each of the case statements. It's possible to keep a variable scoped to the case statement. There's a very easy fix for this, Let's solve this\n\n```js\n    let number  = 2;\n\n    switch (number) {\n        case 1: { // braces make the case statement a block\n            let message = \"number\" + number; // this remains in this block\n            console.log(message)\n            break;\n        }\n        case 2: {\n            let message =  \"number\" + number; // this is a valid syntax\n            console.log(message)\n            break;\n        }\n        case 3: {\n            let message = \"number\" + number;\n            console.log(message)\n            break;\n        }\n        default\n            let message =  \"number\" + number;\n            console.log(message)\n            break;\n    }\n```\n\nBy wrapping a block in braces, any variable declared within that block is only visible within the block,and is garbage collected once the block ends.\n\nWith this syntax, each of these variables are declared within a block, scoped away from each other. They can only be accessed from within the case scope and thrown away once the block ends.\n\n[Reference](https://dev.to/robogeek95/scoping-variables-in-the-switch-statement-1gig)\n",
+			"section": "js"
+		},
+		{
+			"title": "What are falsy values in JavaScript?",
+			"content": "\nThose are Essentials falsy values in Javascript.\n\n```javascript\nfalse;\nundefined;\nnull;\nNaN;\n0 + 0 - 0;\n('');\n''``;\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is strict mode?",
+			"content": "\nStrict mode is a way to tell the JavaScript engine to be more strict when running your code. Strict mode changes some of the ways that JavaScript treats your code to be more predictable and to prevent you from making errors. Strict mode is not a way to enforce the coding style of your code, but it can help you to be more predictable.\n\nStrict mode can be enabled by adding the strict mode directive at the beginning of your code or before any statement which you want to be in strict mode.\n\n**Global scope strict mode**\n\n```javascript\n'use strict';\n```\n\n**Local scope strict mode**\n\n```javascript\nfunction foo() {\n\t'use strict';\n\treturn this;\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the purpose of the finally?",
+			"content": "\nThe final statement executes after the try..catch statement gets a pass. Regardless of the result. If get an error on the catch block or closed on the try block. it will always get executed.\n\n```javascript\nvar result = 18;\ntry {\n\tif (result > 10) {\n\t\tthrow new Error('result is too large');\n\t}\n} catch (e) {\n\tconsole.log(e);\n} finally {\n\tconsole.log('finally');\n}\n```\n\n**Output**\n\n```properties\n Error: result is too large\n finally\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the use of break and continue statement in JavaScript?",
+			"content": "\n**Break Statement**\nThe break statement is used at an instance whereby satisfying the condition being specified, the whole loop gets skipped and it takes you out of the loop. In other words, the loop is stopped\n\n```javascript\nfor (i = 1; i <= 8; i++) {\n\tif (i === 5) break;\n\tconsole.log(i);\n}\n```\n\n**Continue**\nLet’s consider a situation where we are in a loop and we desire to break one iteration whenever a specified condition occurs and then we continue with the next iteration in the loop.\n\nThe Continue statement is going to fulfill that desire for us. Unlike break, the continue statement “jumps over” to the next iteration/execution of the loop.\n\nWhenever a continue statement takes place, the loop condition is checked to see if the condition is satisfied or true and if so, it goes towards the next iteration.\n\n```javascript\nfor (i = 1; i < 8; i++) {\n\tif (i === 3 || i === 4) continue;\n\tconsole.log(i);\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Differences between for(..in) and for(..of) statement in JavaScript?",
+			"content": "\n**for (..in) loop**\nThe JavaScript for (..in) statement loops through the enumerable properties of an object. The loop will iterate over all enumerable properties of the object.\n\n```javascript\nconst obj = {\n\ta: 1,\n\tb: 2,\n\tc: 3\n};\n\nfor (let key in obj) {\n\tconsole.log(key);\n}\n```\n\n**for (..of) loop**\nThis for (..of) statement lets you loop over the data structures that are iterable such as Arrays, Strings, Maps, Node Lists, and more. It calls a custom iteration hook with instructions to execute on the value of each property of the object.\n\n```javascript\nconst obj = {\n\ta: 1,\n\tb: 2,\n\tc: 3\n};\n\nfor (let key of Object.entries(obj)) {\n\tconsole.log(key);\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do you create an infinite loop?",
+			"content": "\nWe can create an infinity loop using for loop without expression and also a while loop gave the starting condition true.\n\n```javascript\nfor (;;) {}\nwhile (true) {}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is for...of statement",
+			"content": "\nThe JavaScript for of statement loops through the values of an iterable object. It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:\n\n```javascript\nconst cars = ['BMW', 'Volvo', 'Mini'];\n\nlet text = '';\nfor (let x of cars) {\n\ttext += x;\n}\n\n// BMW\n// Volvo\n// Mini\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the difference between ( for... in ) and ( for... of ) statements?",
+			"content": "\n**for in** loops over enumerable property names of an object.\n\n```javascript\nvar obj = {\n\ta: 1,\n\tb: 2,\n\tc: 3\n};\n\nfor (var key in obj) {\n\tconsole.log(key);\n}\n\n// a\n// b\n// c\n```\n\n**for of** (new in ES6) does use an object-specific iterator and loops over the values generated by that.\n\n```javascript\nvar obj = {\n\ta: 1,\n\tb: 2,\n\tc: 3\n};\n\nfor (let item of Object.entries(obj)) {\n\tconsole.log(item);\n}\n\n// Output:\n// [ 'a', 1 ]\n// [ 'b', 2 ]\n// [ 'c', 3 ]\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Why we use do while loop in JavaScript?",
+			"content": "\nThe do..while loop is the variant of the while loop. It's executed once before checking the condition is true. Then it will repeat the condition as long as the condition is true.\n\n```javascript\nlet number = 1;\n\ndo {\n\tnumber++;\n\tconsole.log(number);\n} while (number < 10);\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the first-class function in Javascript?",
+			"content": "\nA programming language is said to have First-class functions when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable.\n\n**Example**\n\n```js\nfunction sayHello() {\n\treturn 'Hello, ';\n}\nfunction greeting(helloMessage, name) {\n\tconsole.log(helloMessage() + name);\n}\n// Pass `sayHello` as an argument to `greeting` function\ngreeting(sayHello, 'JavaScript!');\n// Hello, JavaScript!\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do higher order functions work ?",
+			"content": "\nA function that receives another function as an argument or that returns a new function or both is called Higher-order functions. Higher-order functions are only possible because of the First-class function.\n\n```js\nconst greet = function (name) {\n\treturn function (m) {\n\t\tconsole.log(`Hi!! ${name}, ${m}`);\n\t};\n};\n\nconst greet_message = greet('ABC');\ngreet_message('Welcome To GeeksForGeeks');\n```\n\nWe can also call the function like this also — greet(‘ABC’)(‘Welcome To GeeksForGeeks’), It will also give the same output.\n\n```console\nHi!! ABC, Welcome To GeeksForGeeks\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How to Use the Call, Apply, and Bind ?",
+			"content": "\n#### Call\n\nCall invokes the function and allows you to pass in arguments one by one.\n\n```js\nconst user = {\n\tname: 'Jobayer Hossain'\n};\n\nfunction greet(greet, ask) {\n\treturn `Hello ${greet} ${this.name} ${ask}`;\n}\n\nconst userJonCall = greet.call(user, 'Sir,', 'How are you ?');\n// Hello Sir, Jobayer Hossain How are you ?\n```\n\n#### Apply\n\nApply invokes the function and allows you to pass in arguments as an array.\n\n```js\nconst user = {\n\tname: 'Jobayer Hossain'\n};\n\nfunction greet(greet, ask) {\n\treturn `Hello ${greet} ${this.name} ${ask}`;\n}\n\nconst userJonApply = greet.apply(user, ['Sir', 'How are your?']);\n// Hello Sir, Jobayer Hossain How are you?\n```\n\n#### Bind\n\nBind returns a new function, allowing you to pass in a this array and any number of arguments.\n\n```js\nconst user = {\n\tname: 'Jobayer Hossain'\n};\n\nfunction greet(greet, ask) {\n\treturn `Hello ${greet} ${this.name} ${ask}`;\n}\n\nconst userJonBind = greet.bind(user);\nconst userJonResponse = userJonBind('Sir', 'How are your?');\n// Hello Sir, Jobayer Hossain How are you ?\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What are default values in the destructuring assignments?",
+			"content": "\nWhen destructuring happens the property's initial value was undefined now we can assign an initial value to the restructuring property instant of holding it undefined.\n\n**Arrays destructuring:**\n\n```javascript\nvar x, y, z;\n\n[x = 2, y = 4, z = 6] = [10];\nconsole.log(x); // 10\nconsole.log(y); // 4\nconsole.log(z); // 6\n```\n\n**Objects destructuring:**\n\n```javascript\nvar { x = 2, y = 4, z = 6 } = { x: 10 };\n\nconsole.log(x); // 10\nconsole.log(y); // 4\nconsole.log(z); // 6\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What are Events in JavaScript?",
+			"content": "\nJavascript has events that provide a dynamic interface to a webpage. These events are connected to elements in the Document Object Model(DOM).\n",
+			"section": "js"
+		},
+		{
+			"title": "What does the isNaN () function?",
+			"content": "\nThe isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.\n\n```javascript\nisNaN('Hello'); //true\nisNaN('100'); //false\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is a arrow function in JavaScript?",
+			"content": "\nArrow functions have a few important distinctions in how they work that distinguish them from traditional functions, as well as a few syntactic enhancements. The biggest functional differences are that arrow functions do not have their own this binding or prototype and cannot be used as a constructor. Arrow functions can also be written as a more compact alternative to traditional functions, as they grant the ability to omit parentheses around parameters and add the concept of a concise function body with implicit return.\n\n#### Cleaner Syntax\n\n```js\nconst sum = (a, b) => {\n\treturn a + b;\n};\nsum(10, 10); // 20\n```\n\n#### `this` Bindings\n\n```js\nconst sum = () => {\n\treturn this;\n};\nsum(); // [object Window]\n```\n\n### Constructor\n\n```js\nconst person = () => {};\nconst p = new person();\n// Uncaught TypeError: person is not a constructor\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is a pure function ?",
+			"content": "\nA Pure function is a function where the return value is only determined by its arguments without any side effects.\n\n```js\nfunction sum(a, b) {\n\treturn a + b;\n}\n\nsum(10, 20); // 30\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is a rest parameter ?",
+			"content": "\nRest parameter is a way to provide handled uncountable params in a function. It's useful when we don't know how many parameters are coming from it's accept all unknown parameters as an array of values.\n\n```javascript\nfunction getNames(...rest) {\n\tconsole.log(rest);\n}\n\nconsole.log(getNames('John', 'Doe', 'Jane', 'Doe'));\n// ['John', 'Doe', 'Jane', 'Doe']\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "what is arrow function?",
+			"content": "\nArrow function is a function expression that has a shorter syntax than function declaration. And it is also a function expression that has no name. Arrow function does not have own this, arguments, super, or new.target.\n\n```javascript\nfunction add(a, b) {\n\treturn a + b;\n}\n\nconst add = (a, b) => {\n\treturn a + b;\n};\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is currying function in JavaScript ?",
+			"content": "\nIt is a technique in functional programming, transforming of the function of multiple arguments into several functions of a single argument in sequence. It is also called nested function is ECMAScript\n\n```js\n// Noncurried version\nconst add = (a, b, c) => {\n\treturn a + b + c;\n};\nconsole.log(add(2, 3, 5)); // 10\n\n// Curried version\nconst addCurry = (a) => {\n\treturn (b) => {\n\t\treturn (c) => {\n\t\t\treturn a + b + c;\n\t\t};\n\t};\n};\nconsole.log(addCurry(2)(3)(5)); // 10\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is destructuring assignment ?",
+			"content": "\nThe destructuring assignment is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables.\n\n```javascript\nvar [one, two, three] = ['JAN', 'FEB', 'MARCH'];\n\nconsole.log(one); // \"JAN\"\nconsole.log(two); // \"FEB\"\nconsole.log(three); // \"MARCH\"\n```\n\n```javascript\nvar { name, age } = { name: 'John', age: 32 };\n\nconsole.log(name); // John\nconsole.log(age); // 32\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is eval used for ?",
+			"content": "\nThe eval() function evaluates JavaScript code represented as a string and returns its completion value. The source is parsed as a script.\n\n```javascript\nconsole.log(eval('2 + 2'));\n// 4\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is function default parameters?",
+			"content": "\nDefault parameters are parameters that are set to a default value if they are not passed to the function. Default parameters are useful for functions that have optional parameters. Default parameters are also useful for functions that have multiple parameters with default values.\n\n```javascript\n// Example\nfunction greet(name = 'Anonymous') {\n\tconsole.log('Hello ' + name + '!');\n}\n\ngreet(); // Hello Anonymous!\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is function rest parameters?",
+			"content": "\nRest parameters are used to represent an indefinite number of arguments. Rest parameters are not mandatory. It is useful when you want to represent an indefinite number of arguments as an array.\n\n```javascript\nfunction sum(...args) {\n\treturn args.reduce((a, b) => a + b, 0);\n}\n\nconsole.log(sum(1, 2, 3, 4, 5)); // 15\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is IIFE(Immediately Invoked Function Expression) ?",
+			"content": "\nIIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,\n\n```js\n(function () {\n\t// logic here\n})();\n```\n\nThe primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as below,\n\n```js\n(function () {\n\tvar message = 'IIFE';\n\tconsole.log(message);\n})();\nconsole.log(message); //Error: message is not defined\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is memoization ?",
+			"content": "\nMemoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results. Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache. Let's take an example of adding function with memoization,\n\n```javascript\nconst memoizAddition = () => {\n\tlet cache = {};\n\treturn (value) => {\n\t\tif (value in cache) {\n\t\t\tconsole.log('Fetching from cache');\n\t\t\treturn cache[value]; // Here, cache.value cannot be used as property name starts with the number which is not a valid JavaScript  identifier. Hence, can only be accessed using the square bracket notation.\n\t\t} else {\n\t\t\tconsole.log('Calculating result');\n\t\t\tlet result = value + 20;\n\t\t\tcache[value] = result;\n\t\t\treturn result;\n\t\t}\n\t};\n};\n// returned function from memoizAddition\nconst addition = memoizAddition();\nconsole.log(addition(20)); //output: 40 calculated\nconsole.log(addition(20)); //output: 40 cached\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is recursion and why it is used?",
+			"content": "\nA function that calls itself is called a recursive function. In some ways, recursion is analogous to a loop. Both execute the same code multiple times, and both require a condition (to avoid an infinite loop, or rather, infinite recursion in this case).\n\n```javascript\nconst factorial = function fac(n) {\n\treturn n < 2 ? 1 : n * fac(n - 1);\n};\n\nfactorial(3);\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the arguments object?",
+			"content": "\nThe arguments object is an array-like object containing the arguments passed to a function. The arguments object is a local variable within a function and is not accessible from outside the function.\n\n```javascript\n// Example\nfunction sum() {\n\tvar sum = 0;\n\tfor (var i = 0; i < arguments.length; i++) {\n\t\tsum += arguments[i];\n\t}\n\treturn sum;\n}\nsum(1, 2, 3); // 6\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the purpose of setTimeout() function in JavaScript ?",
+			"content": "\nThe setTimeout() method allows you to execute a piece of code after a certain amount of time has passed. You can think of the method as a way to set a timer to run JavaScript code at a certain time.\n\nFor example, the code below will print \"Hello World\" to the JavaScript console after 2 seconds have passed:\n\n```javascript\nsetTimeout(function () {\n\tconsole.log('Hello World');\n}, 2000);\n\nconsole.log('setTimeout() example...');\n```\n\nYou can also pass additional parameters to the setTimeout() method that you can use inside the function as follows:\n\n```javascript\nfunction greeting(name, role) {\n\tconsole.log(`Hello, my name is ${name}`);\n\tconsole.log(`I'm a ${role}`);\n}\n\nsetTimeout(greeting, 3000, 'Nathan', 'Software developer');\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the use of preventDefault method",
+			"content": "\nThe preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyperlink are some common use cases.\n\n```javascript\ndocument.getElementById('link').addEventListener('click', function (event) {\n\tevent.preventDefault();\n});\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is throttling?",
+			"content": "\nThrottling is a technique used to limit the execution of an event handler function, even when this event triggers continuously due to user actions. The common use cases are browser resizing, window scrolling etc.\nThe below example creates a throttle function to reduce the number of events for each pixel change and trigger scroll event for each 100ms except for the first event.\n\n```js\nconst throttle = (fn, limit) => {\n\tlet isThrottled = false;\n\treturn (...args) => {\n\t\tif (isThrottled) return;\n\t\tisThrottled = true;\n\t\tfn.apply(this, args);\n\t\tsetTimeout(() => {\n\t\t\tisThrottled = false;\n\t\t}, limit);\n\t};\n};\nconst sum = (a) => {\n\tconsole.log(a);\n\treturn a + 10;\n};\nconst throttled = throttle(() => sum(10), 1000);\ndocument.body.addEventListener('click', () => throttled());\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "When closures are created in JavaScript ?",
+			"content": "\nWhen an inner function uses the outer function's variable, then closer is created in javascript.\n\n```javascript\n// Closure is not created example\nfunction addSquares(a, b) {\n\tfunction square(x) {\n\t\treturn x * x;\n\t}\n\treturn square(a) + square(b);\n}\n\n// Closure is created example\nfunction addSquares(a, b) {\n\tfunction square(x) {\n\t\treturn a * x;\n\t}\n\treturn square(a) + square(b);\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Where is anonymous function used?",
+			"content": "\nAnonymous functions are often arguments being passed to higher-order functions, or used for constructing the result of a higher-order function that needs to return a function. If the function is only used once, or a limited number of times, an anonymous function may be syntactically lighter than using a named function. An anonymous function can be useful for creating IIFE(Immediately Invoked Function)\n\n```javascript\nfunction (optionalParameters) {\n  //do something\n}\n\nconst myFunction = function(){ //Anonymous function assigned to a variable\n  //do something\n};\n\n[1, 2, 3].map(function(element){ //Anonymous function used as a callback function\n  //do something\n});\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Why callback function is used?",
+			"content": "\nA callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.\n\n**Here is a quick example:**\n\n```javascript\nfunction greeting(name) {\n\talert('Hello ' + name);\n}\n\nfunction processUserInput(callback) {\n\tvar name = prompt('Please enter your name.');\n\tcallback(name);\n}\n\nprocessUserInput(greeting);\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Difference Between undefined and null ?",
+			"content": "\n`undefined` is a variable that refers to something that doesn't exist, and the variable isn't defined to be anything. `null` is a variable that is defined but is missing a value.\n\n```javascript\nlet a;\nconsole.log(a); // undefined\n\nlet b = null;\nconsole.log(b); // null\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Difference TypeError and ReferenceError ?",
+			"content": "\nA **ReferenceError** occurs when you try to use a variable that doesn't exist at all.\n\nA **TypeError** occurs when the variable exists, but the operation you're trying to perform is not appropriate for the type of value it contains. In the case where the detailed message says \"is not defined\", this can occur if you have a variable whose value is the special undefined value, and you try to access a property of it.\n",
+			"section": "js"
+		},
+		{
+			"title": "How in operator works in javascript ?",
+			"content": "\nIt is used to check if a value is present in an array or not. It returns true if the value is present in the array and false if not.\n\n**Array Example**\n\n```javascript\nconst arr = [1, 2, 3, 4, 5];\nconsole.log(1 in arr); // true\nconsole.log(6 in arr); // false\n```\n\n**Example Object**\n\n```javascript\nconst obj = {\n\tname: 'John',\n\tage: 30\n};\nconsole.log('name' in obj); // true\nconsole.log('age' in obj); // true\nconsole.log('job' in obj); // false\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How to delete an object property ?",
+			"content": "\nUsing the delete operator. THe delete operator deletes a property from an object. It returns true if the property was deleted, false if the property was not found.\n\n```javascript\nvar person = {\n\tname: 'John',\n\tage: 30\n};\n\ndelete person.age;\n\nconsole.log(person.age); // undefined\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What does \"!--\" do in JavaScript?",
+			"content": "\nThat's not a special operator, it's 2 standard operators one after the other:\n\n- A prefix decrement (--)\n- A logical not (!)\n\n```javascript\nx = 1;\nif (!x) // false\nif (!--x) // becomes 0 and then uses the NOT operator,\n          // which makes the condition to be true\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is a debugger statement?",
+			"content": "\nThe debugger keyword is turned on, It stops the execution of JavaScript code. Otherwise, it has no effect.\n",
+			"section": "js"
+		},
+		{
+			"title": "What is == and === in JavaScript?",
+			"content": "\nThe == and === operators are used to check the equality of two operands. The ‘==’ operator tests for abstract equality i.e. it does the necessary type conversions before doing the equality comparison.\nBut the ‘===’ operator tests for strict equality i.e it will not do the type conversion hence if the two values are not of the same type, when compared, it will return false.\n\n**==**\n\n```javascript\nvar a = 1;\nvar b = '1';\n\nif (a == b) {\n\tconsole.log('EQUAL');\n} else {\n\tconsole.log('NOT EQUAL');\n}\n// output: EQUAL\n```\n\n**===**\n\n```javascript\nvar a = 1;\nvar b = '1';\n\nif (a === b) {\n\tconsole.log('EQUAL');\n} else {\n\tconsole.log('NOT EQUAL');\n}\n// output: NOT EQUAL\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is assignment expression ?",
+			"content": "\nAssignment expression is an expression that has a left hand side and a right hand side. The left hand side is the variable that is assigned a value. The right hand side is the value that is assigned to the variable.\n\n**Example:**\n\n```javascript\nvar x = 5;\nvar y = x;\nconsole.log(y); // 5\n```\n\n**Example:**\n\n```javascript\nvar x = 5;\nvar y = x;\nx = 10;\nconsole.log(y); // 5\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is destructuring assignment?",
+			"content": "\nDestructuring assignment is a JavaScript feature that allows you to assign values to variables from arrays and objects. It is done by destructuring the array or object and then assigning the variables. It is useful when you want to assign a value to a variable from an array or object. For example, you can assign the first and last name of a person to separate variables.\n\n**Object Example:**\n\n```javascript\nconst person = {\n\tfirstName: 'John',\n\tlastName: 'Doe'\n};\n\nconst { firstName, lastName } = person;\nconsole.log(firstName); // John\nconsole.log(lastName); // Doe\n```\n\n**Array Example:**\n\n```javascript\nconst people = ['John', 'Doe', 'Jane', 'Doe'];\nconst [firstName, lastName, ...rest] = people;\nconsole.log(firstName); // John\nconsole.log(lastName); // Doe\nconsole.log(rest); // ['Jane', 'Doe']\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is immutability?",
+			"content": "\nImmutability is the property of data that never changes. It is the property of data that never changes. For example, a person's name is immutable. If you change a person's name, you can't change it back.\n\n```javascript\n'use strict';\nconst person = {\n\tname: 'John',\n\tage: 30\n};\n// Make it immutable\nObject.freeze(person);\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is NaN property?",
+			"content": "\nThe NaN property is a global property that represents \"Not-a-Number\" value. i.e, It indicates that a value is not a legal number. It is very rare to use NaN in a program but it can be used as return value for few cases\n",
+			"section": "js"
+		},
+		{
+			"title": "What is nullish assignment?",
+			"content": "\nThe nullish assignment is a special operator that allows you to assign a value to a variable if the value is null or undefined. It is used to avoid the need to use an if statement to check if a variable is null or undefined. For example: var x = y ?? 'default'; // x is set to y if y is not null or undefined, otherwise x is set to 'default'.\n\n```javascript\nvar x = false;\nvar result = x ?? 'default';\nconsole.log(result); // false\n```\n\n```javascript\nvar x = undefined;\nvar result = x ?? 'default';\nconsole.log(result); // default\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is the ternary operator ?",
+			"content": "\nThe ternary operator is a short hand for an if statement. It is used to check if a condition is true or false and execute a different code block depending on the result. The syntax is: condition ? true code block : false code block.\n\n**Example In ternary operator:**\n\n```javascript\nvar age = prompt('What is your age?');\nvar ageInNumber = parseInt(age);\n\nvar message = ageInNumber >= 18 ? 'You are old enough to drive' : 'You are not old enough to drive';\nconsole.log(message);\n```\n\n**Example In if statement:**\n\n```javascript\nvar age = prompt('What is your age?');\nvar ageInNumber = parseInt(age);\n\nif (ageInNumber >= 18) {\n\tconsole.log('You are old enough to drive');\n} else {\n\tconsole.log('You are not old enough to drive');\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What undefined property indicates?",
+			"content": "\nA variable that has not been assigned a value is of type undefined. A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value.\n\n```javascript\nlet x;\nif (typeof x === 'undefined') {\n\t// these statements execute\n}\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What’s the double exclamation sign for in JavaScript?",
+			"content": "\nit's short way to cast a variable to be a boolean (true or false) value. The !! ensures the resulting type is a boolean (true or false).\n\n```javascript\n    console.log(!!\"foo\") --> true\n    console.log(!!null) --> false\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Generate Random Number between 1 and 10 ?",
+			"content": "\n```javascript\nvar randomNumber = Math.floor(Math.random() * 10) + 1;\nconsole.log(randomNumber);\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do you check a value is a number?",
+			"content": "\nThe `isNaN()` method determines whether a value is an illegal number. If the value is not a number, then the method returns true. Otherwise, it returns false.\n\n**Example**\n\n```javascript\nvar x = '5';\nvar y = 'Hello';\n\nconsole.log(isNaN(x)); // false\nconsole.log(isNaN(y)); // true\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do you find the minimum and the maximum number of the array of numbers?",
+			"content": "\nThere are various ways to solve this problem. One of the simplest ways is to use built-in functions. and the other way is to use a loop and if-else statement.\n\n**Using built-in functions**\n\n```javascript\nvar numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\nvar min = Math.min.apply(Math, numbers);\nvar max = Math.max.apply(Math, numbers);\n\nconsole.log(min); // 1\nconsole.log(max); // 10\n```\n\n**Using a loop and if-else statement.**\n\n```javascript\nvar min = numbers[0];\nvar max = numbers[0];\n\nfor (var i = 0; i < numbers.length; i++) {\n\tif (numbers[i] < min) {\n\t\tmin = numbers[i];\n\t}\n\tif (numbers[i] > max) {\n\t\tmax = numbers[i];\n\t}\n}\n\nconsole.log(min); // 1\nconsole.log(max); // 10\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do you find the absolute value of a number?",
+			"content": "\nYes, it is. The `abs()` method returns the absolute value of a number. for example, the `abs()` method returns the absolute value of -5: 5.\n\n```javascript\nvar x = -5;\nMath.abs(x); // 5\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How to avoid scientific notation for large numbers in JavaScript?",
+			"content": "\nTo avoid scientific notation, use the `toFixed(n)` method. The `toFixed(n)` method rounds a number to n decimal places. For example, the following code rounds the number to two decimal places:\n\n```javascript\nvar x = 12.3456;\nvar y = x.toFixed(2);\nconsole.log(y); // 12.35\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is BigInt?",
+			"content": "\nBigInt is a new data type in JavaScript that allows you to store very large numbers. For example, you can store a number with more than 53 bits of precision.\n\n```javascript\nvar a = BigInt(1234567890123456789012345678901234567890);\nvar b = BigInt(1234567890123456789012345678901234567890);\n\nconsole.log(a + b); // 1234567890123456789012345678901234567891\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What uses parseFloat and parseInt?",
+			"content": "\n`parseFloat` and parseInt are used to convert a string to a number. parseFloat converts a string to a floating point number and parseInt converts a string to an integer. It is important to note that parseFloat and parseInt do not convert a string to a number if the string contains a decimal point. for example, parseFloat(\"1.2\") will return 1.2 and parseInt(\"1.2\") will return 1.\n\n**Example**\n\n```javascript\nvar num = '1.2';\n\nparseFloat(num); // 1.2\nparseInt(num); // 1\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How can repeat a string n times?",
+			"content": "\nWe can use the repeat method. Repeat method takes a string and a number and returns a new string that is n times the original string.\n\n```javascript\nvar str = 'Hello';\nvar n = 3;\n\nvar newStr = str.repeat(n);\nconsole.log(newStr); // HelloHelloHello\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How can we remove whitespace from a string?",
+			"content": "\nuse the string built-in method .trim() method to remove whitespace from a string. But be careful, this method only removes whitespace from the beginning and end of the string.\n\n```javascript\nvar str = '   Hello World   ';\nstr.trim(); // returns \"Hello World\"\n```\n",
+			"section": "js"
+		},
 		{
-			"title": "What is Node.js?",
-			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
-			"section": "nodejs"
+			"title": "How do you make string first letter capitalized?",
+			"content": "\nThe first letter of the string is capitalized using the `toUpperCase()` method. So first we need to get the first letter of the string and then we can use the `toUpperCase()` method to capitalize it.\n\n**Example:**\n\n```javascript\nvar str = 'hello world';\nvar firstLetter = str.charAt(0);\nvar restOfString = str.slice(1);\nvar capitalizedString = firstLetter.toUpperCase() + restOfString; //\nconsole.log(capitalizedString); // Hello World\n```\n\n**Explanation:**\n\nWe get the first letter of the string and then we use the `toUpperCase()` method to capitalize it. We then concatenate the capitalized letter with the rest of the string using the `slice()` method. The `slice()` method returns a new string from the original string based on the start and end index provided.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is web server ?",
-			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
-			"section": "nodejs"
+			"title": "How do you replace a specific part of a string?",
+			"content": "\nUse the replace method. The replace method takes two arguments: the first is the string to be replaced, and the second is the string to replace it with and returns a new string. For example, if you wanted to replace the word \"hello\" with \"goodbye\", you would use the replace method like this: \"hello\".replace(\"hello\", \"goodbye\");\n\n```javascript\nvar str = 'hello world';\nvar newStr = str.replace('hello', 'goodbye');\n// newStr: \"goodbye world\"\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is node jS http module ?",
-			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
-			"section": "nodejs"
+			"title": "How to check a word in exists on a string?",
+			"content": "\nThere are various ways to check a word in exist on string on not. but the most efficient way is to use includes method.\n\n**Using includes method**\n\n```javascript\nvar str = 'Hello World';\nconsole.log(str.includes('World')); // true\n```\n\n**Using indexOf method**\n\n```javascript\nvar str = 'Hello World';\nconsole.log(str.indexOf('World')); // 6\n```\n\n**Using search method**\n\n```javascript\nvar str = 'Hello World';\nconsole.log(str.search('World')); // 6\n```\n\n**Using match method**\n\n```javascript\nvar str = 'Hello World';\nconsole.log(str.match('World')); // [\"World\"]\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is the purpose of HTTP Header",
-			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
-			"section": "nodejs"
+			"title": "What are tagged templates ?",
+			"content": "\nTagged templates are an enhanced form of literal templates. It allows parsing templates with a function. The function accepts the first parameter as an array of strings and the remaining parameters as expression values.\n\n**Example**\n\n```javascript\nvar user1 = 'John';\nvar skill1 = 'JavaScript';\nvar experience1 = 15;\n\nvar user2 = 'Kane';\nvar skill2 = 'JavaScript';\nvar experience2 = 5;\n\nfunction myInfoTag(strings, userExp, experienceExp, skillExp) {\n\tvar str0 = strings[0]; // \"Mr/Ms. \"\n\tvar str1 = strings[1]; // \" is a/an \"\n\tvar str2 = strings[2]; // \"in\"\n\n\tvar expertiseStr;\n\tif (experienceExp > 10) {\n\t\texpertiseStr = 'expert developer';\n\t} else if (skillExp > 5 && skillExp <= 10) {\n\t\texpertiseStr = 'senior developer';\n\t} else {\n\t\texpertiseStr = 'junior developer';\n\t}\n\n\treturn `${str0}${userExp}${str1}${expertiseStr}${str2}${skillExp}`;\n}\n\nvar output1 = myInfoTag`Mr/Ms. ${user1} is a/an ${experience1} in ${skill1}`;\nvar output2 = myInfoTag`Mr/Ms. ${user2} is a/an ${experience2} in ${skill2}`;\n\nconsole.log(output1); // Mr/Ms. John is a/an expert developer in JavaScript\nconsole.log(output2); // Mr/Ms. Kane is a/an junior developer in JavaScript\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "How nodejs process works ?",
-			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
-			"section": "nodejs"
+			"title": "What is the difference between staring startWith and starting endWith methods?",
+			"content": "\nstartWith method checks if the string starts with the given string. and `endWith()` method checks if the string ends with the given string.\n\n**Example:**\n\n```javascript\nvar str = 'Hello World';\nstr.startsWith('Hello'); // true\nstr.endsWith('World'); // true\n\nstr.startsWith('World'); // false\nstr.endsWith('Hello'); // false\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What are the features of nodejs",
-			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
-			"section": "nodejs"
+			"title": "when we should use regular expressions?",
+			"content": "\nYes, we should use regular expressions when we want to match a pattern against a string. or operate search and replace operations on a string. or validate a string against a pattern. regular expressions can be a better choice than string methods.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is purpose of node js url module",
-			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
-			"section": "nodejs"
+			"title": "Differences between Objects and Maps ?",
+			"content": "\n### 1. Keys on objects are strings, on maps keys are of any type\n\nIndeed objects are collections of key-value pairs but the key can only be a string. While the key of a Map can be of any type.\n\nIf for example, we use a number as a key in an object literal, that number is converted to a string and used as the key.\n\nBecause the key is converted to a string we get the same result when trying to get value for the 1 number value or for the '1' string value.\n\n```js\nconst obj = {\n\t1: 'One'\n};\nconsole.log(obj[1]); // One\n\nconst map = new Map();\nmap.set(1, 'One');\nconsole.log(map.get(1)); // One\nconsole.log(map.get('1')); // undefined\n```\n\nWhen using maps the key can be of any type so the 1 number key is different from the '1' string key\n\n```js\nconst map = new Map();\nmap.set(1, 'One');\nconsole.log(map.get(1)); // One\nconsole.log(map.get('1')); // undefined\n```\n\nThe key is unique in both cases. There cannot be two properties in an object with the same key or two entries in a map with the same key.\n\n### 2. Maps preserve the order of their keys, objects do not\n\nThe original order of key-value pairs is preserved in maps, while in objects it is not.\n\n```js\nconst gamesObj = {\n\t2: 'Tzolkin',\n\t1: 'Citadels'\n};\nconst keys = Object.keys(gamesObj);\nconsole.log(keys);\n//[\"1\", \"2\"];\nconst keyValuePairs = Object.entries(gamesObj);\nconsole.log(keyValuePairs);\n//[\"1\", \"Citadels\"]\n//[\"2\", \"Tzolkin\"]\n```\n\nNotice that when the object is created the key 2 comes before the key 1. When retrieving all the keys 2 comes after 1.\n\nBelow is a similar collection built with the Map constructor. This time the initial order is preserved.\n\n```js\nconst gamesMap = new Map([\n\t[2, 'Tzolkin'],\n\t[1, 'Citadels']\n]);\nconst keys = gamesMap.keys();\nconsole.log(keys);\n//MapIterator {2, 1}\nconst keyValuePairs = gamesMap.entries();\nconsole.log(keyValuePairs);\n//MapIterator {2 => \"Tzolkin\", 1 => \"Citadels\"}\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is Buffers data type?",
-			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
-			"section": "nodejs"
+			"title": "How can we check a value is a Array or not?",
+			"content": "\nThe Array.isArray() method determines whether the passed value is an Array object.\n\n```javascript\nvar arr = [1, 2, 3];\nconsole.log(Array.isArray(arr)); // true\n\nvar obj = {};\nconsole.log(Array.isArray(obj)); // false\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is EventEmitter in Node.js?",
-			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
-			"section": "nodejs"
+			"title": "How can we concatenated nested arrays?",
+			"content": "\nThe flat method is used to flatten an array. It takes an optional parameter which is the depth of the flattening. By default it flattens the array to one level. if we pass Infinity, it flattens the array to all levels.\n\n```javascript\nvar arr = [1, 2, [3, 4, [5, 6]]];\nconsole.log(arr.flat(Infinity)); // [1, 2, 3, 4, 5, 6]\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is process events in nodejs",
-			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
-			"section": "nodejs"
+			"title": "How do you check whether an array includes a particular value or not",
+			"content": "\nThe Array#includes() method is used to determine whether an array includes a particular value among its entries by returning either true or false. Let's see an example to find an element(numeric and string) within an array.\n\n```javascript\nvar numericArray = [1, 2, 3, 4];\nconsole.log(numericArray.includes(3)); // true\n\nvar stringArray = ['green', 'yellow', 'blue'];\nconsole.log(stringArray.includes('blue')); //true\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "How can we read a file content in nodejs",
-			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
-			"section": "nodejs"
+			"title": "How to check whether there is a specific value in the Array?",
+			"content": "\nThere are many ways we can determine where a specific value exists in the target array. The `includes` method in Javascript is one of the most convenient ways to find out whether a value exists in an array or not.\n\n**Example**\n\n```javascript\nif (numbers.includes(3)) {\n\tconsole.log('found it');\n}\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What Is a Node.js Stream?",
-			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
-			"section": "nodejs"
+			"title": "How we can merge nested arrays in javascript?",
+			"content": "\nuse `reduce` method and use `concat` method to merge arrays.\n\n```javascript\nconst nestedArr1 = [\n\t[1, 2, 3],\n\t[4, 5, 6],\n\t[7, 8, 9, [10, 11, 12]]\n];\nconst nestedArr2 = [\n\t[1, 2, 3],\n\t[4, 5, 6],\n\t[7, 8, 9, [10, 11, 12]],\n\t[13, 14, 15]\n];\n\nfunction mergeArrays(arr1, arr2) {\n\treturn normalizeNestedArray(arr1).concat(normalizeNestedArray(arr2));\n}\n\nfunction normalizeNestedArray(arr) {\n\treturn arr.reduce((acc, curr) => {\n\t\tif (Array.isArray(curr)) {\n\t\t\treturn acc.concat(normalizeNestedArray(curr));\n\t\t} else {\n\t\t\treturn acc.concat(curr);\n\t\t}\n\t}, []);\n}\n\nmergeArrays(nestedArr1, nestedArr2);\n```\n\n**Explanation**\nFirst we normalize the nested arrays by reducing the array to a single array. then we merge the arrays. and finally we normalize the merged array.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is HTTP ?",
-			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "nodejs"
+			"title": "What is the purpose of Array reduce method?",
+			"content": "\nThe reduce method executes a reducer function (that you provide) on each element of the array, resulting in a single output value. It takes two arguments: the reducer function and an initial value. The reducer function takes two arguments: the accumulator and the current value to be transformed. The accumulator is the result of the last call to the reducer function, or the initial value if this is the first call. The current value is the value of the current element being processed in the array. The reducer function must return the accumulator. It is useful for transforming an array to a single value.\n\n```javascript\nvar array = [1, 2, 3, 4, 5];\nvar sum = array.reduce(function (accumulator, currentValue) {\n\treturn accumulator + currentValue;\n}, 0);\nconsole.log(sum); // 15\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is cluster in nodejs",
-			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
-			"section": "nodejs"
+			"title": "What is the purpose of some method in arrays ?",
+			"content": "\nThe some() method is used to test whether at least one element in the array passes the test implemented by the provided function. The method returns a boolean value. Let's take an example to test for any odd elements,\n\n```javascript\nvar array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\n\nvar odd = (element) => element % 2 !== 0;\n\nconsole.log(array.some(odd)); // true (the odd element exists)\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is difference between concurrency and parallelism ?",
-			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
-			"section": "nodejs"
+			"title": "What is the purpose of the array slice method ?",
+			"content": "\nThe slice() method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end.\n\n```javascript\nlet arrayIntegers = [1, 2, 3, 4, 5];\nlet arrayIntegers1 = arrayIntegers.slice(0, 2); // returns [1,2]\nlet arrayIntegers2 = arrayIntegers.slice(2, 3); // returns [3]\nlet arrayIntegers3 = arrayIntegers.slice(4); //returns [5]\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is JWT ?",
-			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
-			"section": "nodejs"
+			"title": "What is the use case of array concat method?",
+			"content": "\nTo merge two or more arrays. It don't change the original array and return a new array.\n\n```javascript\nvar arr1 = [1, 2, 3];\nvar arr2 = [4, 5, 6];\n\nvar arr3 = arr1.concat(arr2);\n// arr3 = [1, 2, 3, 4, 5, 6]\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "what is middleware in node js",
-			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
-			"section": "nodejs"
+			"title": "Deference between Array and Set in javascript?",
+			"content": "\nArray is a collection of values and Set is a collection of unique values. Removing duplicates from an array is a O(n) operation and from a set is a O(1) operation.\n\n**Example**\n\n```javascript\nvar arr = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];\nvar set = new Set(arr);\n// console.log(set); // Set {1, 2, 3, 4, 5}\n// console.log(arr); // [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]\n\n// Remove an item from an array\narr.splice(0, 1);\n// console.log(arr); // [2, 3, 4, 5, 1, 2, 3, 4, 5]\nset.delete(1);\n// console.log(set); // Set {2, 3, 4, 5}\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is use of middleware in node js ?",
-			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
-			"section": "nodejs"
+			"title": "What is difference between Map and Object?",
+			"content": "\nMap is a data structure which helps in storing the data in the form of pairs. The pair consists of a unique key and a value mapped to the key. It helps prevent duplicity.\nObject follows the same concept as that of map i.e. using key-value pair for storing data. But there are slight differences which makes map a better performer in certain situations.\n\nFew basic differences are as follows:\n\n- In Object, the data-type of the key-field is restricted to integer, strings, and symbols. Whereas in Map, the key-field can be of any data-type (integer, an array, even an object!)\n- In the Map, the original order of elements is preserved. This is not true in case of objects.\n",
+			"section": "js"
 		},
 		{
-			"title": "what is the use of helmet in node js",
-			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
-			"section": "nodejs"
+			"title": "What is Map object?",
+			"content": "\nA map is an object that holds key-value pairs. Each key is unique on the map. The value can be any type, even another map. A map is an iterable object. It has a forEach() method, which can be used to iterate over all key-value pairs in the map. The map is a collection of key-value pairs.\n\n- 1. The map is used to store data in key-value pairs.\n- 2. Map keys are unique. and can be set in any kind of data type.\n- 3. Maps keys are stored in insertion order.\n- 4. The map is iterable.\n\n```javascript\nvar map = new Map();\nmap.set('1', 'a');\nmap.set('2', 'b');\nmap.set('3', 'c');\n\n// Iterate over all key-value pairs in the map\nmap.forEach(function (value, key) {\n\tconsole.log(key + ' = ' + value);\n});\n// 1 = a\n// 2 = b\n// 3 = c\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "what is rest api in nodejs?",
-			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
-			"section": "nodejs"
+			"title": "What is the purpose of the Set in javascript?",
+			"content": "\nThe Set is a data structure that stores unique values of any type. It is a collection of values. It is a collection of values that are not duplicated. And have useful built-in methods for manipulating the collection.\n\n**Example**\n\n```javascript\nvar set = new Set();\nset.add(1);\nset.add(2);\nset.add(2);\n\nfor (let value of set) {\n\tconsole.log(value);\n}\n// Output:\n// 1\n// 2\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What's the difference between req.params and req.query?",
-			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
-			"section": "nodejs"
+			"title": "Difference between getOwnPropertyNames vs Object.keys ?",
+			"content": "\ngetOwnPropertyNames returns only enumerable properties, Object.keys returns all properties.\n\n```javascript\nvar obj = {\n\ta: 1,\n\tb: 2,\n\tc: 3\n};\n```\n\n**Object keys**\n\nObject keys returns all enumerable properties of an object. It does not return non-enumerable properties.\n\n```javascript\nconsole.log(Object.keys(obj)); // ['a', 'c']\n```\n\n**Object getOwnPropertyNames**\n\ngetOwnPropertyNames returns all properties of an object.\n\n```javascript\nconsole.log(Object.getOwnPropertyNames(obj)); // [ 'a', 'b', 'c' ]\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is routing in nodejs ?",
-			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
-			"section": "nodejs"
+			"title": "How can access an object's  values?",
+			"content": "\nThere are two ways to access an object's values. One is using the dot notation and the other is using the bracket notation.\n\n```javascript\nvar person = {\n\tname: 'John',\n\tage: 30\n};\n\n// Dot notation\nconsole.log(person.name);\n\n// Bracket notation\nconsole.log(person['name']);\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is child process in nodejs ?",
-			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
-			"section": "nodejs"
+			"title": "How can we set an object's prototype in JavaScript ?",
+			"content": "\n**Using `Object.create`**\nThe `Object.create()` method created a new object and allows you to specify an object that will be used as the new objects' prototype.\n\nHere's an example:-\n\n```javascript\nconst personPrototype = {\n\tgreet() {\n\t\tconsole.log('hello!');\n\t}\n};\n\nconst carl = Object.create(personPrototype);\ncarl.greet(); // hello!\n```\n\nHere we create an object personPrototype, which has a greet() method. We then use Object.create() to create a new object with personPrototype as its prototype. Now we can call greet() on the new object, and the prototype provides its implementation.\n",
+			"section": "js"
 		},
 		{
-			"title": "what are http methods ?",
-			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
-			"section": "nodejs"
+			"title": "How do you get objects all prototypes ?",
+			"content": "\nAns: The object `getPrototypeOf()` method accept an object as parameter an return all prototypes properties this object.\n\n```javascript\nconst myObject = {\n\tcity: 'Paris',\n\tgreet() {\n\t\tconsole.log(`Hello ${this.city}`);\n\t}\n};\n\nObject.getPrototypeOf(myObject);\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is crypto in node js?",
-			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
-			"section": "nodejs"
+			"title": "How do you get property descriptors of an object",
+			"content": "\nYou can use the Object.getOwnPropertyDescriptors() method which returns all own property descriptors of a given object. The example usage of this method is below,\n\n```javascript\nconst newObject = {\n\ta: 1,\n\tb: 2,\n\tc: 3\n};\nconst descriptorsObject = Object.getOwnPropertyDescriptors(newObject);\nconsole.log(descriptorsObject.a.writable); //true\nconsole.log(descriptorsObject.a.configurable); //true\nconsole.log(descriptorsObject.a.enumerable); //true\nconsole.log(descriptorsObject.a.value); // 1\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is ftp protocol ?",
-			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "nodejs"
+			"title": "How Prototype inheretated with Object.create() ?",
+			"content": "\n`Object.create()` Inherit prototypes from the targeted object and create a new object. the first parameter is for targeted object prototypes and the second parameter is for property descriptors (optional).\n\n```js\nconst extractJSON = {\n\textractProperties: function () {\n\t\tlet properties = [];\n\t\tfor (let key in this) {\n\t\t\tif (this.hasOwnProperty(key)) {\n\t\t\t\tproperties.push(key);\n\t\t\t}\n\t\t}\n\t\treturn properties;\n\t},\n\textractValues: function () {\n\t\tlet values = [];\n\t\tfor (let key in this) {\n\t\t\tif (this.hasOwnProperty(key)) {\n\t\t\t\tvalues.push(this[key]);\n\t\t\t}\n\t\t}\n\t\treturn values;\n\t}\n};\nconst userInfoProperties = Object.create(extractJSON);\nuserInfoProperties.name = 'John';\nuserInfoProperties.age = 30;\nuserInfoProperties.extractProperties(); //   ['name', 'age']\nuserInfoProperties.extractValues(); //   ['John', 30]\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is thread in computer ?",
-			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
-			"section": "nodejs"
+			"title": "What is Optional chaining ?",
+			"content": "\nOptional chaining is the safe way to get access to nested object properties even if the intermediary property doesn't exist.\n\nAs an example let's say we have an empty user object when we access the `user.name` it returns undefined because we know in the user object name property doesn't exist. but if we attempt to access the firstName property in the nested name object it throws an Error. Becouse we attempt to access an undefined values property that might not exist.\n\nAt some point, we might expect the undefined instant of not getting an error. In Javascript we can use the `.?` syntax to check the left part for `null/undefined` and allowing to safely access nested properties.\n\n```js\nconst user = {};\nconsole.log(user.name); // undefined\nconsole.log(user.name.age); // Property 'name' does not exist on type '{}'.\nconsole.log(user.name?.age); // undefined\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "How Node.js works",
-			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
-			"section": "nodejs"
+			"title": "What happens if you define a property in an object, when a property with the same name is defined in the object's prototype?",
+			"content": "\nLet's see:\n\n```javascript\nconst myDate = new Date(1995, 11, 17);\n\nconsole.log(myDate.getYear()); // 95\n\nmyDate.getYear = function () {\n\tconsole.log('something else!');\n};\n\nmyDate.getYear(); // 'something else!'\n```\n\nWhen we call getYear() the browser first looks in myDate for a property with that name, and only checks the prototype if myDate does not define it. So when we add getYear() to myDate, then the version in myDate is called.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is cpu intensive tasks in NodeJS ?",
-			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
-			"section": "nodejs"
+			"title": "What is prototype chain ?",
+			"content": "\nPrototypes are the means of inheritance in JavaScript. The prototype of an object would also have a prototype object. This continues until we reach the top level when there is no prototype object.\n\nThis is called prototype chaining or prototype chain in JavaScript.\n",
+			"section": "js"
 		},
 		{
-			"title": "Is node js really single threaded ?",
-			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
-			"section": "nodejs"
+			"title": "What is constructor function?",
+			"content": "\nA constructor function is a function that is used to create objects. The new keyword is used to call the constructor function and use the constructor as a blueprint to create an object.\n\n**Note: It it convention to use capital letters for constructor function names.**\n\n```javascript\nfunction Person(name, age) {\n\tthis.name = name;\n\tthis.age = age;\n}\n\nvar john = new Person('John', 30);\nvar jane = new Person('Jane', 32);\nvar mark = new Person('Mark', 25);\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What Can Node.js Do?",
-			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
-			"section": "nodejs"
-		}
-	],
-	"react": [
+			"title": "What is getter and setter in javascript?",
+			"content": "\nThe getter and setter is a function that is used to get and set the value of a property. In Object Oriented Programming, the getter and setter is a method that is used to get and set the value of a property. The main benefit of using getter and setter is that we can implement some logic before and after getting and setting the value of a property.\n\n**Example without getter and setter:**\n\n```javascript\nvar person = {\n\tfirstName: 'John',\n\tlastName: 'Doe',\n\tfullName: function () {\n\t\treturn this.firstName + ' ' + this.lastName;\n\t}\n};\nconsole.log(person.fullName()); // John Doe\n```\n\n**Example with getter and setter:**\n\n```javascript\nvar person = {\n\tfirstName: 'John',\n\tlastName: 'Doe',\n\tget fullName() {\n\t\treturn this.firstName + ' ' + this.lastName;\n\t}\n};\nconsole.log(person.fullName); // John Doe\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is Object.assign() do ?",
+			"content": "\nUsed to copy the values and properties from one or more source objects to a target object and then return modified target object.\n\n```javascript\nconst target = { a: 1, b: 2 };\nconst source = { b: 4, c: 5 };\n\nconst returnedTarget = Object.assign(target, source);\n\nconsole.log(target);\n// expected output: Object { a: 1, b: 4, c: 5 }\n\nconsole.log(returnedTarget);\n// expected output: Object { a: 1, b: 4, c: 5 }\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is object in javascript?",
+			"content": "\nObject is a collection of key-value pairs. this useful when we want to store data in a structured way. we can access the data using key.\n\n```javascript\nvar person = {\n\tname: 'John',\n\tage: 30,\n\tisMarried: false\n};\n\nconsole.log(person.name); // John\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What is Object property descriptor?",
+			"content": "\nObject property descriptor is an object that describes the property of an object and its behavior. the object property descriptor is an object with the following properties: value, writable, enumerable, configurable.\n\n```javascript\n'use strict';\nconst person = {\n\tname: 'John',\n\tage: 30,\n\tisMarried: false\n};\n\nObject.defineProperty(person, 'name', {\n\tvalue: 'Jack',\n\twritable: false,\n\tenumerable: false,\n\tconfigurable: false\n});\nconsole.log(person.name);\n```\n\n**Value:** The value property is a data property that stores the value of the property.\n\n```javascript\nconsole.log(person.name); // Jack\n```\n\n**Writable:** The writable property is a boolean property that determines whether the property can be changed.\n\n```javascript\nperson.name = 'Jill';\n// => error : Uncaught TypeError: Cannot assign to read only property 'name' of object\n```\n\n**Enumerable:** The enumerable property is a boolean property that determines whether the property can be enumerated by a for-in loop.\n\n```javascript\nfor (const item of Object.entries(person)) {\n\tconsole.log(item);\n}\n// ['age', 30]\n// ['isMarried', false]\n```\n\n**Configurable:** The configurable property is a boolean property that determines whether the property can be deleted.\n\n```javascript\ndelete person.name;\n// Uncaught TypeError: Cannot delete property 'name\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How can we define a private method in the javascript class?",
+			"content": "\nWe can use the following syntax: #methodName to define a private method. it will be private to the class and can be accessed only from the class itself and not from outside the class.\n\n```javascript\nclass Person {\n\t#name;\n\t#age;\n\tconstructor(name, age) {\n\t\tthis.#name = name;\n\t\tthis.#age = age;\n\t}\n\tgetName() {\n\t\treturn this.#name;\n\t}\n\tgetAge() {\n\t\treturn this.#age;\n\t}\n}\n\nvar person = new Person('John', 30);\nconsole.log(person.getName()); // John\nconsole.log(person.getAge()); // 30\nconsole.log(person.#name); //  Private field '#name' must be declared in an enclosing clas\nconsole.log(person.#age); //  Private field '#age' must be declared in an enclosing clas\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "How do we set a property or method private in javascript?",
+			"content": "\nJavaScript proposal, in the standard, that provides language-level support for private properties and methods.\n\nPrivates should start with #. They are only accessible from inside the class.\n\n```javascript\nclass Person {\n\t#age = 0;\n\tname = '';\n\tconstructor(name) {\n\t\tthis.name = name;\n\t}\n\n\tgetAge() {\n\t\treturn this.#age;\n\t}\n\n\tsetAge(age) {\n\t\tthis.#age = age;\n\t}\n}\n\nconst person = new Person('John');\nperson.setAge(30);\nconsole.log(person.#age);\n// Uncaught SyntaxError: Private field '#age' must be declared in an enclosing class (\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "Is Class Declaration hoisted to the top?",
+			"content": "\nNo , it is not hoisted. It behaves like let and const keyword in javascript.\n",
+			"section": "js"
+		},
+		{
+			"title": "What is a constructor method",
+			"content": "\nThe constructor method is a special method for creating and initializing an object created within a class. If you do not specify a constructor method, a default constructor is used. The example usage of constructor would be as below,\n\n```javascript\nclass Employee {\n\tconstructor() {\n\t\tthis.name = 'John';\n\t}\n}\n\nvar employeeObject = new Employee();\nconsole.log(employeeObject.name); // John\n```\n",
+			"section": "js"
+		},
 		{
-			"title": "What is Node.js?",
-			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
-			"section": "react"
+			"title": "What is Abstraction in OOP ?",
+			"content": "\nMaking coffee with a coffee machine is a good example of abstraction.\nYou need to know how to use your coffee machine to make coffee. You need to provide water and coffee beans, switch it on and select the kind of coffee you want to get.\nThe thing you don’t need to know is how the coffee machine is working internally to brew a fresh cup of delicious coffee. You don’t need to know the ideal temperature of the water or the amount of ground coffee you need to use.\nSomeone else worried about that and created a coffee machine that now acts as an abstraction and hides all these details. You just interact with a simple interface that doesn’t require any knowledge about the internal implementation.\n\n```javascript\nclass CoffeeMachine {\n\tconstructor(power, capacity) {\n\t\tthis.power = power;\n\t\tthis.capacity = capacity;\n\t\tthis.waterAmount = 0;\n\t}\n\tgetWaterAmount() {\n\t\treturn this.waterAmount;\n\t}\n\tsetWaterAmount(amount) {\n\t\tthis.waterAmount = amount;\n\t}\n\tgetPower() {\n\t\treturn this.power;\n\t}\n\tgetCapacity() {\n\t\treturn this.capacity;\n\t}\n\tgetTimeToBoil() {\n\t\treturn (this.waterAmount * 80) / this.power;\n\t}\n\tboil() {\n\t\tthis.waterAmount = 0;\n\t}\n\tmakeCoffee(amount) {\n\t\tthis.waterAmount += amount;\n\t\tif (this.waterAmount > this.capacity) {\n\t\t\tconsole.log('Too hot!');\n\t\t\tthis.boil();\n\t\t}\n\t}\n}\n\nconst coffeeMachine = new CoffeeMachine(10000, 400);\ncoffeeMachine.makeCoffee(200);\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is web server ?",
-			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
-			"section": "react"
+			"title": "What is class in javascript?",
+			"content": "\nClass is a blueprint of an object. It is a template for an object. We can create many objects from a class. A class can have properties and methods. The class can also inherit properties and methods from another class and have access to override them. The class has the constructors method that is called when we create an object from a class. Constructors are used to initializing the properties of the object.\n\n```javascript\nclass Person {\n\tconstructor(name, age) {\n\t\tthis.name = name;\n\t\tthis.age = age;\n\t}\n\tsayHello() {\n\t\tconsole.log(`Hello, I am ${this.name} and I am ${this.age} years old.`);\n\t}\n}\n\nvar person1 = new Person('John', 30);\nperson1.sayHello();\n// Output: Hello, I am John and I am 30 years old.\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is node jS http module ?",
-			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
-			"section": "react"
+			"title": "What is Encapsulation in JavaScript?",
+			"content": "\nEncapsulation is a mechanism that allows an object to hide its internal state and behavior from other objects.\n\n```javascript\nclass Person {\n\t#name = 'Nathan';\n\n\tgetName() {\n\t\treturn this.#name;\n\t}\n\n\tsetName(name) {\n\t\tthis.#name = name;\n\t}\n}\n\nconst person = new Person();\nconsole.log(person.getName()); // Nathan\nconsole.log(person.#name); // Uncaught SyntaxError: Private field '#name' must be declared in an enclosing class.\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is the purpose of HTTP Header",
-			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
-			"section": "react"
+			"title": "What is static method in javascript?",
+			"content": "\nA static method in JavaScript is a method that has a static keyword prepended to itself. Such methods cannot be accessed through instantiated objects but could be accessed through the class name. This is because static methods belong to the class directly. Inheritance even applies to static methods. Also, these methods can be invoked by non-static methods and even constructors. Static methods are used to create utility functions and create objects that contain default information.\n\n**Example**\n\n```javascript\nclass MyClass {\n\tstatic myStaticMethod() {\n\t\treturn 'static';\n\t}\n}\n\nMyClass.myStaticMethod(); // 'static'\n\nconst myClass = new MyClass();\nmyClass.myStaticMethod(); // TypeError: myStaticMethod is not a function\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "How nodejs process works ?",
-			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
-			"section": "react"
+			"title": "What are the 4 pillars of OOP?",
+			"content": "\n- 1. Abstraction\n- 2. Encapsulation\n- 3. Inheritance\n- 4. Polymorphism\n",
+			"section": "js"
 		},
 		{
-			"title": "What are the features of nodejs",
-			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
-			"section": "react"
+			"title": "Is it possible to chain promises after getting an Error?",
+			"content": "\nYes, It is possible to chain after a failure. which is useful to accomplish a task after a failure.\n\n```javascript\nnew Promise((resolve, reject) => {\n\tconsole.log('Initial');\n\n\tresolve();\n})\n\t.then(() => {\n\t\tthrow new Error('Something failed');\n\t\tconsole.log('Do this');\n\t})\n\t.catch(() => {\n\t\tconsole.error('Do that');\n\t})\n\t.then(() => {\n\t\tconsole.log('Do this, no matter what happened before');\n\t});\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is purpose of node js url module",
-			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
-			"section": "react"
+			"title": "What are the cons of promises?",
+			"content": "\n- It makes little complex code.\n- You need to load a polyfill if ES6 is not supported.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is Buffers data type?",
-			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
-			"section": "react"
+			"title": "What does promise all do?",
+			"content": "\nThe Promise.all() method is actually a method of Promise object (which is also an object under JavaScript used to handle all the asynchronous operations), that takes an array of promises(an iterable) as an input. It returns a single Promise that resolves when all of the promises passed as an iterable, which have resolved or when the iterable contains no promises. In simple way, if any of the passed-in promises reject, the Promise.all() method asynchronously rejects the value of the promise that already rejected, whether or not the other promises have resolved.\n\n```javascript\nconst promise1 = Promise.resolve(3);\nconst promise2 = 42;\nconst promise3 = new Promise((resolve, reject) => {\n\tsetTimeout(resolve, 100, 'foo');\n});\n\nPromise.all([promise1, promise2, promise3]).then((values) => {\n\tconsole.log(values);\n\t// expected output: Array [3, 42, \"foo\"]\n});\n```\n\n[Reference](https://www.geeksforgeeks.org/javascript-promise-all-method/)\n[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)\n",
+			"section": "js"
 		},
 		{
-			"title": "What is EventEmitter in Node.js?",
-			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
-			"section": "react"
+			"title": "What is a promise?",
+			"content": "\nA promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection. Promises are eager, meaning that a promise will start doing whatever task you give it as soon as the promise constructor is invoked\n",
+			"section": "js"
 		},
 		{
-			"title": "What is process events in nodejs",
-			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
-			"section": "react"
+			"title": "What is a promise.race() ?",
+			"content": "\nThe Promise.race() method returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise.\n\n```javascript\nconst promise1 = new Promise((resolve, reject) => {\n\tsetTimeout(resolve, 500, 'one');\n});\n\nconst promise2 = new Promise((resolve, reject) => {\n\tsetTimeout(resolve, 100, 'two');\n});\n\nPromise.race([promise1, promise2]).then((value) => {\n\tconsole.log(value); // expected output: \"two\"\n});\n```\n\n[Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)\n",
+			"section": "js"
 		},
 		{
-			"title": "How can we read a file content in nodejs",
-			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
-			"section": "react"
+			"title": "What is Polymorphism in JavaScript ?",
+			"content": "\nWhen a method has the same name but a different implementation in different classes - is called polymorphism.\n\n```javascript\nclass Animal {\n\tconstructor(name) {\n\t\tthis.name = name;\n\t}\n\tgetName() {\n\t\treturn this.name;\n\t}\n}\n\nclass Dog extends Animal {\n\tconstructor(name) {\n\t\tsuper(name);\n\t}\n\tgetName() {\n\t\treturn this.name + ' is a dog';\n\t}\n}\n\nclass Cat extends Animal {\n\tconstructor(name) {\n\t\tsuper(name);\n\t}\n\tgetName() {\n\t\treturn this.name + ' is a cat';\n\t}\n}\n\nvar dog = new Dog('Fido');\nvar cat = new Cat('Mimi');\n\nconsole.log(dog.getName());\nconsole.log(cat.getName());\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What Is a Node.js Stream?",
-			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
-			"section": "react"
+			"title": "What is promise chaining give an example?",
+			"content": "\nA common need is to execute two or more asynchronous operations back to back, where each subsequent operation starts when the previous operation succeeds, with the result from the previous step. We accomplish this by creating a promise chain.\n\n```javascript\nconst getNumber = new Promise((resolve, reject) => {\n\tsetInterval(() => {\n\t\tresolve(10);\n\t}, 100);\n});\ngetNumber\n\t.then((number) => {\n\t\tconsole.log(number); // 11\n\t\treturn number + 1;\n\t})\n\t.then((number) => {\n\t\tconsole.log(number); // 12\n\t\treturn number + 1;\n\t})\n\t.then((number) => {\n\t\tconsole.log(number);\n\t\treturn number + 1; // 13\n\t});\n// 11\n// 12\n// 13\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is HTTP ?",
-			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "react"
+			"title": "What promise chaining ?",
+			"content": "\nPromise chaining is a way to chain promises together. This is useful when you want to execute multiple asynchronous operations in sequence. The following example shows how to use promise chaining to execute multiple asynchronous operations in sequence.\n\n**Example**\n\n```javascript\nvar promise1 = new Promise(function (resolve, reject) {\n\tsetTimeout(function () {\n\t\tresolve(1);\n\t}, 1000);\n});\n\nvar promise2 = new Promise(function (resolve, reject) {\n\tsetTimeout(function () {\n\t\tresolve(2);\n\t}, 2000);\n});\n\nvar promise3 = new Promise(function (resolve, reject) {\n\tsetTimeout(function () {\n\t\tresolve(3);\n\t}, 3000);\n});\n\npromise1\n\t.then(function (result) {\n\t\tconsole.log(result); // 1\n\t\treturn promise2;\n\t})\n\t.then(function (result) {\n\t\tconsole.log(result); // 2\n\t\treturn promise3;\n\t})\n\t.then(function (result) {\n\t\tconsole.log(result); // 3\n\t});\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is cluster in nodejs",
-			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
-			"section": "react"
+			"title": "What is iterable?",
+			"content": "\nIterable is an object that has a next method. This method returns an object with a value and done properties. The value property is the next value in the sequence and the done property is a boolean that is true if there are no more values in the sequence. The next method is used to get the next value in the sequence.\n",
+			"section": "js"
 		},
 		{
-			"title": "What is difference between concurrency and parallelism ?",
-			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
-			"section": "react"
+			"title": "What is purpose of proxies in javascript?",
+			"content": "## What is purpose of proxies in javascript?\n\nProxy is a function that takes two arguments, the first is the object to be proxied and the second is the handler object. The handler object has properties that define the behavior of the proxy.\n\n```javascript\nconst handler = {\n get: function (target, name) {\n  console.log(`Getting ${name}`);\n  console.log(target);\n  return name in target ? target[name] : 'N/A';\n }\n};\n\nconst target = {\n name: 'John',\n age: 30\n};\n\nconst proxy = new Proxy(target, handler);\n\nconsole.log(proxy.name); // John\n\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is JWT ?",
-			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
-			"section": "react"
+			"title": "Difference between default export and named export ?",
+			"content": "\ndefault export is used when we want to export only one thing from a module. and named export is used when we want to export multiple things from a module.\n",
+			"section": "js"
 		},
 		{
-			"title": "what is middleware in node js",
-			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
-			"section": "react"
+			"title": "What are dynamic imports?",
+			"content": "\nDynamic import is a function that allows us to load modules on demand by using promise or async await syntax. The main advantage is to reduce bundle size. and response size. speed up user experience.\n\n```javascript\nimport('./Module').then((Module) => Module.method());\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is use of middleware in node js ?",
-			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
-			"section": "react"
+			"title": "What is defer in javascript?",
+			"content": "\nThe defer is a Boolean value, used to indicate that script is executed after the document has been parsed. It works only with external scripts (i.e., works only when we are specifying the src attribute in `<script>` tag).\n",
+			"section": "js"
 		},
 		{
-			"title": "what is the use of helmet in node js",
-			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
-			"section": "react"
+			"title": "What is type=\"module\" in the <script> tag?",
+			"content": "\nIt tells the browser that the script is a module. Now we can use the import and export keywords. import and export are used to import and export modules. This is useful for bundling and splitting code.It is also useful for lazy loading.\n\n```javascript\n<script type=\"module\">\n\timport {(someVar, someFunc)} from './module.js'; console.log(someVar + someFunc());\n</script>\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "what is rest api in nodejs?",
-			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
-			"section": "react"
+			"title": "How can we communicate between two different tabs?",
+			"content": "\nUse BroadcastChannel Web API to communicate between two different tabs BroadcastChannel is a Web API that allows you to send and receive messages between different tabs.\n\n```javascript\nconst bc = new BroadcastChannel('test_channel');\n\nbc.onmessage = function (event) {\n\tconsole.log(event.data);\n};\n\ndocument.body.addEventListener('click', () => {\n\tbc.postMessage('hello');\n});\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What's the difference between req.params and req.query?",
-			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
-			"section": "react"
+			"title": "How do I modify the url without reloading the page",
+			"content": "\nThe window.location.url property will be helpful to modify the url but it reloads the page. HTML5 introduced the history.pushState() and history.replaceState() methods, which allow you to add and modify history entries, respectively. For example, you can use pushState as below,\n\n```javascript\nwindow.history.pushState('page2', 'Title', '/page2.html');\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is routing in nodejs ?",
-			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
-			"section": "react"
+			"title": "How to access DOM from web worker?",
+			"content": "\nThe web worker's browser's DOM cannot be accessed, for reasons of execution thread safety. However, postmessages can establish communication with the browser window. So DOM can be updated based on postmessage.\n\n**Example**\n\n```html\n<html>\n\t<body>\n\t\t<h1 id=\"time\">Time:</h1>\n\t</body>\n\t<script>\n\t\tconst time = document.getElementById('time');\n\t\tconst worker = new Worker('worker.js');\n\t\tworker.onmessage = (e) => {\n\t\t\ttime.innerHTML = e.data;\n\t\t};\n\t</script>\n</html>\n```\n\n`worker.js`\n\n```javascript\nsetInterval(() => {\n\tpostMessage(new Date().toLocaleString());\n}, 1000);\n```\n\n**Output**\n\n```nginx\n8/9/2022, 1:08:24 AM\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is child process in nodejs ?",
-			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
-			"section": "react"
+			"title": "How to get a specific query param value from an URL?",
+			"content": "\nThe `new URL` object provides a way to handle a URL string. It accepts an URL string and this object contains `searchParams` property which can be used to extract a query params value.\n\n**Example**\n\n```javascript\nconst url = new URL('https://domain.com?page=1&take=20');\nconsole.log(url.searchParams.get('page'));\n// 1\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "what are http methods ?",
-			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
-			"section": "react"
+			"title": "What are server-sent events?",
+			"content": "\nServer-Sent Events is a server push technology enabling a client to receive automatic updates from a server via an HTTP connection, and describes how servers can initiate data transmission towards clients once an initial client connection has been established.\n\n- SSE is based on the plain HTTP\n- It is limited to pure text data, no binaries allowed\n\n```javascript\nconst eventSource = new EventSource('https://server.domain');\n\neventSource.addEventListener('message', (event) => {\n\t// \"event.data\" is a string\n\tconst data = JSON.parse(event.data);\n\n\t// Prints whatever was sent by the server\n\tconsole.log(data);\n});\n```\n\n[Reference](https://vhudyma-blog.eu/a-complete-guide-to-server-sent-events-in-javascript/)\n",
+			"section": "js"
 		},
 		{
-			"title": "What is crypto in node js?",
-			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
-			"section": "react"
+			"title": "What is cookies ?",
+			"content": "\nCookies are small pieces of data that are stored on the user's computer. Cookies are widely used in websites to remember the user's preferences and to track the user's browsing activity.\n\n```javascript\ndocument.cookie = 'username=John Doe';\n```\n\n**Set a max age of 30 days**\n\n```javascript\ndocument.cookie = 'username=John Doe; max-age=2592000';\n```\n\n**Get the cookie**\n\n```javascript\ndocument.cookie; // 'username=John Doe'\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is ftp protocol ?",
-			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "react"
+			"title": "What is IndexedDB used for?",
+			"content": "\nIndexedDB is a way for you to persistently store data inside a user's browser. Because it lets you create web applications with rich query abilities regardless of network availability, your applications can work both online and offline.\n\n[Reference](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)\n",
+			"section": "js"
 		},
 		{
-			"title": "What is thread in computer ?",
-			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
-			"section": "react"
+			"title": "What is Service Worker ?",
+			"content": "\nA service worker is a script that runs independently in the browser background. On the user side, it can intercept its network requests and decide what to load (fetch).\nService workers mainly serve features like background sync, push notifications and they are commonly used for’offline first’ applications, giving the developers the opportunity to take complete control over the user experience.\n\n- **You can dominate Network Traffic!**\n  You can manage all network traffic of the page and do any manipulations.\n  Is it really possible to dominate all network traffic? Yes! For example, when the page requests to a CSS file, you can send plain text as a response or when the page requests to an HTML file, you can send png file as a response. Of course, you can send true response too :)\n\n- **You can “Cache”!**\n  You can cache any request/response pair with Service Worker and Cache API and you can access these offline content anytime\n\n- **You can manage Push Notifications!**\n  You can manage push notifications with Service Worker and show any information message to the user\n\n- **You can continue!**\n  Although Internet connection is broken, you can start any process with Background Sync of Service Worker\n",
+			"section": "js"
 		},
 		{
-			"title": "How Node.js works",
-			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
-			"section": "react"
+			"title": "What is the use case of session storage in the web application?",
+			"content": "\nSession storage creates a session for the user and stores the data in the browser. And the date is disappears when the user closes the browser. The use case would be let's say we went to show an popup for first time when the user is entering the website. We want to show the popup only once. So we can use session storage.\n\n```javascript\nconst sessionStorage = window.sessionStorage;\nsessionStorage.setItem('isFirstTime', 'false');\nconst isFirstTime = sessionStorage.getItem('isFirstTime');\nif (isFirstTime === 'false') {\n\t// do something\n}\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is cpu intensive tasks in NodeJS ?",
-			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
-			"section": "react"
+			"title": "What is web storage?",
+			"content": "\nWeb storage is a way to store data on a web browser. There are many different types of web storage all are useful to personalize the user experience. Persisting previous site activity. Saving data and assets locally so that the user does not have to re-download them.\n",
+			"section": "js"
 		},
 		{
-			"title": "Is node js really single threaded ?",
-			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
-			"section": "react"
+			"title": "Why do we use setInterval in JavaScript?",
+			"content": "\nThe `setInterval()` method, offered repeatedly calls a function or executes a code snippet, with a fixed time delay between each call. A function to be executed every delay milliseconds. The first execution happens after delay milliseconds.\n\n```javascript\nsetInterval(() => {\n\tconsole.log('Hello');\n}, 1000);\n\n// Hello\n// Hello\n// Hello\n// Hello\n// .......\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What Can Node.js Do?",
-			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
-			"section": "react"
-		}
-	],
-	"svelte": [
+			"title": "Why do we use web workers?",
+			"content": "\nWeb workers are designed to let you run big jobs without freezing up the page. For example, imagine you want to do some complex calculations when someone clicks a button. If you start doing the job right away, you’ll tie everything up. The person using the page won’t be able to scroll or click anything. They might even get the dreaded “this page is unresponsive” error message.\n\n![web-worker-page-unresponsive](./images/web-worker-page-unresponsive.png)\n\n**worker.js**\n\n```javascript\nfunction clock() {\n\tsetInterval(() => {\n\t\tpostMessage(`tick ${new Date().toLocaleTimeString()}`);\n\t}, 1000);\n}\nclock();\n```\n\n**index.js**\n\n```javascript\nconst w = new Worker('./worker.js');\nw.onmessage = function (event) {\n\tconsole.log(event.data);\n};\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What are closures?",
+			"content": "\nclosure is a function that has access to the variables of its outer function even after the outer function has returned. Also Closure is concept of function + lexical environment in which function it was created . so every function declared within the another function then it has access to the scope chain of outer function and the variables created within the scope of outer function will not get destroyed.\n\n```javascript\nfunction outerFunction(arg) {\n\tvar outerVar = arg;\n\treturn function innerFunction(innerArg) {\n\t\treturn outerVar + innerArg;\n\t};\n}\n\nvar innerFunction = outerFunction(10);\nconsole.log(innerFunction(20)); // 30\nconsole.log(innerFunction(30)); // 50\n```\n",
+			"section": "js"
+		},
+		{
+			"title": "What are closures scope chains?",
+			"content": "\nClosures are functions that have access to the outer function’s variables even after the outer function has returned. This is useful when you want to return a function from a function and you want to be able to access the outer function’s variables. Every closure has three scopes: its scope, the outer function’s scope, and the global scope.\n",
+			"section": "js"
+		},
 		{
-			"title": "What is Node.js?",
-			"content": "\nNode.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.\n",
-			"section": "svelte"
+			"title": "How does a web browser work",
+			"content": "\n## How does a web browser work\n\nBrowser is a program that runs in the background and is responsible for rendering the web page. When a web page is requested, the browser sends a request to the server. The server then sends the web page back to the browser. When the web browser fetches data from an internet connected server, it uses a piece of software called a rendering engine to translate that data into text and images. This data is written in Hypertext Markup Language (HTML) and web browsers read this code to create what we see, hear and experience on the internet.\n",
+			"section": "js",
+			"source": "https://www.mozilla.org/en-US/firefox/browsers/what-is-a-browser/#:~:text=When%20the%20web%20browser%20fetches,and%20experience%20on%20the%20internet."
 		},
 		{
-			"title": "What is web server ?",
-			"content": "\nA web server is a software and hardware that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. A web server can be a computer system that hosts a website or a system that hosts specific content on the internet. The man job of a web server is to store, process and deliver web pages to users. Beside HTTP, web servers can also support other protocols such as FTP (File Transfer Protocol) and SMTP (Simple Mail Transfer Protocol).\n",
-			"section": "svelte"
+			"title": "Implement Array at polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\n```js\nArray.prototype.atImpl = function (index) {\n\treturn this[index]\n}\n```\n\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is node jS http module ?",
-			"content": "\nNode.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP).\n\n**Example**\n\n```js\nvar http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n\nSo when we visit http://localhost:8080/ in our browser, we will see the text \"Hello World!\".\n",
-			"section": "svelte"
+			"title": "Implement Array concat polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n```js\nArray.prototype.concatImpl = function (arr) {\n\tconst newArr = this.slice()\n\tnewArr.push(...arr)\n\treturn newArr\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is the purpose of HTTP Header",
-			"content": "\nAn HTTP header is a field of an HTTP request or response that passes additional context and metadata about the request or response. For example, a request message can use headers to indicate it's preferred media formats, while a response can use header to indicate the media format of the returned body.\n\n**Example**\n\n```js\nconst http = require('http')\n\nhttp\n\t.createServer(function (req, res) {\n\t\tres.writeHead(200, { 'Content-Type': 'text/html' })\n\t\tres.write('Hello World!') //write a response to the client\n\t\tres.end() //end the response\n\t})\n\t.listen(8080) //the server object listens on port 8080\n```\n",
-			"section": "svelte"
+			"title": "Implement Array copywithin polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\n```js\nfunction copyWithin(array, target, start, end) {\n\tlet shift = target - start\n\tif (shift < 0) {\n\t\tend = Math.min(end, array.length)\n\t\tfor (let i = start; i < end; i++) {\n\t\t\tarray[i + shift] = array[i]\n\t\t}\n\t} else {\n\t\tfor (let i = Math.min(end, array.length - shift) - 1; i >= start; i--) {\n\t\t\tarray[i + shift] = array[i]\n\t\t}\n\t}\n\treturn array\n}\n```\n\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "How nodejs process works ?",
-			"content": "\nNodeJS is a single threaded process. It means that it can only do one thing at a time that is why it is called as a single threaded process. But it can do many things at a time by using asynchronous programming and event loop.\n\nWhen request comes from the client, it accept this request and pass though the worker thead for process necessary things. After that it will send the response to the client. In this process, it will not wait for the response from the worker thread. It will continue to accept the next request. This is the reason why NodeJS is called as a single threaded process but non-blocking I/O.\n",
-			"section": "svelte"
+			"title": "Implement Array every polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\n```js\nArray.prototype.everyImpl = function (callback) {\n\tfor (let i = 0; i < this.length; i++) {\n\t\tif (!callback(this[i], i, this)) {\n\t\t\treturn false\n\t\t}\n\t}\n\treturn true\n}\n```\n\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What are the features of nodejs",
-			"content": "\n- Asynchronous and Event Driven\n- Fast code execution (V8 Engine).\n- Single Threaded but Highly Scalable\n- No Buffering\n- Large Community Support\n",
-			"section": "svelte"
+			"title": "Implement Array fill polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.fillImpl = function (value, start, end) {\n\tstart = start || 0\n\tend = end || this.length\n\tfor (let i = start; i < end; i++) {\n\t\tthis[i] = value\n\t}\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is purpose of node js url module",
-			"content": "\nThe URL module splits up a web address into readable parts.\n\n**Syntax**\n\n```js\nconst url = require('url')\n\nconst myURL = new URL('https://example.org/foo')\n\nconsole.log(myURL.href) // https://example.org/foo\n\nconsole.log(myURL.protocol) // https:\n\nconsole.log(myURL.host) // example.org\n\nconsole.log(myURL.hostname) // example.org\n\nconsole.log(myURL.port) // 443\n\nconsole.log(myURL.pathname) // /foo\n\nconsole.log(myURL.search) // ''\n\nconsole.log(myURL.searchParams) // URLSearchParams {}\n```\n",
-			"section": "svelte"
+			"title": "Implement Array filter polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.filterImpl = function (callback) {\n\tconst result = []\n\tfor (let i = 0; i < this.length; i++) {\n\t\tif (callback(this[i], i, this)) {\n\t\t\tresult.push(this[i])\n\t\t}\n\t}\n\treturn result\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is Buffers data type?",
-			"content": "\nThe Buffer class in Node. js is designed to handle raw binary data. Each buffer corresponds to some raw memory allocated outside V8. Buffers act somewhat like arrays of integers, but aren't resizable and have a whole bunch of methods specifically for binary data.\n\n```js\nconst buf = Buffer.from('Hello World', 'utf8')\n\nconsole.log(buf) // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64>\n\nconsole.log(buf.toString()) // Hello World\n\nconsole.log(buf.toString('hex')) // 48656c6c6f20576f726c64\n\nconsole.log(buf.toString('base64')) // SGVsbG8gV29ybGQ=\n```\n",
-			"section": "svelte"
+			"title": "Implement Array find polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.findImpl = function (callback) {\n\tfor (let i = 0; i < this.length; i++) {\n\t\tif (callback(this[i])) {\n\t\t\treturn this[i]\n\t\t}\n\t}\n\treturn undefined\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is EventEmitter in Node.js?",
-			"content": "\nThe EventEmitter is a class which is available to us by importing the events module. It is used to handle events and emit events. It is a built-in module in Node.js.\n\n```js\nconst EventEmitter = require('events')\n\nconst eventEmitter = new EventEmitter()\n\nsetTimeout(() => {\n\teventEmitter.emit('tutorial', 1, 2)\n}, 3000)\n\neventEmitter.on('tutorial', (num1, num2) => {\n\tconsole.log(num1 + num2)\n})\n```\n\nThe above code will output 3 after 3 seconds.\n",
-			"section": "svelte"
+			"title": "Implement Array forEach polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.forEachImpl = function (callback) {\n\tfor (let i = 0; i < this.length; i++) {\n\t\tcallback(this[i], i, this)\n\t}\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is process events in nodejs",
-			"content": "\nProcess object provides information about the current or running process. It is a global object and can be accessed from anywhere. It is an instance of EventEmitter class. It is an event emitter object.\n",
-			"section": "svelte"
+			"title": "Implement Array includes polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.includesImpl = function (value) {\n\tfor (let i = 0; i < this.length; i++) {\n\t\tif (this[i] === value) {\n\t\t\treturn true\n\t\t}\n\t}\n\treturn false\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "How can we read a file content in nodejs",
-			"content": "\nUsing fs module we can read a file content in nodejs. We can use readFile() method to read a file content. It takes two arguments, first is the file path and second is the callback function. The callback function takes two arguments, first is error and second is the data. If there is no error then data will be the file content.\n\n```js\nconst fs = require('fs')\n\nfs.readFile('file.txt', (err, data) => {\n\tif (err) throw err\n\tconsole.log(data)\n})\n```\n",
-			"section": "svelte"
+			"title": "Implement Array indexOf polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.indexOfImpl = function (value) {\n\tfor (let i = 0; i < this.length; i++) {\n\t\tif (this[i] === value) {\n\t\t\treturn i\n\t\t}\n\t}\n\treturn -1\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What Is a Node.js Stream?",
-			"content": "\nStreams are a built-in feature in Node.js and represent asynchronous flow of data. Streams are also a way to handle reading and/or writing files. A Node.js stream can help process large files larger than the free memory of your computer, since it processes the data in small chunks.\n",
-			"section": "svelte"
+			"title": "Implement Array join polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.joinImpl = function (separator) {\n\tconst arr = this\n\tlet str = ''\n\tfor (let i = 0; i < arr.length; i++) {\n\t\tstr += arr[i]\n\t\tif (i < arr.length - 1) {\n\t\t\tstr += separator\n\t\t}\n\t}\n\treturn str\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is HTTP ?",
-			"content": "\nHTTP (Hypertext Transfer Protocol) is a protocol that is used to transfer data between a client and a server. HTTP is a stateless protocol, which means that the server does not keep any data (state) between two requests. There are a secure variant of HTTP called HTTPS (Hypertext Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "svelte"
+			"title": "Implement Array map polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.mapImpl = function (fn) {\n\tconst result = []\n\tfor (let i = 0; i < this.length; i++) {\n\t\tresult.push(fn(this[i]))\n\t}\n\treturn result\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is cluster in nodejs",
-			"content": "\nCluster is a module in Node.js that allows us to create multiple instances of a server. This is useful when we want to take advantage of multi-core systems. It allows us to create child processes that all share server ports.\n\n```js\nconst cluster = require('cluster')\nconst express = require('express')\n// Constants\nconst PORT = 8080\n\n// App\nconst app = express()\napp.get('/', (req, res) => {\n\tres.send('Hello world\\n')\n})\n\nif (cluster.isMaster) {\n\t// Count the machine's CPUs\n\tconst cpuCount = require('os').cpus().length\n\n\t// Create a worker for each CPU\n\tfor (let i = 0; i < cpuCount; i += 1) {\n\t\tcluster.fork()\n\t}\n\n\t// Listen for dying workers\n\tcluster.on('exit', (worker) => {\n\t\t// Replace the dead worker,\n\t\t// we're not sentimental\n\t\tconsole.log('Worker %d died :(', worker.id)\n\t\tcluster.fork()\n\t})\n\n\t// Code to run if we're in a worker process\n} else {\n\tapp.listen(PORT)\n\tconsole.log('Running on http://localhost:' + PORT)\n}\n```\n",
-			"section": "svelte"
+			"title": "Implement Array slice polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.sliceImpl = function (start = 0, end = this.length) {\n\tlet arr = []\n\tfor (let i = 0; i < this.length; i++) {\n\t\tif (start <= i && end >= i) {\n\t\t\tarr.push(this[i])\n\t\t}\n\t}\n\treturn arr\n}\n```\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What is difference between concurrency and parallelism ?",
-			"content": "\nConcurrency is when two or more tasks can start, run, and complete in overlapping time periods. It doesn't necessarily mean they'll ever both be running at the same instant. For example, multitasking on a single-core machine.\n\nParallelism is when tasks literally run at the same time, e.g., on a multicore processor.\n",
-			"section": "svelte"
+			"title": "Implement Array some polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.someImpl = function (callback) {\n\tlet passed = false\n\tfor (let i = 0; i < this.length; i++) {\n\t\tif (callback && callback(this[i], i, this)) {\n\t\t\tpassed = true\n\t\t\tbreak\n\t\t} else {\n\t\t\tpassed = false\n\t\t}\n\t}\n\treturn passed\n}\n\n```\n</details>\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is JWT ?",
-			"content": "\nJWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.\n",
-			"section": "svelte"
+			"title": "Implement Array unshift polyfill ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nArray.prototype.unshiftImpl = function (...args) {\n\tfor (let i = 0; i < args.length; i++) {\n\t\tthis.splice(i, 0, args[i])\n\t}\n\treturn this.length\n}\n\n```\n</details>\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "what is middleware in node js",
-			"content": "\nMiddleware is a function that has access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.\n\n## Express Middleware\n\n```js\nconst express = require('express')\nconst app = express()\n\napp.use((req, res, next) => {\n\tconsole.log('Time:', Date.now())\n\tnext()\n})\n\napp.get('/', (req, res) => {\n\tres.send('Hello World!')\n})\n\napp.listen(3000)\n```\n",
-			"section": "svelte"
+			"title": "Implement stack data structure ?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\t\n```js\nclass Stack {\n\tconstructor() {\n\t\tthis.items = []\n\t}\n\tpush(item) {\n\t\tthis.items.push(item)\n\t}\n\tpop() {\n\t\treturn this.items.pop()\n\t}\n\tpeek() {\n\t\treturn this.items[this.items.length - 1]\n\t}\n\tisEmpty() {\n\t\treturn this.items.length === 0\n\t}\n\tclear() {\n\t\tthis.items = []\n\t}\n}\n\n```\n</details>\n```\n",
+			"section": "js"
 		},
 		{
-			"title": "What is use of middleware in node js ?",
-			"content": "\nMiddleware can be used to perform the following tasks:\n\n- Execute any code.\n- Make changes to the request and the response objects.\n- End the request-response cycle.\n- Call the next middleware in the stack.\n",
-			"section": "svelte"
+			"title": "What is the output of below code",
+			"content": "\n```javascript\nconsole.log(sum(2, 3)); // Outputs 5\nconsole.log(sum(2)(3)); // Outputs 5\n```\n\n<details>\n    <summary>Answer</summary>\n\n```javascript\nfunction sum(x) {\n\tif (arguments.length === 2) {\n\t\treturn arguments[0] + arguments[1];\n\t} else {\n\t\treturn function (y) {\n\t\t\treturn x + y;\n\t\t};\n\t}\n}\n```\n\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "what is the use of helmet in node js",
-			"content": "\nHelmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help! Helmet is actually just a collection of smaller middleware functions that set security-related HTTP response headers:\n\n## How to use\n\n```js\nconst express = require('express')\nconst helmet = require('helmet')\n\nconst app = express()\n\napp.use(helmet.contentSecurityPolicy())\napp.use(helmet.crossOriginEmbedderPolicy())\napp.use(helmet.crossOriginOpenerPolicy())\napp.use(helmet.crossOriginResourcePolicy())\napp.use(helmet.dnsPrefetchControl())\napp.use(helmet.expectCt())\napp.use(helmet.frameguard())\napp.use(helmet.hidePoweredBy())\napp.use(helmet.hsts())\napp.use(helmet.ieNoOpen())\napp.use(helmet.noSniff())\napp.use(helmet.originAgentCluster())\napp.use(helmet.permittedCrossDomainPolicies())\napp.use(helmet.referrerPolicy())\napp.use(helmet.xssFilter())\n\napp.listen(3000)\n```\n",
-			"section": "svelte"
+			"title": "What is the output of below code",
+			"content": "\n```javascript\nvar arr1 = 'john'.split('');\nvar arr2 = arr1.reverse();\nvar arr3 = 'jones'.split('');\narr2.push(arr3);\n\nconsole.log('array 1: length=' + arr1.length + ' last=' + arr1.slice(-1));\nconsole.log('array 2: length=' + arr2.length + ' last=' + arr2.slice(-1));\n```\n\n<details>\n    <summary>Answer</summary>\n\n```javascript\n// array 1: length=5 last=j,o,n,e,s\n// array 2: length=5 last=j,o,n,e,s\n```\n\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "what is rest api in nodejs?",
-			"content": "\nREST APIs are used to access and manipulate data using a common set of stateless operations. These operations are integral to the HTTP protocol and represent essential create, read, update, and delete (CRUD) functionality. REST APIs are designed to be lightweight and fast, and are often used to provide public access to data for third-party developers.\n",
-			"section": "svelte"
+			"title": "What will the following code output to the console and why?",
+			"content": "\n```javascript\nvar hero = {\n\t_name: 'John Doe',\n\tgetSecretIdentity: function () {\n\t\treturn this._name;\n\t}\n};\n\nvar stoleSecretIdentity = hero.getSecretIdentity;\n\nconsole.log(stoleSecretIdentity());\nconsole.log(hero.getSecretIdentity());\n```\n\n<details>\n    <summary>Answer</summary>\n\nThe code will output:\n\n```js\nundefined\nJohn Doe\n```\n\nThe first `console.log` prints undefined because we are extracting the method from the hero object, so stoleSecretIdentity() is being invoked in the global context (i.e., the window object) where the \\_name property does not exist.\n\nOne way to fix the stoleSecretIdentity() function is as follows:\n\n```js\nvar stoleSecretIdentity = hero.getSecretIdentity.bind(hero);\n```\n\n</details>\n",
+			"section": "js"
 		},
 		{
-			"title": "What's the difference between req.params and req.query?",
-			"content": "\nThe first difference between query and path parameters is their position in the URL. While the query parameters appear on the right side of the '? ' in the URL, path parameters come before the question mark sign. Secondly, the query parameters are used to sort/filter resources.\n",
-			"section": "svelte"
+			"title": "Consider the following code. What will the output be, and why?",
+			"content": "\n```javascript\n;(function () {\n\ttry {\n\t\tthrow new Error()\n\t} catch (x) {\n\t\tvar x = 1,\n\t\t\ty = 2\n\t\tconsole.log('INSIDE', x)\n\t\tconsole.log('INSIDE', y)\n\t}\n\tconsole.log('OUTSIDE', x)\n\tconsole.log('OUTSIDE', y)\n})()\n```\n\n<details>\n    <summary>Answer</summary>\n\n```js\nINSIDE 1\nINSIDE 2\nOUTSIDE undefined\nOUTSIDE 2\n```\n\nvar statements are hoisted (without their value initialization) to the top of the global or function scope it belongs to, even when it’s inside a with or catch block. However, the error’s identifier is only visible inside the catch block. It is equivalent to:\n\n```js\n;(function () {\n\tvar x, y // outer and hoisted\n\ttry {\n\t\tthrow new Error()\n\t} catch (x /* inner */) {\n\t\tx = 1 // inner x, not the outer one\n\t\ty = 2 // there is only one y, which is in the outer scope\n\t\tconsole.log(x /* inner */)\n\t}\n\tconsole.log(x)\n\tconsole.log(y)\n})()\n```\n\n</details>\n",
+			"section": "js",
+			"source": "https://www.toptal.com"
 		},
 		{
-			"title": "What is routing in nodejs ?",
-			"content": "\nRouting refers to how an application's endpoints (URIs) respond to client requests. For an introduction to routing, see Basic routing.\n",
-			"section": "svelte"
+			"title": "What will be the output of this code?",
+			"content": "\n```javascript\nvar x = 21;\nvar girl = function () {\n\tconsole.log(x);\n\tvar x = 20;\n};\ngirl();\n```\n\n<details>\n    <summary>Answer</summary>\n\n```js\n// Load state\nvar x = undefined;\nvar girl = function () {\n\tconsole.log(x);\n\tvar x = 20;\n};\n\n// Execution State\nvar x = 21;\n// loading State\nvar girl = function () {\n\tvar x = undefined;\n\tconsole.log(x);\n};\n// Execution State\nvar girl = function () {\n\tvar x = undefined;\n\tconsole.log(x); // undefined\n\tx = 20;\n};\n```\n\nNeither 21, nor 20, the result is undefined\n\nIt’s because JavaScript initialization is not hoisted.\n\n(Why doesn’t it show the global value of 21? The reason is that when the function is executed, it checks that there’s a local x variable present but doesn’t yet declare it, so it won’t look for global one.)\n\n</details>\n",
+			"section": "js",
+			"source": "https://www.toptal.com"
 		},
 		{
-			"title": "What is child process in nodejs ?",
-			"content": "\nNodeJS in single threaded. It means that it can only do one thing at a time. If you want to do multiple things at the same time, you need to use child process. For example, if you want to run a long running task in the background, you can use child process.\n",
-			"section": "svelte"
+			"title": "How do you add an element at the begining of an array? How do you add one at the end?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\n```js\nvar myArray = ['a', 'b', 'c', 'd'];\nmyArray.push('end');\nmyArray.unshift('start');\nconsole.log(myArray); // [\"start\", \"a\", \"b\", \"c\", \"d\", \"end\"]\n```\n\nWith ES6, one can use the spread operator:\n\n```js\nmyArray = ['start', ...myArray, 'end'];\n```\n\n</details>\n",
+			"section": "js",
+			"source": "https://www.toptal.com"
 		},
 		{
-			"title": "what are http methods ?",
-			"content": "\n- GET: The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.\n- POST: The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.\n\n- PUT: The PUT method replaces all current representations of the target resource with the request payload.\n\n- DELETE: The DELETE method deletes the specified resource.\n\n- PATCH: The PATCH method is used to apply partial modifications to a resource.\n",
-			"section": "svelte"
+			"title": "What is the value of typeof undefined == typeof NULL?",
+			"content": "\n<details>\n    <summary>Answer</summary>\n\nThe expression will be evaluated to true, since NULL will be treated as any other undefined variable.\n\nNote: JavaScript is case-sensitive and here we are using NULL instead of null.\n\n</details>\n",
+			"section": "js",
+			"source": "https://www.toptal.com"
 		},
 		{
-			"title": "What is crypto in node js?",
-			"content": "\nCrypto is a module in Node. js which deals with an algorithm that performs data encryption and decryption. This is used for security purpose like user authentication where storing the password in Database in the encrypted form. Crypto module provides set of classes like hash, HMAC, cipher, decipher, sign, and verify.\n",
-			"section": "svelte"
+			"title": "What would following code return?",
+			"content": "\n```js\nconsole.log(typeof typeof 1);\n```\n\n<details>\n    <summary>Answer</summary>\n\n`string`\ntypeof 1 will return `\"number\"` and typeof `\"number\"` will return `string`.\n\n</details>\n",
+			"section": "js",
+			"source": "https://www.toptal.com"
 		},
 		{
-			"title": "What is ftp protocol ?",
-			"content": "\nFTP (File Transfer Protocol) is a protocol that is used to transfer files between a client and a server. FTP is a stateful protocol, which means that the server keeps the state between two requests. There are a secure variant of FTP called FTPS (File Transfer Protocol Secure) that uses SSL/TLS to encrypt the communication between the client and the server.\n",
-			"section": "svelte"
+			"title": "What will the following code output and why?",
+			"content": "\n```js\nvar b = 1;\nfunction outer() {\n\tvar b = 2;\n\tfunction inner() {\n\t\tb++;\n\t\tvar b = 3;\n\t\tconsole.log(b);\n\t}\n\tinner();\n}\nouter();\n```\n\n<details>\n    <summary>Answer</summary>\n\nOutput to the console will be “3”.\n\nThere are three closures in the example, each with it’s own var b declaration. When a variable is invoked closures will be checked in order from local to global until an instance is found. Since the inner closure has a b variable of its own, that is what will be output.\n\nFurthermore, due to hoisting the code in inner will be interpreted as follows:\n\n```js\nfunction inner() {\n\tvar b; // b is undefined\n\tb++; // b is NaN\n\tb = 3; // b is 3\n\tconsole.log(b); // output \"3\"\n}\n```\n\n</details>\n",
+			"section": "js",
+			"source": "https://www.toptal.com"
 		},
 		{
-			"title": "What is thread in computer ?",
-			"content": "\nA thread is an execution context, which is all the information a CPU needs to execute a stream of instructions.\n",
-			"section": "svelte"
+			"title": "What is the output of below code ?",
+			"content": "\n```js\nvar car = new Vehicle('Honda', 'white', '2010', 'UK');\nconsole.log(car);\nfunction Vehicle(model, color, year, country) {\n\tthis.model = model;\n\tthis.color = color;\n\tthis.year = year;\n\tthis.country = country;\n}\n```\n\n<details>\n    <summary>Answer</summary>\n\nThe function declarations are hoisted similar to any variables. So the placement for Vehicle function declaration doesn't make any difference.\n\n</details>\n",
+			"section": "js",
+			"source": "https://github.com/sudheerj/javascript-interview-questions#coding-exercise"
 		},
 		{
-			"title": "How Node.js works",
-			"content": "\nNodeJS is a runtime environment for executing JavaScript code. It is built on top of the V8 JavaScript engine, the same engine that powers Google Chrome. NodeJS uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.\n\nFor example when a user makes a request to a web server, the server will start processing the request and return a response. While the server is processing the request, it can still accept and process other requests. This is made possible by the event loop. The event loop allows NodeJS to perform non-blocking I/O operations even though JavaScript is single-threaded.\n",
-			"section": "svelte"
+			"title": "What is the output of below code ?",
+			"content": "\n```js\nfunction foo() {\n\tlet x = (y = 0);\n\tx++;\n\ty++;\n\treturn x;\n}\n\nconsole.log(foo(), typeof x, typeof y);\n```\n\n<details>\n    <summary>Answer</summary>\n\nOf course the return value of foo() is 1 due to the increment operator. But the statement let x = y = 0 declares a local variable x. Whereas y declared as a global variable accidentally. This statement is equivalent to,\n\n```js\nlet x;\nwindow.y = 0;\nx = window.y;\n```\n\n</details>\n",
+			"section": "js",
+			"source": "https://github.com/sudheerj/javascript-interview-questions"
 		},
 		{
-			"title": "What is cpu intensive tasks in NodeJS ?",
-			"content": "\nIn NodeJS CPU intensive tasks are those tasks which process\n",
-			"section": "svelte"
+			"title": "What's the output?",
+			"content": "\n```js\nfunction sayHi() {\n\tconsole.log(name)\n\tconsole.log(age)\n\tvar name = 'Lydia'\n\tlet age = 21\n}\n\nsayHi()\n```\n\n<details>\n    <summary>Answer</summary>\n\nWithin the function, we first declare the name variable with the var keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of undefined, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the name variable, so it still holds the value of undefined.\n\nVariables with the let keyword (and const) are hoisted, but unlike var, don't get initialized. They are not accessible before the line we declare (initialize) them. This is called the \"temporal dead zone\". When we try to access the variables before they are declared, JavaScript throws a ReferenceError.\n\n</details>\n",
+			"section": "js",
+			"source": "https://github.com/lydiahallie/javascript-questions"
 		},
 		{
-			"title": "Is node js really single threaded ?",
-			"content": "\nNo. NodeJS is not single threaded.\nThe nodejs event loop is process single threaded, But the async blocking I/O operation are delegated to the worker threads.\n",
-			"section": "svelte"
+			"title": "What's the output?",
+			"content": "\n```js\nlet c = { greeting: 'Hey!' }\nlet d\n\nd = c\nc.greeting = 'Hello'\nconsole.log(d.greeting)\n```\n\n<details>\n    <summary>Answer</summary>\n\nIn JavaScript, all objects interact by reference when setting them equal to each other.\n\nFirst, variable c holds a value to an object. Later, we assign d with the same reference that c has to the object.\nWhen you change one object, you change all of them.\n\n</details>\n",
+			"section": "js",
+			"source": "https://github.com/lydiahallie/javascript-questions"
 		},
 		{
-			"title": "What Can Node.js Do?",
-			"content": "\n- Node.js can generate dynamic page content\n- NodeJS can create, open, read, write, delete, and close files on the server.\n- NodeJS can collect form data\n- Can add , delete, modify data in your database.\n",
-			"section": "svelte"
+			"title": "What's the output?",
+			"content": "\n```js\nclass Chameleon {\n\tstatic colorChange(newColor) {\n\t\tthis.newColor = newColor\n\t\treturn this.newColor\n\t}\n\n\tconstructor({ newColor = 'green' } = {}) {\n\t\tthis.newColor = newColor\n\t}\n}\n\nconst freddie = new Chameleon({ newColor: 'purple' })\nconsole.log(freddie.colorChange('orange'))\n```\n\n<details>\n    <summary>Answer</summary>\n    \nThe colorChange function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since freddie is an instance of class Chameleon, the function cannot be called upon it. A TypeError is thrown.\n\n</details>\n",
+			"section": "js",
+			"source": "https://github.com/lydiahallie/javascript-questions"
 		}
 	]
 }

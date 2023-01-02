@@ -5,6 +5,7 @@
 	import { readingTime } from '../utils';
 	let isOpen = false;
 	export let data;
+	export let sectionData;
 	const markdonw = md({
 		langPrefix: 'language-',
 		highlight: function (str, lang) {
@@ -19,17 +20,20 @@
 	});
 </script>
 <div class="mb-8 relative">
-	<div class="item flex space-x-2 mb-3 cursor-pointer " on:click={() => (isOpen = !isOpen)}>
-		<img
+	<div class="item flex space-x-2 mb-3 cursor-pointer items-center" on:click={() => (isOpen = !isOpen)}>
+		<!-- <img
 			class="h-[50px] w-[50px] object-contain mr-3"
-			src="https://dg8krxphbh767.cloudfront.net/tracks/abap.svg"
+			src="{sectionData?.image}"
 			alt=""
-		/>
-		<div class="">
-			<h2 class="text-base font-medium">
-				{data.title}
-			</h2>
-			<p class="text-xs mt-2">{readingTime(data?.content)}</p>
+		/> -->
+		<div>
+			<div class="flex items-center space-x-2 ">
+				<div class="h-3 w-3 bg-primary rounded-full opacity-80"></div>
+				<h2 class="text-base font-medium">
+					{data.title}
+				</h2>
+			</div>
+			<p class="text-xs mt-2 pl-5">{readingTime(data?.content)}</p>
 		</div>
 	</div>
 	{#if isOpen}

@@ -1,6 +1,5 @@
 <script>
 	export let data;
-	console.log("🚀 ~ file: TopicCard.svelte:3 ~ data", data)
 </script>
 <div class="bg-white box px-4 py-2">
 	<div class="flex">
@@ -31,7 +30,7 @@
 			</div>
 			<div class="tags mt-3 hidden lg:flex">
 				{#each data?.tags||[] as item}
-					<span class="text-xs text-primary bg-[#F0F5FF] px-2 py-1 rounded-md mr-2"> {item} </span>
+					<span class="text-xs text-primary bg-[#F0F5FF] px-2 py-1 rounded-md mr-2 capitalize"> {item} </span>
 				{/each}
 			</div>
 		</div>

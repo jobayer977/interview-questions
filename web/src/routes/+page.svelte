@@ -9,7 +9,6 @@
 	const fetchTopics = async () => {
 		const res = await fetch('/sections.json');
 		const items = await res.json();
-		console.log("🚀 ~ file: +page.svelte:12 ~ fetchTopics ~ items", items)
 		data = items|| [];
 	};
 	onMount(() => {
@@ -18,13 +17,12 @@
 </script>
 <div class="container">
 	<div class="pt-16 text-center">
-		<img src="/download.png" alt="" class="h-20 mb-2 w-full object-contain" />
+		<!-- <img src="/download.png" alt="" class="h-20 mb-2 w-full object-contain" /> -->
 		<h1 class="text-xl lg:leading-none md:text-[39px] font-bold ">
-			62 languages for you to master
+			Interview Preparation Made Easy
 		</h1>
 		<p class="text-sm lg:text-[18px] lg:max-w-3xl mx-auto  text-primary leading-relaxed my-3">
-			Become fluent in your chosen programming languages by completing these tracks created by our
-			awesome team of contributors
+			Elevate your interviewing skills with our straightforward guide to interview preparation.
 		</p>
 	</div>
 	<!-- Global Search -->
@@ -55,7 +53,7 @@
 	<div class="container">
 		<div class="grid lg:grid-cols-2 gap-4">
 			{#each sortedTopics||[] as item}
-				<a href={item?.link}>
+				<a href={`/${item?.contentFolder}`}>
 					<TopicCard data={item}/>
 				</a>
 			{/each}

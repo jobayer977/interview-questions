@@ -1,40 +1,39 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	import TopicItem from '../../components/TopicItem.svelte';
 	export let data:any[] = []
-	console.log("🚀 ~ file: +page.svelte:4 ~ data", data)
-	// let topics:any[] = []
-	// let searchTerm = '';
-	// $: sortedTopics = data?.data?.filter((post:any) =>
-	// 	post.title.toLowerCase().includes(searchTerm.toLowerCase())
-	// );
-	// onMount(async () => {
-	// 	const res = await fetch('/topics.json');
-	// 	const data = await res.json();
-	// 	topics = data[$page.params.slug] || [];
-	// });
-	// console.log("🚀 ~ file: +page.svelte:17 ~ data", data)
+	let sectionData:any = null;
+	const fetchTopics = async () => {
+		const res = await fetch('/sections.json');
+		const items = await res.json();
+		sectionData = items.find((item:any) => item?.contentFolder === $page.params.slug);
+	};
+	onMount(() => {
+		fetchTopics();
+	});
 </script>
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
-		<div class="flex space-x-3">
-			<!-- <div class="item-image">
+		<div class="flex space-x-3 items-center">
+			<div class="item-image">
 				<img
-					class="h-[128px] w-[128px] object-contain mr-14"
-					src="https://d24y9kuxp2d7l2.cloudfront.net/assets/graphics/laptop-man-1-18c1946cd8269f24a33c3db759e9f7db89eb0178.svg"
+					class="h-[128px] w-[128px] object-contain mr-8"
+					src={sectionData?.image}
 					alt=""
 				/>
-			</div> -->
+			</div>
 			<div class="ml-24">
-				<h1>Explore the AWK exercises on Exercism</h1>
+				<h1>{sectionData?.title}</h1>
 				<p class="mt-2">
-					Unlock more exercises as you progress. They’re great practice and fun to do!
+					Remain everything you know about the {sectionData?.title} and start
 				</p>
 			</div>
 		</div>
 	</div>
 	<div class="container mt-20">
 		{#each data?.data ||[] as item}
-			<TopicItem data={item}/>
+			<TopicItem data={item} sectionData={sectionData}/>
 		{/each}
 	</div>
 </div>
