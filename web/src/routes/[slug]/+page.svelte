@@ -17,13 +17,13 @@
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
 		<div class="flex space-x-3">
-			<div class="item-image">
+			<!-- <div class="item-image">
 				<img
 					class="h-[128px] w-[128px] object-contain mr-14"
 					src="https://d24y9kuxp2d7l2.cloudfront.net/assets/graphics/laptop-man-1-18c1946cd8269f24a33c3db759e9f7db89eb0178.svg"
 					alt=""
 				/>
-			</div>
+			</div> -->
 			<div class="ml-24">
 				<h1>Explore the AWK exercises on Exercism</h1>
 				<p class="mt-2">
