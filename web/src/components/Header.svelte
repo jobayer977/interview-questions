@@ -11,7 +11,7 @@
 			</a>
 			<nav class="navs">
 				<ul>
-					<li><a href="/">About</a></li>
+					<li><a href="https://github.com/jobayer977/questionsi.com" target="_blank">Github</a></li>
 				</ul>
 			</nav>
 		</div>
