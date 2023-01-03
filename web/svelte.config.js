@@ -15,7 +15,7 @@ const config = {
 			strict: true
 		}),
 		prerender: {
-			entries: ['/[slug]']
+			entries: ['/[slug]', '*']
 		}
 	}
 };
