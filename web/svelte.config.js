@@ -12,8 +12,11 @@ const config = {
 			assets: 'build',
 			fallback: null,
 			precompress: false,
-			strict: false
-		})
+			strict: true
+		}),
+		prerender: {
+			entries: ['/[slug]']
+		}
 	}
 };
 export default config;
