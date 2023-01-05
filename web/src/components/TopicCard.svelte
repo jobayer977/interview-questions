@@ -32,7 +32,9 @@
 						height="20"
 						width="20"
 					/>
-					<p class="text-primary text-xs">{data?.topics} Topics</p>
+					<p class="text-primary text-xs">
+						<!-- {data?.topics} -->
+						 Topics</p>
 				</div>
 			</div>
 			<div class="tags mt-3 hidden lg:flex">
