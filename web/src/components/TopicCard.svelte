@@ -9,6 +9,8 @@
 				src="{data?.image}"
 				class="w-[80px]"
 				alt=""
+				height="80"
+				width="80"
 			/>
 		</div>
 		<div class="flex-1">
@@ -18,6 +20,8 @@
 					<img
 						src="/exercises.svg"
 						alt=""
+						height="20"
+						width="20"
 					/>
 					<p class="text-primary text-xs">{data?.duration}</p>
 				</div>
@@ -25,6 +29,8 @@
 					<img
 						src="/concepts.svg"
 						alt=""
+						height="20"
+						width="20"
 					/>
 					<p class="text-primary text-xs">{data?.topics} Topics</p>
 				</div>

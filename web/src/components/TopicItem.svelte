@@ -21,14 +21,9 @@
 </script>
 <div class="mb-8 relative">
 	<div class="item flex space-x-2 mb-3 cursor-pointer items-center" on:click={() => (isOpen = !isOpen)}>
-		<!-- <img
-			class="h-[50px] w-[50px] object-contain mr-3"
-			src="{sectionData?.image}"
-			alt=""
-		/> -->
 		<div>
 			<div class="flex items-center space-x-2 ">
-				<div class="h-3 w-3 bg-primary rounded-full opacity-80"></div>
+				<div class="h-2 w-2 bg-primary rounded-full opacity-80"></div>
 				<h2 class="text-base font-medium">
 					{data.title}
 				</h2>

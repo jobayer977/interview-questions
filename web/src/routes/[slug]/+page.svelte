@@ -23,6 +23,8 @@
 					class="h-[128px] w-[128px] object-contain mr-8"
 					src={sectionData?.image}
 					alt=""
+					height="128"
+					width="128"
 				/>
 			</div>
 			<div class="ml-24">

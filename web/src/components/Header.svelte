@@ -7,6 +7,8 @@
 				<img
 					src="/logo.svg"
 					alt=""
+					width="150"
+					height="60"
 				/>
 			</a>
 			<nav class="navs">

@@ -19,7 +19,6 @@
 <SeoHead/>
 <div class="container">
 	<div class="pt-16 text-center">
-		<!-- <img src="/download.png" alt="" class="h-20 mb-2 w-full object-contain" /> -->
 		<h1 class="text-xl lg:leading-none md:text-[39px] font-bold ">
 			Interview Preparation Made Easy
 		</h1>
