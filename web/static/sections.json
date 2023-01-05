@@ -70,5 +70,13 @@
 		"tags": ["front-end", "javascript", "css", "html"],
 		"topics": "60+",
 		"duration": "1.5 hours"
+	},
+	{
+		"title": "WebSocket & Socket.io",
+		"contentFolder": "websocket",
+		"image": "/sections-icons/websocket.svg",
+		"tags": ["front-end", "javascript", "websocket", "socket.io"],
+		"topics": "60+",
+		"duration": "1.5 hours"
 	}
 ]

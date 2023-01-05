@@ -14,7 +14,7 @@
 		fetchTopics();
 	});
 </script>
-<SeoHead title={sectionData?.title} ogImage={sectionData?.image}/>
+<SeoHead title={`${sectionData?.title} | Remain everything you know about the ${sectionData?.title} and start`} ogImage={sectionData?.image}/>
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
 		<div class="flex space-x-3 items-center">
