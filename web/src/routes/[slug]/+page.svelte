@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import SeoHead from '../../components/SeoHead.svelte';
 	import { onMount } from 'svelte';
 	import TopicItem from '../../components/TopicItem.svelte';
 	export let data:any[] = []
@@ -13,6 +14,7 @@
 		fetchTopics();
 	});
 </script>
+<SeoHead title={sectionData?.title} ogImage={sectionData?.image}/>
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
 		<div class="flex space-x-3 items-center">

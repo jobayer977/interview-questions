@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SeoHead from '../components/SeoHead.svelte';
 	import { onMount } from 'svelte';
 	import TopicCard from '../components/TopicCard.svelte';
 	let data:any[] = [];
@@ -15,6 +16,7 @@
 		fetchTopics();
 	});
 </script>
+<SeoHead/>
 <div class="container">
 	<div class="pt-16 text-center">
 		<!-- <img src="/download.png" alt="" class="h-20 mb-2 w-full object-contain" /> -->
