@@ -7,11 +7,7 @@ const config = {
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({}),
-		prerender: {
-			entries: ['/[slug]', '*'],
-			crawl: true
-		}
+		adapter: adapter({})
 	}
 };
 export default config;
