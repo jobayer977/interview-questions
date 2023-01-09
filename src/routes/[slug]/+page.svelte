@@ -1,43 +1,32 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import SeoHead from '../../components/SeoHead.svelte';
-	import { onMount } from 'svelte';
 	import TopicItem from '../../components/TopicItem.svelte';
 	export let data:any[] = []
-	let sectionData:any = null;
-	const fetchTopics = async () => {
-		const res = await fetch('/sections.json');
-		const items = await res.json();
-		sectionData = items.find((item:any) => item?.contentFolder === $page.params.slug);
-	};
-	onMount(() => {
-		fetchTopics();
-	});
 </script>
-<SeoHead title={`${sectionData?.title} | Remain everything you know about the ${sectionData?.title} and start`} ogImage={sectionData?.image}/>
+<SeoHead title={`${data?.sectionData?.title} | Remain everything you know about the ${data?.sectionData?.title} and start`} ogImage={data?.sectionData?.image}/>
 <div class="my-12 bg-[#FBFCFE]">
 	<div class="container">
 		<div class="flex space-x-3 items-center">
 			<div class="item-image">
 				<img
 					class="h-[128px] w-[128px] object-contain mr-8"
-					src={sectionData?.image}
+					src={data?.sectionData?.image}
 					alt=""
 					height="128"
 					width="128"
 				/>
 			</div>
 			<div class="ml-24">
-				<h1>{sectionData?.title}</h1>
+				<h1>{data?.sectionData?.title}</h1>
 				<p class="mt-2">
-					Remain everything you know about the {sectionData?.title} and start
+					Remain everything you know about the {data?.sectionData?.title} and start
 				</p>
 			</div>
 		</div>
 	</div>
 	<div class="container mt-20">
 		{#each data?.data ||[] as item}
-			<TopicItem data={item} sectionData={sectionData}/>
+			<TopicItem data={item} sectionData={data?.sectionData}/>
 		{/each}
 	</div>
 </div>

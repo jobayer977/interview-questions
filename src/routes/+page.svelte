@@ -1,20 +1,11 @@
 <script lang="ts">
 	import SeoHead from '../components/SeoHead.svelte';
-	import { onMount } from 'svelte';
 	import TopicCard from '../components/TopicCard.svelte';
-	let data:any[] = [];
+	export let data:any
 	let searchTerm = '';
-	$: sortedTopics = data?.filter((post) =>
+	$: sortedTopics = data?.data && data?.data?.filter((post) =>
 		post.title.toLowerCase().includes(searchTerm.toLowerCase())
 	);
-	const fetchTopics = async () => {
-		const res = await fetch('/sections.json');
-		const items = await res.json();
-		data = items|| [];
-	};
-	onMount(() => {
-		fetchTopics();
-	});
 </script>
 <SeoHead/>
 <div class="container">
