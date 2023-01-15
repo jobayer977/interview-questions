@@ -78,5 +78,13 @@
 		"tags": ["front-end", "javascript", "websocket", "socket.io"],
 		"topics": "60+",
 		"duration": "1.5 hours"
+	},
+	{
+		"title": "Operating System",
+		"contentFolder": "operating-system",
+		"image": "/sections-icons/operating-system.svg",
+		"tags": ["Windows", "macOS", "Linux", "Unix", "Android", "iOS"],
+		"topics": "60+",
+		"duration": "1.5 hours"
 	}
 ]

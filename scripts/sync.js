@@ -3,6 +3,7 @@ import { existsSync, lstatSync, readFileSync, readdirSync } from 'fs';
 import fs from 'fs';
 import metadataParser from 'markdown-yaml-metadata-parser';
 import path from 'path';
+
 (async function () {
 	// const title = 'Frequently Asked React Interview Questions';
 	const resources = [];
@@ -35,7 +36,7 @@ import path from 'path';
 			title: result.title,
 			content: content,
 			section,
-			source: result?.source,
+			source: result?.source
 		};
 		topics[section] = [...(topics[section] || []), payload];
 	});
@@ -55,12 +56,8 @@ import path from 'path';
 	// 	'./README.md',
 	// 	`# ${title} \n ### Resources \n${resourcesStringForMarkdown} \n\n ## Table of Contents\n\n${tableOfContentsStringForMarkdown}<br/><br/><br/><br/>\n\n${topicsStringForMarkdown}`
 	// )
-	fs.writeFileSync('./web/static/topics.json', JSON.stringify(topics));
-	console.log(
-		`🎯 Sync Successfully completed - ${
-			Object.values(topics).flat(Infinity).length
-		}`
-	);
+	fs.writeFileSync('./static/topics.json', JSON.stringify(topics));
+	console.log(`🎯 Sync Successfully completed - ${Object.values(topics).flat(Infinity).length}`);
 })();
 // mark string to slug
 function slugify(text) {
