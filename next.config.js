@@ -1,5 +1,5 @@
 const withNextra = require("nextra")({
-  primaryHue: 331,
+  primaryHue: 120,
   theme: "nextra-theme-docs",
   themeConfig: "./theme.config.js",
   unstable_flexsearch: true,

@@ -13,9 +13,9 @@ const HEADING_WITH_TRANSLATIONS = {
   "es-ES": "ব্যাকএন্ড হ্যান্ডবুক",
 };
 export default {
-  projectLink: "https://github.com/jobayer977/backendhandbook",
-  docsRepositoryBase: "https://github.com/jobayer977/backendhandbook",
-  titleSuffix: " – BackendHandbook",
+  projectLink: "https://github.com/jobayer977/questionsi.com",
+  docsRepositoryBase: "https://github.com/jobayer977/questionsi.com",
+  titleSuffix: " – questionsi.com",
   search: true,
   unstable_flexsearch: true,
   floatTOC: true,
@@ -34,9 +34,9 @@ export default {
         <img className="h-5 w-5 " src="/logo.svg" alt="" />
         <span
           className="mx-2 font-extrabold hidden md:inline select-none"
-          title={"BackendHandbook: " + (TITLE_WITH_TRANSLATIONS[locale] || "")}
+          title={"questionsi.com: " + (TITLE_WITH_TRANSLATIONS[locale] || "")}
         >
-          {HEADING_WITH_TRANSLATIONS[locale] || "BackendHandbook"}
+          {HEADING_WITH_TRANSLATIONS[locale] || "questionsi.com"}
         </span>
       </>
     );
@@ -45,7 +45,7 @@ export default {
     const { route } = useRouter();
     const ogImage =
       meta.image ||
-      `https://backendhandbook.org${
+      `https://questionsi.com.org${
         /\/index\.+/.test(route) ? "" : "?title=" + encodeURIComponent(title)
       }`;
     return (
@@ -88,7 +88,7 @@ export default {
           name="og:description"
           content={
             meta.description ||
-            "BackendHandbook - Learn the ins and outs of backend development with our comprehensive handbook. From the basics to advanced techniques, our guide covers everything you need to know to become a proficient backend developer. From server-side languages and frameworks to building scalable systems, we've got you covered. Start your journey to becoming a backend pro today!."
+            "questionsi.com - Learn the ins and outs of backend development with our comprehensive handbook. From the basics to advanced techniques, our guide covers everything you need to know to become a proficient backend developer. From server-side languages and frameworks to building scalable systems, we've got you covered. Start your journey to becoming a backend pro today!."
           }
         />
         <meta name="twitter:card" content="summary_large_image" />
@@ -98,12 +98,12 @@ export default {
           name="og:title"
           content={
             title
-              ? title + " – BackendHandbook"
+              ? title + " – questionsi.com"
               : "Becoming a Backend Pro: A Guide to Server-side Development"
           }
         />
         <meta name="og:image" content={ogImage} />
-        <meta name="apple-mobile-web-app-title" content="BackendHandbook" />
+        <meta name="apple-mobile-web-app-title" content="questionsi.com" />
         <script
           lang="javascript"
           dangerouslySetInnerHTML={{
