@@ -1,0 +1,40 @@
+# Binary Search
+
+Imagine you have a really big book with lots of pages and you want to find a specific word or phrase in it. You could start at the first page and read every single page until you find the word you're looking for, but that would take a long time if the book is really big!
+
+A better way would be to use something called "binary search". With binary search, you start by looking at the middle page of the book. If the word you're looking for is on that page, you're done! But if it's not there, you can use the words on that page to figure out if the word you're looking for is in the first half of the book or the second half of the book.
+
+Let's say the word you're looking for is "giraffe", and the middle page has the word "elephant" on it. Since "elephant" comes after "giraffe" in the dictionary, you know that the word "giraffe" must be in the first half of the book. So now you can ignore the second half of the book, and look for "giraffe" in the first half of the book by again looking at the middle page.
+
+By doing this over and over, you can quickly narrow down where the word "giraffe" is in the book, and find it much faster than if you had to read every single page.
+
+## Example Code in JavaScript
+
+```javascript
+function binarySearch(list, target) {
+    let start = 0;
+    let end = list.length - 1;
+    let found = false;
+
+    while (start <= end && !found) {
+        let middle = Math.floor((start + end) / 2);
+        if (list[middle] === target) {
+            found = true;
+        } else if (list[middle] < target) {
+            start = middle + 1;
+        } else {
+            end = middle - 1;
+        }
+    }
+    return found;
+}
+```
+
+### Questions
+
+<details>
+<summary>Can you explain the concept of binary search and how it's different from linear search?</summary>
+
+Binary search is a search algorithm that works on a sorted array or list. It works by repeatedly dividing the array in half until the target element is found. It's different from linear search, which simply checks each element in the array one by one until the target element is found. Binary search is more efficient because it cuts the search space in half with each iteration, making it an O(log n) algorithm, whereas linear search is O(n).
+
+</details>

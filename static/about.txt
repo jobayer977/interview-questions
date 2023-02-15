@@ -1,6 +1,0 @@
-This favicon was generated using the following font:
-
-- Font Title: Red Hat Display
-- Font Author: Copyright 2021 The Red Hat Project Authors (https://github.com/RedHatOfficial/RedHatFont)
-- Font Source: http://fonts.gstatic.com/s/redhatdisplay/v14/8vIf7wUr0m80wwYf0QCXZzYzUoTK8RZQvRd-D1NYbmyWckg5-Xecg3w.ttf
-- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

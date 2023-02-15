@@ -1,0 +1,43 @@
+# DNS and how it works?
+
+DNS stands for Domain Name System. It's like a phone book for the internet. Just like how a phone book helps you find a person's phone number by their name, DNS helps your computer find a website by its name.
+When you type a website name into your computer, like "google.com," your computer sends a message to the DNS asking it where the website is. The DNS looks up the website's address and sends it back to your computer.
+Your computer then uses that address to connect to the website, like making a phone call to a phone number you found in the phone book.
+Think of it like this, you want to find your friend who lives in a big building with many rooms, but you don't know which room is his. So, you ask the security guard (DNS) where your friend's room is, the guard (DNS) tells you the room number and you go to that room to see your friend (website).
+
+![DNS](./assets/dns-and-how-it-works.png)
+
+### DNS query process
+
+When you type a website into your computer, your computer sends a message called a "query" to a special computer called a DNS server. This is like asking a librarian where a certain book is located.
+The DNS server then looks up the website's address in a big book called a "DNS database". This book has all the addresses of all the websites on the internet. It's like the librarian looking up the book located in the library catalog.
+Once the DNS server finds the website's address, it sends it back to your computer. This is like the librarian telling you where the book is located. Then your computer can use that address to connect to the website and show it to you, like you going to the shelf and getting the book you asked for.
+
+### DNS resolution process
+
+When your computer sends a query to a DNS server, the server uses a process called "resolution" to find the website's address. It's like a treasure hunt!
+The server starts by checking its own "local cache," which is like a notebook where it keeps track of website addresses it has found before. If the address is in the cache, the server can just give it to your computer right away. That's like finding the treasure in the first spot you look!
+If the address isn't in the cache, the server has to go on a treasure hunt. It starts by asking other DNS servers if they know the address. These other servers are like friends who might know where the treasure is. If one of them knows, they can tell the server, and the server can give the address to your computer. That's like finding the treasure with your friend's help!
+If none of the other servers know the address, the server has to keep looking. It might have to ask for even more servers or check other places, like a big book called a "root server" that has a list of all the websites on the internet. This is like asking the librarian for help or checking the library catalog.
+Eventually, the server will find the website's address and give it to your computer. Then your computer can use that address to connect to the website and show it to you. It's like finding the treasure and getting to keep it!
+
+### DNS caching
+
+DNS caching is like keeping a notebook of the addresses of websites you've looked up before. When the DNS server looks up a website's address, it saves it in its cache, so that the next time someone asks for the same website, the server can just give them the address right away. It's like remembering where you found a treasure, so you can go back to the same spot to find it again!
+
+## Questions
+
+<details>
+<summary>Can you explain the DNS query process in more detail?</summary>
+When a user types a domain name into their browser, their computer will first check its own cache to see if it has recently looked up the corresponding IP address. If the IP address is found in the cache, the computer will use it to connect to the website.
+
+If the IP address is not found in the cache, the computer will then send a query to a DNS server. The query includes the domain name that the user is trying to access. The DNS server will then perform a series of steps to resolve the query and find the corresponding IP address.
+
+</details>
+<details>
+<summary>How does DNS caching improve the efficiency of the DNS system?</summary>
+DNS caching is like keeping a notebook of the addresses of websites you've looked up before. When the DNS server looks up a website's address, it saves it in its cache, so that the next time someone asks for the same website, the server can just give them the address right away. It's like remembering where you found a treasure, so you can go back to the same spot to find it again!
+
+Caching can help make things faster and more efficient because the server doesn't have to go on a treasure hunt every time someone asks for a website's address. It's like if you remember where you put your favorite toy, you don't have to go look for it again, you can just go and play with it.
+
+</details>

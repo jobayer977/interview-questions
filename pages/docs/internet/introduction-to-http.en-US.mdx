@@ -1,0 +1,98 @@
+import Callout from 'nextra-theme-docs/callout'
+import Link from 'next/link'
+
+# Introduction to HTTP
+
+HTTP is a client-server protocol, which means that a client (such as a web browser) sends a request to a server, and the server sends a response back to the client. The request and response are both in the form of a message.
+
+![http](./assets/introduction-to-http.png)
+
+### What is HTTP
+
+HTTP (Hypertext Transfer Protocol) is a protocol used for transferring data over the internet. It is the foundation of the World Wide Web and is used to transfer data between a web browser and a web server.
+
+For example, when you type "www.google.com" into your web browser, your browser sends a request to the server where the Google website is hosted, using HTTP. The server then responds by sending the Google homepage back to your browser, also using HTTP. This request and response process is done using the HTTP protocol.
+
+HTTP is also used for other types of web requests, such as submitting a form, logging in to a website, or downloading a file. For instance, when you fill up a registration form on a website and click on the submit button, your browser sends the data you entered to the server via HTTP. The server then processes the request and sends a response back to your browser, which could be either a success message or an error message.
+
+Overall, HTTP plays a crucial role in the functioning of the World Wide Web.
+
+### Types of HTTP Requests
+
+There are several different types of requests that can be made using HTTP, each with its own specific purpose. The four most common types of requests are:
+
+- **GET:** A GET request is used to retrieve data from a server. When you type a URL into your web browser and press enter, you are sending a GET request to the server to retrieve the webpage at that URL. GET requests are also used to retrieve data from web APIs, such as when a weather app retrieves the current temperature from a weather service.
+
+- **POST:** A POST request is used to send data to a server. It is commonly used when submitting a form on a website, such as when you sign up for an account or make a purchase. The data you enter into the form is sent to the server via a POST request.
+
+- **PUT:** A PUT request is used to update data on a server. For example, you could use a PUT request to update a user's profile information on a website.
+
+- **DELETE:** A DELETE request is used to delete data from a server. For example, you could use a DELETE request to delete a user's account from a website.
+
+In addition to these four main types of requests, there are also other types of HTTP requests, such as PATCH and OPTIONS, that are used less frequently but still serve specific purposes. Understanding when to use each type of request is an important part of web development and working with the HTTP protocol.
+
+### HTTP Headers and Messages
+
+HTTP headers and messages are an important part of the HTTP protocol. They are used to provide additional information about the request or response being sent or received.
+
+#### Understanding headers
+
+HTTP headers are key-value pairs that provide additional information about the request or response being sent or received. They are used to give the server or client more information about the message, such as what type of data is being sent or the status of the response.
+
+For example, when a browser sends a GET request to a server to retrieve a webpage, the request includes several headers that provide additional information. One of the headers is the "Accept" header, which tells the server what type of data the browser is able to handle, such as HTML, XML, or JSON. Another header is the "User-Agent" header, which identifies the type of browser or client that made the request.
+
+Another example is when you make a POST request to a server to submit a form, the request includes headers like the "Content-Type" header, which tells the server what type of data is being sent in the body of the request, like if it's plain text, HTML or JSON. And the "Content-Length" header, tells the server the size of the message body in bytes.
+
+Headers can also be used to provide authentication information, such as when a client sends an "Authorization" header with a token or a username and password.
+
+In summary, headers play an important role in the HTTP protocol by providing additional information about the message being sent or received. They are used to specify the type of data being sent, the status of the response, and other important information that is required for the server or client to correctly process the request.
+
+### Understanding message structure
+
+HTTP messages are the basic unit of communication between a client and a server in the HTTP protocol. They consist of two parts: the headers and the body.
+
+- **Headers:** The headers contain information about the message, such as the type of request and the type of data being sent. They are key-value pairs that provide additional information about the message, such as what type of data is being sent, the status of the response, and other important information.
+
+- **Body:** The body contains the actual data being sent or received. For example, when you make a GET request to a server to retrieve a webpage, the body of the response will contain the HTML code for the webpage. When you submit a form on a website, the data you entered into the form is sent to the server in the body of a POST request.
+
+The structure of an HTTP message is defined in the HTTP specification and follows a specific format. The headers and body are separated by a blank line, and each header is on its own line, with the key and value separated by a colon.
+
+### Statelessness of HTTP
+
+HTTP is a stateless protocol, which means that the server does not maintain any information about the client between requests. Each request is treated independently, and the server does not remember any previous requests made by the client.
+
+For example, when a client sends a GET request to a server to retrieve a webpage, the server sends the webpage back to the client in the form of a response. However, the server does not remember that the client made this request. If the client makes another request to the same server for the same webpage, the server will treat this as a new request and send the webpage back to the client again, without any knowledge of the previous request.
+
+#### Impact on web server scalability
+
+The statelessness of HTTP has a significant impact on web server scalability. Since the server does not maintain any information about the client between requests, it can easily handle multiple requests simultaneously and does not need to allocate resources for maintaining the state. This allows for more efficient use of server resources and makes it easy to scale and distribute web servers.
+
+For example, with a stateless protocol like HTTP, it is easy to add more servers to a web server cluster to handle an increase in traffic. Each server can handle requests independently and does not need to communicate with other servers to maintain a state. This makes it possible to handle a large number of concurrent requests and allows for easy scaling.
+
+### Evolution of HTTP
+
+HTTP, or Hypertext Transfer Protocol, has gone through several evolutions over the years since its creation in 1991. Initially, the first version of HTTP was very simple and only supported basic functionality such as GET, POST, and HEAD methods.
+
+- HTTP/1.0 was the first official version released in 1996, it added support for additional methods such as PUT and DELETE, and also introduced the concept of HTTP headers.
+
+- HTTP/1.1 was released In 1999, which made several improvements and additions to the protocol, such as support for persistent connections, improved caching, and better handling of request and response headers. This version also introduced the concept of chunked transfer encoding, which allows for the transfer of large files in smaller chunks.
+
+- HTTP/2 was released in 2015, which made several improvements over HTTP/1.1, such as multiplexing, which allows for multiple requests to be sent over the same connection, and server push, which allows the server to send resources to the client without the client requesting them. This version also introduced the use of binary framing, which improves the efficiency of the data transfer.
+
+- HTTP/3 is the latest version of HTTP which is based on QUIC(Quick UDP Internet Connections) protocol, it is still in the experimental phase, but it aims to improve the speed and security of the web by using the User Datagram Protocol (UDP) instead of the Transmission Control Protocol (TCP).
+
+Overall, the evolution of HTTP has brought many improvements and additional features to the protocol, making it more efficient and easier to use. The most recent versions of HTTP have focused on improving the speed and security of the web while keeping backward compatibility with older versions.
+
+### Differences between HTTP and HTTPS
+
+HTTP (Hypertext Transfer Protocol) and HTTPS (HTTP Secure) are both protocols used for transferring data over the internet, but there are some key differences between them.
+
+The main difference between HTTP and HTTPS is that HTTPS uses a secure SSL/TLS connection to encrypt the data being sent between the client and the server. This means that any data transmitted over HTTPS, such as login credentials or credit card information, is protected from being intercepted and read by unauthorized parties.
+
+### Read More
+
+- [What is HTTP?](https://www.cloudflare.com/en-gb/learning/ddos/glossary/hypertext-transfer-protocol-http/)
+- [An overview of HTTP](https://developer.mozilla.org/en-us/docs/web/http/overview)
+- [Journey to HTTP/2](https://kamranahmed.info/blog/2016/08/13/http-in-depth)
+- [HTTP/3 From A To Z: Core Concepts](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
+- [HTTP/1 to HTTP/2 to HTTP/3](https://www.youtube.com/watch?v=a-sbfyixysi)

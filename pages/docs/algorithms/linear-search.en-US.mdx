@@ -1,0 +1,39 @@
+# Linear Search
+
+Linear search is a way to find something in a list. Imagine you have a list of your friends' names and you want to find your best friend's name in it. You would start at the first name and check if it's your best friend's name. If it's not, you would move on to the next name and check again. You would keep doing this until you find your best friend's name.
+
+For example, let's say your best friend's name is "Emma" and the list of your friends' names is ["John", "Mike", "Emma", "Amy", "Kevin"]. You would start with "John", then move on to "Mike", then "Emma" and you find your best friend's name.
+
+Linear search is a basic method but it can be slow if you have a large list, it's good for small lists or when you don't have a lot of data.
+
+### Example
+
+```js
+function linearSearch(list, value) {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === value) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+let friends = ["John", "Mike", "Emma", "Amy", "Kevin"];
+let bestFriend = "Emma";
+let index = linearSearch(friends, bestFriend);
+console.log(`${bestFriend} is at index ${index} in the list.`);
+
+```
+
+In this example, the function linearSearch() takes in two arguments: a list of friends and the name of the best friend you're looking for. It loops through the list, checking each element to see if it matches the value you're looking for. If it finds a match, it returns the index of that element in the list. If it doesn't find a match, it returns -1.
+
+In the last lines, we are creating an array of friends, a variable for our bestFriend and calling the function by passing those two variables as arguments. And we are logging a message to the console with the index of the best friend.
+
+You will see the output "Emma is at index 2 in the list." in the console.
+
+### Questions
+
+<details>
+<summary>What is the time complexity of linear search?</summary>
+The time complexity of linear search is O(n), where n is the number of elements in the list. This means that the time it takes to search through the list increases linearly with the size of the list. 
+</details>
