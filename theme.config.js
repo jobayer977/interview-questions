@@ -1,16 +1,13 @@
 import { useRouter } from "next/router";
 const TITLE_WITH_TRANSLATIONS = {
-  "en-US": "Becoming a Backend Pro: A Guide to Server-side Development",
-  "es-ES": "ব্যাকএন্ড প্রো হওয়া: সার্ভার-সাইড ডেভেলপমেন্টের জন্য একটি গাইড",
+  "en-US": "Technical Interview Questions",
 };
 const FEEDBACK_LINK_WITH_TRANSLATIONS = {
   "en-US": "Question? Give us feedback →",
-  "es-ES": "প্রশ্ন? আমাদের মতামত দিন →",
 };
 
 const HEADING_WITH_TRANSLATIONS = {
-  "en-US": "Backend Handbook",
-  "es-ES": "ব্যাকএন্ড হ্যান্ডবুক",
+  "en-US": "Interview Questions",
 };
 export default {
   projectLink: "https://github.com/jobayer977/questionsi.com",
@@ -81,14 +78,14 @@ export default {
           name="description"
           content={
             meta.description ||
-            "Learn the ins and outs of backend development with our comprehensive handbook. From the basics to advanced techniques, our guide covers everything you need to know to become a proficient backend developer. From server-side languages and frameworks to building scalable systems, we've got you covered. Start your journey to becoming a backend pro today!."
+            "Technical Interview Questions - Deep dive into concepts of each aspect."
           }
         />
         <meta
           name="og:description"
           content={
             meta.description ||
-            "questionsi.com - Learn the ins and outs of backend development with our comprehensive handbook. From the basics to advanced techniques, our guide covers everything you need to know to become a proficient backend developer. From server-side languages and frameworks to building scalable systems, we've got you covered. Start your journey to becoming a backend pro today!."
+            "Technical Interview Questions - Deep dive into concepts of each aspect."
           }
         />
         <meta name="twitter:card" content="summary_large_image" />
