@@ -26,7 +26,7 @@ import path from 'path';
 		}
 	};
 	const topics = {};
-	fromDir(`./contents`, '.md', (filename) => {
+	fromDir(`./contents/angular`, '.md', (filename) => {
 		const res = filename.split('/');
 		const section = res[1];
 		const fileContentString = readFileSync(filename, 'utf8');
@@ -40,23 +40,20 @@ import path from 'path';
 		};
 		topics[section] = [...(topics[section] || []), payload];
 	});
-	// const tableOfContentsStringForMarkdown = Object.values(topics)
-	// 	.flat(Infinity)
-	// 	.map((y, i) => `- [${i + 1} ${y?.title}](#${slugify(y?.title)})\n`)
-	// 	.join('');
-	// const topicsStringForMarkdown = Object.values(topics)
-	// 	.flat(Infinity)
-	// 	.map((y, yIndex) => `${yIndex + 1}. ### ${y?.title}\n${y?.content}\n`)
-	// 	.join('');
-	// const resourcesStringForMarkdown = resources
-	// 	.map((y, yIndex) => `- [${y.title}](${y.url}) \n`)
-	// 	.join('');
+	const topicsStringForMarkdown = Object.values(topics)
+		.flat(Infinity)
+		.map((y, yIndex) => {
+			const markdownAccrodion = `<details>\n<summary>${yIndex+1} ${y?.title}</summary>\n${y?.content}\n</details>\n\n`;
+			// return  `${yIndex + 1}. ### ${y?.title}\n${y?.content}\n`
+			return `${markdownAccrodion}\n`;
+		})
+		.join('');
 	// Write the file
-	// fs.writeFileSync(
-	// 	'./README.md',
-	// 	`# ${title} \n ### Resources \n${resourcesStringForMarkdown} \n\n ## Table of Contents\n\n${tableOfContentsStringForMarkdown}<br/><br/><br/><br/>\n\n${topicsStringForMarkdown}`
-	// )
-	fs.writeFileSync('./static/topics.json', JSON.stringify(topics));
+	fs.writeFileSync(
+		'./README.md',
+		`${topicsStringForMarkdown}`
+	)
+	// fs.writeFileSync('./static/topics.json', JSON.stringify(topics));
 	console.log(`🎯 Sync Successfully completed - ${Object.values(topics).flat(Infinity).length}`);
 })();
 // mark string to slug
