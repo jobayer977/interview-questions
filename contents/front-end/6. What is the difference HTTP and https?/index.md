@@ -1,0 +1,5 @@
+---
+title: What is the difference HTTP and https?
+---
+
+HTTPS is HTTP with encryption and verification. The only difference between the two protocols is that HTTPS uses TLS (SSL) to encrypt normal HTTP requests and responses, and to digitally sign those requests and responses. As a result, HTTPS is far more secure than HTTP.
