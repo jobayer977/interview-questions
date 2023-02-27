@@ -1,4 +1,13 @@
 {
-  "lets-start": "Let's start",
-  "angular": "Angular"
+  "front-end": "Front-End",
+  "js": "JavaScript",
+  "react": "React",
+  "ts": "TypeScript",
+  "angular": "Angular",
+  "reactnative": "React Native",
+  "cs": "Computer Science",
+  "webrtc": "WebRTC",
+  "nodejs": "Node.js",
+  "websocket": "WebSocket",
+  "operating-system": "Operating System"
 }

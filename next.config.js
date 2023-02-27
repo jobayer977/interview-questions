@@ -14,17 +14,17 @@ module.exports = withNextra({
     return [
       {
         source: "/",
-        destination: "/docs/lets-start",
+        destination: "/docs/front-end",
         statusCode: 301,
       },
       {
         source: "/docs",
-        destination: "/docs/lets-start",
+        destination: "/docs/front-end",
         statusCode: 302,
       },
       {
         source: "/examples",
-        destination: "/examples/basic",
+        destination: "/docs/front-end",
         statusCode: 302,
       },
     ];

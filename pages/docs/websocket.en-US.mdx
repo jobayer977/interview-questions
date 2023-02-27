@@ -1,0 +1,104 @@
+# Websocket Interview Questions
+
+<details>
+<summary>1. What is WebSocket?</summary>
+
+WebSocket is an advanced technology that makes it possible to open an interactive communication session between the user's browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+
+</details>
+
+<details>
+<summary>2. How can we secure socket connection?</summary>
+
+- Enable CORS
+- Implement rate limiting (Without it server can be easily DoSed)
+- Authenticate users before WS connection establishes
+
+</details>
+
+<details>
+<summary>3. How is websocket different than http ?</summary>
+
+Websocket is a protocol that allows for a persistent connection between the client and the server. This means that the client and the server can send messages to each other without having to re-establish the connection. This is different from HTTP, where the client and the server have to re-establish the connection for every request.
+
+</details>
+
+<details>
+<summary>4. What is Socket.IO ?</summary>
+
+Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server. It's built on top of the WebSocket protocol, which makes it compatible with almost every browser. It's also compatible with older browsers that don't support WebSocket, through the use of long-polling.
+
+</details>
+
+<details>
+<summary>5. What is HTTP Long Polling?</summary>
+
+HTTP long polling is a technique that allows a server to send data to a client at any time, without the client having to request it. It's a technique that's often used in conjunction with websockets, but it can also be used on its own.
+
+To overcome this deficiency, Web app developers can implement a technique called HTTP long polling, where the client polls the server requesting new information. The server holds the request open until new data is available. Once available, the server responds and sends the new information. When the client receives the new information, it immediately sends another request, and the operation is repeated. This effectively emulates a server push feature.
+
+</details>
+
+<details>
+<summary>6. WebSocket vs Socket.io</summary>
+
+| Socket.io                                   | WebSocket                                             |
+| ------------------------------------------- | ----------------------------------------------------- |
+| Has a fallback mechanism for older browsers | Does not have a fallback mechanism for older browsers |
+| Has auto-reconnect mechanism                | Does not have auto-reconnect mechanism                |
+| Has namespaces                              | Does not have namespaces                              |
+| Has rooms                                   | Does not have rooms                                   |
+
+</details>
+
+<details>
+<summary>7. What is namespace in socket.io?</summary>
+
+A Namespace is a communication channel that allows you to split the logic of your application over a single shared connection. Possible use cases: you want to create an admin namespace that only authorized users have access to, so the logic related to those users is separated from the rest of the application.
+
+## Example
+
+```js
+var io = require('socket.io')(80)
+
+// on connection to namespace "/admin", execute this logic
+io.of('/admin').on('connection', function (socket) {
+	// do something with socket
+})
+
+// on connection to namespace "/test", execute this logic
+io.of('/test').on('connection', function (socket) {
+	// do something with socket
+})
+```
+
+</details>
+
+<details>
+<summary>8. Difference between Server-Sent-Event(SSE) and websockets ?</summary>
+
+| SSE                                                     | Websockets                                                    |
+| ------------------------------------------------------- | ------------------------------------------------------------- |
+| SSE connection can only push data from server to client | Websockets can push data from server to client and vice versa |
+| SSE is a one-way communication                          | Websockets is a two-way communication                         |
+| SSE is a simple protocol                                | Websockets is a complex protocol                              |
+
+</details>
+
+<details>
+<summary>9. what is the benefit of socket io ?</summary>
+
+- Reliability (if the connection is lost, the server will try to reconnect).
+- Automatic reconnection.
+- Packet buffering.
+- Broadcasting.
+- Namespaces.
+
+</details>
+
+<details>
+<summary>10. What is the difference between WebRTC and WebSockets?</summary>
+
+While both are part of the HTML5 specification, WebSockets are meant to enable bidirectional communication between a browser and a web server and WebRTC is meant to offer real time communication between browsers (predominantly voice and video communications).
+
+</details>

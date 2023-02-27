@@ -1,0 +1,555 @@
+# React Native Interview Questions
+
+<details>
+<summary>1. What is a Hybrid App?</summary>
+
+Hybrid app is a combination of both native and web apps. Where need to embed the code written in JavaScript into the native app, and the web app is used to display the content.
+
+</details>
+
+<details>
+<summary>2. How React Native is different from React?</summary>
+
+React is an open-source JS library for building the UIs for web applications; besides, React Native is used to building rich mobile UI from declarative components using only JavaScript.
+
+</details>
+
+<details>
+<summary>3. What are the advantages of using React Native</summary>
+
+- Large community
+- Reuseable components
+- Live reload
+- Additional libraries
+
+</details>
+
+<details>
+<summary>4. What is native module in react native ?</summary>
+
+Native Module is a way to communicate between React Native and native code. It is a bridge between React Native and Platform native code. Native modules are used to access platform capabilities, such as accessing the phone camera, accessing the phone storage, accessing the user’s location, etc.
+
+</details>
+
+<details>
+<summary>5. What is the difference between React Native and Expo?</summary>
+
+</details>
+
+<details>
+<summary>6. What is Expo CLI in React Native?</summary>
+
+Expo CLI is a command line interface for developing Expo apps. It is a tool for creating, building, and publishing react-native apps. It provides a development server that allows us to easily run our app on our device. It also provides a way to publish our app to the Expo app store.
+
+</details>
+
+<details>
+<summary>7. What SDK means?</summary>
+
+SDK stands for Software Development Kit. It is a set of tools and libraries that allow you to build applications for a specific platform. For example, Android SDK allows you to build Android apps, iOS SDK allows you to build iOS apps.
+
+</details>
+
+<details>
+<summary>8. What are native components in react native?</summary>
+
+At runtime, React Native creates the corresponding Android and iOS views for those components. Because React Native components are backed by the same views as Android and iOS, React Native apps look, feel, and perform like any other apps. We call these platform-backed components Native Components.
+
+</details>
+
+<details>
+<summary>9. What are most useful core components in react native</summary>
+
+The core components are the building blocks of a React Native app. Here is a list of some of the most commonly used core components:
+
+- [View](https://reactnative.dev/docs/view)
+- [Text](https://reactnative.dev/docs/text)
+- [Image](https://reactnative.dev/docs/image)
+- [ScrollView](https://reactnative.dev/docs/scrollview)
+- [TextInput](https://reactnative.dev/docs/textinput)
+- [StyleSheet](https://reactnative.dev/docs/stylesheet)
+- [TouchableOpacity](https://reactnative.dev/docs/touchableopacity)
+- [TouchableHighlight](https://reactnative.dev/docs/touchablehighlight)
+- [FlatList](https://reactnative.dev/docs/flatlist)
+- [SectionList](https://reactnative.dev/docs/sectionlist)
+
+</details>
+
+<details>
+<summary>10. How to write platform-specific code in react native</summary>
+
+In React-Native there are two ways to write platform-specific code:
+
+- Using Platform module
+- Using Platform-specific extensions
+
+**Using Platform module**
+
+For Android
+
+```js
+import { Platform } from 'react-native'
+
+if (Platform.OS === 'android') {
+	// do something
+}
+```
+
+For iOS
+
+```js
+import { Platform } from 'react-native'
+
+if (Platform.OS === 'ios') {
+	// do something
+}
+```
+
+**Using Platform-specific extensions**
+
+For Android
+
+```js
+button.android.js
+button.ios.js
+```
+
+```js
+import button from './button'
+```
+
+</details>
+
+<details>
+<summary>11. How can you check the device OS version in React Native?</summary>
+
+For Android
+
+```js
+import { Platform } from 'react-native'
+
+if (Platform.Version === 28) {
+	// do something
+}
+```
+
+For iOS
+
+```js
+import { Platform } from 'react-native'
+if (Platform.Version === '14.0') {
+	// do something
+}
+```
+
+</details>
+
+<details>
+<summary>12. What is a Hybrid App?</summary>
+
+Hybrid apps are essentially web apps that have been put in a native app shell. Once they are downloaded from an app store and installed locally, the shell is able to connect to whatever capabilities the mobile platform provides through a browser that's embedded in the app.
+
+</details>
+
+<details>
+<summary>13. What is Gradle and why it is used?</summary>
+
+Gradle is a build automation tool that is used to build and manage any Java-based project. It is used to build Android applications. It is open-source.
+
+In Android, Gradle is used to build the project and manage the dependencies. It is used to compile the code, run unit tests, and generate the final APK file. It is also used to manage the dependencies of the project.
+
+</details>
+
+<details>
+<summary>14. What is the AndroidManifest XML?</summary>
+
+AndroidManifest.xml is an XML file that contains information about the application. It is used to declare the components of the application, permissions, and other information about the application.
+
+</details>
+
+<details>
+<summary>15. What is Fast Refresh</summary>
+
+Fast Refresh is a new feature in React Native that allows us to get direct feedback for changes in our React components. It is enabled by default in the React Native CLI.
+
+It works for example if we change the text in the App.js file from "Hello World" to "Hello World!". it will update this component without reloading the entire application. An alterant if we have a util file and we change the file those changes will be re-render in the other files that are using that util file.
+
+</details>
+
+<details>
+<summary>16. What is library linking in react native</summary>
+
+When a library has native module implementations. Then we have to link the library to the platform-specific native code. This is called library linking. Linking can be done automatically or manually.
+
+</details>
+
+<details>
+<summary>17. Why Test</summary>
+
+Testing is an important part of software development. It is a way to ensure that the code is working as expected. It is also a way to ensure that the code is not broken when new features are added or when existing features are modified.
+
+</details>
+
+<details>
+<summary>18. What is Hermes in react native</summary>
+
+Hermes is a JavaScript engine optimized for running React Native apps on Android. It improves app performance and decreases app size. Hermes is enabled by default in the latest version of React Native.
+
+</details>
+
+<details>
+<summary>19. Difference between is React-native from ReactJS ?.md</summary>
+
+Difference between ReactJS and React-native in Tabular form
+
+| ReactJS                                                       | React-native                                                                         |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| ReactJS is a JavaScript library for building user interfaces. | React Native is a JavaScript framework for building native apps for Android and iOS. |
+| It is used for development of web applications.               | It is used for developement of mobile applications.                                  |
+| It uses React-Router for routing.                             | It uses React-Navigation for routing.                                                |
+| It uses HTML tag for UI.                                      | It uses View tag for UI.                                                             |
+| In this the virtual DOM renders the browser code.             | In this the native uses it's API to render code for mobile applications.             |
+
+</details>
+
+<details>
+<summary>20. What is Flexbox ?</summary>
+
+It is a layout model that allows elements to be laid out in a flexible manner. It is a one-dimensional layout model, meaning that it can only handle elements that are laid out either horizontally or vertically. It is a very powerful layout model that can be used to create complex layouts.
+
+</details>
+
+<details>
+<summary>21. What are the advantages of using React Native?</summary>
+
+- Large community: React Native has a large community of developers who are constantly working on improving the framework. This means that we can get help from the community if we run into any issues while developing our app.
+- Reusable code: React Native allows us to reuse our code across different platforms. This means that we can write our code once and use it on both Android and iOS.
+- Additional Third-Party Libraries: React Native has a large number of third-party libraries that we can use to add additional functionality to our app. This means that we don't have to write all the code from scratch.
+
+</details>
+
+<details>
+<summary>22. How is user Input Handled in React Native?</summary>
+
+TextInput is a core component of React Native that allows the user to enter text. It has an API that is very similar to that of the HTML input element, with support for auto-correction, auto-capitalization, placeholder text, and more.
+
+```jsx
+import React, { useState } from 'react'
+
+import { TextInput, View, StyleSheet } from 'react-native'
+
+const App = () => {
+	const [value, onChangeText] = useState('Useless Placeholder')
+
+	return (
+		<View>
+			<TextInput onChangeText={(text) => onChangeText(text)} value={value} />
+		</View>
+	)
+}
+```
+
+</details>
+
+<details>
+<summary>23. What is cross-platform mobile app development?</summary>
+
+Cross platform framework operate to develop shareable and reusable code across multiple platforms. "Write once, run everywhere" is the motto of cross platform framework.
+Writing once and reuse the same on multiple platforms helps in minimizing the development time and cost and also ensure hassle-free implementation.
+**Note:** Cross-platform applications are popular in today’s times, all credits to React Native, Xamarin, and Flutter frameworks.
+
+</details>
+
+<details>
+<summary>24. What is a bridge in React Native ?</summary>
+
+React Native uses a bridge to communicate between the JavaScript code and the native code. The bridge is a native module that is responsible for sending messages between the JavaScript code and the native code. It is a very important part of React Native because it allows us to communicate between the JavaScript code and the native code.
+
+</details>
+
+<details>
+<summary>25. What is ListView in react-native?</summary>
+
+React Native ListView is a view that renders a list of items. It is a core component of React Native and is used to render a list of data. It is similar to the HTML list element.
+
+```jsx
+import React, { useState } from 'react'
+
+import { View, Text, StyleSheet, FlatList } from 'react-native'
+
+const App = () => {
+	const [data, setData] = useState([
+		{ id: 1, name: 'John Doe' },
+		{ id: 2, name: 'Brad Traversy' },
+		{ id: 3, name: 'Steve Smith' },
+		{ id: 4, name: 'Janet Williams' },
+		{ id: 5, name: 'David Doe' },
+		{ id: 6, name: 'John Doe' },
+		{ id: 7, name: 'Brad Traversy' },
+		{ id: 8, name: 'Steve Smith' },
+		{ id: 9, name: 'Janet Williams' },
+		{ id: 10, name: 'David Doe' },
+		{ id: 11, name: 'John Doe' },
+		{ id: 12, name: 'Brad Traversy' },
+		{ id: 13, name: 'Steve Smith' },
+		{ id: 14, name: 'Janet Williams' },
+		{ id: 15, name: 'David Doe' },
+	])
+
+	return (
+		<View style={styles.container}>
+			<FlatList
+				data={data}
+				renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
+			/>
+		</View>
+	)
+}
+```
+
+</details>
+
+<details>
+<summary>26. What are Touchable components in react Native?</summary>
+
+Touchable components are the most basic building blocks of React Native apps. They allow you to make views respond properly to touches. When you wrap a view with a Touchable component, you make it respond to touch events such as the press. Touchable components provide a simple interface for creating components that respond to user interactions.
+
+```jsx
+import React from 'react'
+import { TouchableOpacity, Text } from 'react-native'
+
+const App = () => {
+	return (
+		<TouchableOpacity
+			onPress={() => console.log('Pressed')}
+			style={{ backgroundColor: 'blue' }}>
+			<Text style={{ fontSize: 20, color: 'white' }}>Press Me</Text>
+		</TouchableOpacity>
+	)
+}
+```
+
+</details>
+
+<details>
+<summary>27. What are the Different Ways to style React Native Application?</summary>
+
+There are two ways to style React Native application: StyleSheet and inline styles.
+
+## StyleSheet
+
+```jsx
+import { StyleSheet } from 'react-native'
+
+import React from 'react'
+
+import { View, Text, StyleSheet } from 'react-native'
+
+const App = () => {
+	return (
+		<View style={styles.container}>
+			<Text
+				style={{
+					fontSize: 20,
+				}}>
+				Hello World
+			</Text>
+		</View>
+	)
+}
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+})
+```
+
+## Inline Styles
+
+```jsx
+import React from 'react'
+
+import { View, Text, StyleSheet } from 'react-native'
+
+const App = () => {
+	return (
+		<Text
+			style={{
+				fontSize: 20,
+			}}>
+			Hello World
+		</Text>
+	)
+}
+```
+
+</details>
+
+<details>
+<summary>28. What are the disadvantages of React Native?</summary>
+
+React Native is a great framework for building cross-platform mobile applications. However, it has some disadvantages too.
+
+- React Native is not a native app. It is a hybrid app. It is a web app that is wrapped in a native app. So, it is not as fast as a native app.
+- It takes more time to boot up than a native app.
+- Security is a concern. React Native apps are not as secure as native apps. When we choose banking apps, Expert not choose React Native apps.
+
+</details>
+
+<details>
+<summary>29. what is deep linking in react native</summary>
+
+Deep linking consists of using a uniform resource identifier (URI) that links to a specific location within a mobile app rather than simply launching the app.
+
+</details>
+
+<details>
+<summary>30. What is react-navigation?</summary>
+
+React Navigation is a standalone library that enables us to implement navigation functionality in a React Native application. React Navigation is written in JavaScript and does not directly use the native navigation APIs on iOS and Android. Rather, it recreates some subset of those APIs.
+
+</details>
+
+<details>
+<summary>31. How react-navigation works?</summary>
+
+React Native doesn't have a built-in idea of a global history stack as a web browser does. Instead, React-navigation's native stack navigator provides a way for the app to transition between screens and manage navigation history. If our app uses only one stack navigator then it is conceptually similar to how a web browser handles navigation state. the app pushes and pops items from the navigation stack as users interact with it, and this results in the user seeing different screens. A key difference between how this works in a web browser and React Navigation is that React Navigation's native stack navigator provides the gestures and animations that we would expect on Android and iOS when navigating between routes in the stack.
+
+</details>
+
+<details>
+<summary>32. How Does Navigation lifecycle works in react native?</summary>
+
+React navigation works a bit differently from the react web navigation. For Example, if we have 2 screens `ScreenA` and `ScreenB`. When we first navigate to `ScreenB` from `ScreenA` its `componentDidMount` is called and also `ScreenA` remains mounted. After we go back to `ScreenA` its `componentDidMount` will be not called.
+
+</details>
+
+<details>
+<summary>33. What are React Navigation lifecycle events​?</summary>
+
+React Navigation emits events to screen components that subscribe to them. We can listen to focus and blur events to know when a screen comes into focus or goes out of focus respectively.
+
+## Focus Events
+
+It's common to want to perform some action when a screen comes into focus. For example, you may want to fetch some data when a screen comes into focus. You can do this by subscribing to the focus event.
+
+```jsx
+function MyComponent() {
+	React.useEffect(() => {
+		const unsubscribe = navigation.addListener('focus', () => {
+			// The screen is focused
+			// Call any action
+		})
+		return unsubscribe
+	}, [navigation])
+}
+```
+
+## Blur Events
+
+It's also common to want to perform some action when a screen goes out of focus. For example, you may want to save some data when a screen goes out of focus. You can do this by subscribing to the blur event.
+
+```jsx
+function MyComponent() {
+	React.useEffect(() => {
+		const unsubscribe = navigation.addListener('blur', () => {
+			// The screen is unfocused
+			// Call any action
+		})
+		return unsubscribe
+	}, [navigation])
+}
+```
+
+## beforeRemove Event
+
+The `beforeRemove` event is emitted when the screen is about to be removed from the stack. This event is emitted when the screen is popped or replaced. You can use this event to prevent the screen from being removed from the stack.
+
+```jsx
+function MyComponent() {
+	React.useEffect(() => {
+		const unsubscribe = navigation.addListener('beforeRemove', (e) => {
+			// Prevent default behavior of leaving the screen
+			e.preventDefault()
+			// Prompt the user before leaving the screen
+			Alert.alert('Hold on!', 'Are you sure you want to leave?', [
+				{ text: "Don't leave", style: 'cancel', onPress: () => {} },
+				{
+					text: 'Leave',
+					style: 'destructive',
+					// If the user confirmed, then we dispatch the action we blocked earlier
+					// This will continue the action that had triggered the removal of the screen
+					onPress: () => navigation.dispatch(e.data.action),
+				},
+			])
+		})
+		return unsubscribe
+	}, [navigation])
+}
+```
+
+</details>
+
+<details>
+<summary>34. When to Consider Building a Cross-platform App?</summary>
+
+- We have to release a mobile app for both Android and iOS in limited time ,resources and budget.
+- Need to target both Android and iOS platforms.
+- Need faster development.
+- The app isn’t complex and doesn’t need functionalities which vary much between the platforms.
+
+</details>
+
+<details>
+<summary>35. What is React Native and why it is used?</summary>
+
+React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
+
+</details>
+
+<details>
+<summary>36. How react native works internally</summary>
+
+React Native allows developers to build apps by spinning up JS threads that interpret JavaScript code, by making a native bridge between the app and the target platform. The bridge concept leverages the library and transfers the component’s hierarchy to the mobile devices view.
+
+For instance, if the user presses a button, this case is translated into an event that JavaScript can handle. After that, by relaying messages between native platforms and JS code, the React Native bridges translates native events into something that React components can understand and work with.
+
+</details>
+
+<details>
+<summary>37. What is React Native Threading Model ?</summary>
+
+There are 3 main threads in React Native:
+
+1. Main thread
+2. JS Thread
+3. Native Modules Thread
+
+**Main thread**
+The Main thread listens to the UI events like 'press', 'touch', etc. These events are then passed to the JS thread via the RN Bridge. Once the Javascript loads, the JS thread sends the information on what needs to be rendered onto the screen.
+
+**JS Thread**
+The Javascript Queue is the thread queue where the main bundled JS thread runs. The JS thread runs all the business logic, i.e., the code we write in React Native.
+
+**Native Modules Thread**
+If an app needs access to platform API, this is where the magic happens.
+
+</details>
+
+<details>
+<summary>38. What does React Native use to allow JavaScript to be executed on iOS and Android natively?</summary>
+
+On iOS simulators and devices, Android emulators and devices React Native uses JavaScriptCore which is the JavaScript engine that powers Safari. Our bundle contains the JS code. And it runs on the JavaScriptCore engine. And communicates with the native code through a bridge.
+
+</details>
+
+<details>
+<summary>39. Does React Native use a WebView?</summary>
+
+React Native uses a JavaScript runtime, but the UI is not HTML and it doesn't use a WebView. We use JSX and React Native-specific components to define the UI. It provides a native-level performance and looks and feels but some UI parts have to be configured separately for iOS and Android.
+
+</details>

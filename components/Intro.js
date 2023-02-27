@@ -30,7 +30,7 @@ export default () => {
       <Features />
       <div className="text-center opacity-75">{featureText("description")}</div>
       <div className="text-center mt-10">
-        <Link href={"/docs/lets-start"}>
+        <Link href={"/docs/front-end"}>
           <div className="bg-primary inline-block cursor-pointer text-white px-12 py-3 rounded-full">
             Start Reading
           </div>
