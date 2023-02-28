@@ -1,0 +1,89 @@
+# SQL Interview Questions and Answers
+
+<details>
+  <summary>1. What is SQL and what are its components?</summary>
+Answer: SQL stands for Structured Query Language, which is used to manage relational databases. It is used for creating, modifying, and querying databases. The main components of SQL are Data Definition Language (DDL), Data Manipulation Language (DML), Data Control Language (DCL), and Transaction Control Language (TCL).
+</details>
+<details>
+  <summary>2. What are the different types of SQL commands?</summary>
+Answer: There are four types of SQL commands:
+Data Definition Language (DDL): Used to create, modify, and delete database objects.
+Data Manipulation Language (DML): Used to insert, update, and delete data from tables.
+Data Control Language (DCL): Used to grant or revoke access to users.
+Transaction Control Language (TCL): Used to control the transactions in a database.
+</details>
+<details>
+  <summary>3. What is the difference between DDL, DML, and DCL commands in SQL?</summary>
+Answer: DDL (Data Definition Language) commands are used to create, alter, and drop objects in a database, while DML (Data Manipulation Language) commands are used to insert, update, and delete data from tables. DCL (Data Control Language) commands are used to control the access to the database objects and to grant or revoke permissions to users.
+</details>
+<details>
+  <summary>4. What is normalization in SQL and what are its types?</summary>
+Answer: Normalization is the process of organizing data in a database to minimize redundancy and dependency. There are different types of normalization:
+
+- First Normal Form (1NF): It ensures that each column in a table contains atomic values.
+- Second Normal Form (2NF): It ensures that each non-key column is dependent on the primary key.
+- Third Normal Form (3NF): It ensures that each non-key column is dependent only on the primary key and not on other non-key columns.
+
+</details>
+<details>
+  <summary>5. What are the primary key and foreign key in SQL?</summary>
+Answer: A primary key is a unique identifier for each record in a table. It is used to enforce the integrity of the data and to ensure that there are no duplicate records. A foreign key is a column that refers to the primary key of another table. It is used to establish a relationship between two tables.
+
+</details>
+<details>
+  <summary>6. What is an index in SQL?</summary>
+Answer: An index is a data structure used to speed up the retrieval of data from a table. It is created on one or more columns of a table and allows the database to find and retrieve the data more quickly.
+
+</details>
+<details>
+  <summary>7. What is the SELECT statement in SQL?</summary>
+Answer: The SELECT statement is used to query data from one or more tables in a database. It allows you to retrieve specific columns and rows of data based on various conditions.
+
+</details>
+<details>
+  <summary>8. What is the syntax of the SELECT statement?</summary>
+Answer: The basic syntax of the SELECT statement is:
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+The SELECT clause specifies the columns to be retrieved, the FROM clause specifies the table(s) from which to retrieve the data, and the WHERE clause specifies the condition(s) for selecting the data.
+
+</details>
+<details>
+  <summary>9. What is the DISTINCT keyword in SQL and how does it work?</summary>
+Answer: The DISTINCT keyword is used in SQL to retrieve only unique values from a column or set of columns in a table. When the DISTINCT keyword is used, the database engine will compare each value in the specified column(s) and return only the distinct values.
+
+Here's an example query using the DISTINCT keyword:
+
+```sql
+SELECT DISTINCT column_name
+FROM table_name;
+```
+
+This query will return only the unique values in the specified column_name from the table_name table.
+
+Note that the DISTINCT keyword applies to all columns in the SELECT clause, so if you want to retrieve distinct values for multiple columns, you need to include all of them in the SELECT clause.
+
+</details>
+<details>
+  <summary>10. What is the WHERE clause in SQL?</summary>
+Answer: The WHERE clause is a clause in SQL that is used to filter rows based on a specified condition or set of conditions. It is used with the SELECT, UPDATE, and DELETE statements.
+
+</details>
+<details>
+  <summary>11. What is the syntax of the WHERE clause?</summary>
+Answer: The basic syntax of the WHERE clause is:
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+The WHERE clause is used to filter rows based on a specified condition or set of conditions. The condition can include one or more operators such as comparison operators `(=, <, >, <=, >=)`, logical operators (AND, OR, NOT), and other operators (IN, BETWEEN, LIKE, IS NULL).
+
+</details>
