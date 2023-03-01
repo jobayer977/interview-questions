@@ -87,3 +87,25 @@ WHERE condition;
 The WHERE clause is used to filter rows based on a specified condition or set of conditions. The condition can include one or more operators such as comparison operators `(=, <, >, <=, >=)`, logical operators (AND, OR, NOT), and other operators (IN, BETWEEN, LIKE, IS NULL).
 
 </details>
+<details>
+<summary>12. What is the purpose of the AND operator in SQL? How is it used?</summary>
+The AND operator is used in SQL to combine multiple conditions and return only those rows that satisfy all the conditions. It is used in the WHERE clause of an SQL query to specify multiple conditions that must all be true for a row to be returned.
+</details>
+<details>
+<summary>13. Can you give an example of how the OR operator works in SQL?</summary>
+The OR operator is used in SQL to combine multiple conditions and return any rows that satisfy at least one of the conditions. For example:
+```sql
+SELECT * FROM customers
+WHERE country = 'USA' OR country = 'Canada';
+```
+This SQL query will return all customers who are either from the USA or Canada.
+</details>
+<details>
+<summary>14. How does the NOT operator work in SQL? Can you give an example of how it's used?</summary>
+The NOT operator is used in SQL to negate a condition and return rows that do not satisfy the condition. For example:
+```sql
+SELECT * FROM customers
+WHERE NOT country = 'USA';
+```
+This SQL query will return all customers who are not from the USA.
+</details>
