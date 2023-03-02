@@ -109,3 +109,103 @@ WHERE NOT country = 'USA';
 ```
 This SQL query will return all customers who are not from the USA.
 </details>
+<details>
+<summary>15. How do you combine AND and OR operators in an SQL query to create more complex conditions?</summary>
+
+You can use parentheses to group conditions together and create more complex conditions in an SQL query.
+
+For example:
+
+```sql
+SELECT * FROM customers
+WHERE (country = 'USA' AND state = 'CA') OR (country = 'Canada' AND city = 'Toronto');
+```
+
+This SQL query will return all customers who are either from the USA and California, or from Canada and Toronto.
+
+</details>
+<details>
+<summary>16. What are some common mistakes to avoid when using AND, OR, and NOT operators in SQL queries?</summary>
+Some common mistakes to avoid when using AND, OR, and NOT operators in SQL queries include forgetting to use parentheses to group conditions together.
+</details>
+<details>
+<summary>17. Can you sort the results of an SQL query by multiple columns?</summary>
+Yes, you can sort the results of an SQL query by multiple columns by specifying multiple column names in the ORDER BY clause separated by commas. For example:
+```sql
+SELECT * FROM customers
+ORDER BY last_name ASC, first_name ASC;
+```
+This SQL query will return all customers in ascending order by last name and then by first name.
+</details>
+<details>
+<summary>18. How do you use the INSERT INTO statement in SQL?</summary>
+To use the INSERT INTO statement in SQL, you specify the name of the table you want to insert data into, followed by the column names (optional) and the values you want to insert. For example:
+```sql
+INSERT INTO customers (first_name, last_name, email)
+VALUES ('John', 'Doe', 'johndoe@example.com');
+```
+This SQL query will insert a new row into the "customers" table with the values 'John', 'Doe', and 'johndoe@example.com' in the columns "first_name", "last_name", and "email", respectively.
+</details>
+
+<details>
+<summary>19. How do you check for NULL values in a SQL query?</summary>
+
+To check for NULL values in a SQL query, you can use the IS NULL operator. For example:
+
+```sql
+SELECT *
+FROM customers
+WHERE email IS NULL;
+```
+
+This SQL query will return all rows from the "customers" table where the "email" column contains a NULL value.
+
+</details>
+<details>
+<summary>20. How do you update all rows in a table?</summary>
+
+To update all rows in a table, you can omit the WHERE clause from the UPDATE statement. For example:
+
+```sql
+UPDATE customers
+SET status = 'active';
+```
+
+This SQL query will update the value of the "status" column in all rows of the "customers" table to 'active'.
+
+</details>
+<details>
+  <summary>21. What is a SQL function?</summary>
+<p>A SQL function is a subprogram that can be called by a SQL statement to perform a specific task. It returns a value or values, and can accept input parameters to modify its behavior.</p>
+</details>
+<details>
+  <summary>22. What is the syntax for calling a SQL function?</summary>
+<p>The syntax for calling a SQL function is:</p>
+```sql
+SELECT function_name(parameter1, parameter2, ...);
+```
+<p>For example, to call the MAX function to return the maximum value in a column:</p>
+```sql
+SELECT MAX(column_name) FROM table_name;
+```
+</details>
+
+<details>
+  <summary>23. What are some commonly used SQL functions? </summary>
+- COUNT: returns the number of rows in a table that meet a certain condition
+- SUM: returns the sum of values in a column
+- AVG: returns the average of values in a column
+- MIN: returns the minimum value in a column
+- MAX: returns the maximum value in a column
+- CONCAT: concatenates two or more strings
+- SUBSTRING: extracts a substring from a string
+</details>
+
+<details>
+<summary>24. What is the % wildcard character used for in a LIKE statement?</summary>
+<p>The % wildcard character represents any number of characters, including zero characters. For example, the pattern 'b%' would match any string that starts with the letter 'b', such as 'blue', 'big', and 'box'.</p>
+</details>
+<details>
+<summary>25. What is the _ wildcard character used for in a LIKE statement?</summary>
+<p>The _ wildcard character represents a single character. For example, the pattern 'a_c' would match any string that starts with the letter 'a', followed by any single character, and ends with the letter 'c', such as 'abc', 'arc', and 'alc'.</p>
+</details>
