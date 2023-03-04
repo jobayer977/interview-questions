@@ -109,3 +109,187 @@ WHERE NOT country = 'USA';
 ```
 This SQL query will return all customers who are not from the USA.
 </details>
+<details>
+<summary>15. How do you combine AND and OR operators in an SQL query to create more complex conditions?</summary>
+
+You can use parentheses to group conditions together and create more complex conditions in an SQL query.
+
+For example:
+
+```sql
+SELECT * FROM customers
+WHERE (country = 'USA' AND state = 'CA') OR (country = 'Canada' AND city = 'Toronto');
+```
+
+This SQL query will return all customers who are either from the USA and California, or from Canada and Toronto.
+
+</details>
+<details>
+<summary>16. What are some common mistakes to avoid when using AND, OR, and NOT operators in SQL queries?</summary>
+Some common mistakes to avoid when using AND, OR, and NOT operators in SQL queries include forgetting to use parentheses to group conditions together.
+</details>
+<details>
+<summary>17. Can you sort the results of an SQL query by multiple columns?</summary>
+Yes, you can sort the results of an SQL query by multiple columns by specifying multiple column names in the ORDER BY clause separated by commas. For example:
+```sql
+SELECT * FROM customers
+ORDER BY last_name ASC, first_name ASC;
+```
+This SQL query will return all customers in ascending order by last name and then by first name.
+</details>
+<details>
+<summary>18. How do you use the INSERT INTO statement in SQL?</summary>
+To use the INSERT INTO statement in SQL, you specify the name of the table you want to insert data into, followed by the column names (optional) and the values you want to insert. For example:
+```sql
+INSERT INTO customers (first_name, last_name, email)
+VALUES ('John', 'Doe', 'johndoe@example.com');
+```
+This SQL query will insert a new row into the "customers" table with the values 'John', 'Doe', and 'johndoe@example.com' in the columns "first_name", "last_name", and "email", respectively.
+</details>
+
+<details>
+<summary>19. How do you check for NULL values in a SQL query?</summary>
+
+To check for NULL values in a SQL query, you can use the IS NULL operator. For example:
+
+```sql
+SELECT *
+FROM customers
+WHERE email IS NULL;
+```
+
+This SQL query will return all rows from the "customers" table where the "email" column contains a NULL value.
+
+</details>
+<details>
+<summary>20. How do you update all rows in a table?</summary>
+
+To update all rows in a table, you can omit the WHERE clause from the UPDATE statement. For example:
+
+```sql
+UPDATE customers
+SET status = 'active';
+```
+
+This SQL query will update the value of the "status" column in all rows of the "customers" table to 'active'.
+
+</details>
+<details>
+  <summary>21. What is a SQL function?</summary>
+A SQL function is a subprogram that can be called by a SQL statement to perform a specific task. It returns a value or values, and can accept input parameters to modify its behavior.
+</details>
+<details>
+  <summary>22. What is the syntax for calling a SQL function?</summary>
+The syntax for calling a SQL function is:
+```sql
+SELECT function_name(parameter1, parameter2, ...);
+```
+For example, to call the MAX function to return the maximum value in a column:
+```sql
+SELECT MAX(column_name) FROM table_name;
+```
+</details>
+
+<details>
+  <summary>23. What are some commonly used SQL functions? </summary>
+- COUNT: returns the number of rows in a table that meet a certain condition
+- SUM: returns the sum of values in a column
+- AVG: returns the average of values in a column
+- MIN: returns the minimum value in a column
+- MAX: returns the maximum value in a column
+- CONCAT: concatenates two or more strings
+- SUBSTRING: extracts a substring from a string
+</details>
+
+<details>
+<summary>24. What is the % wildcard character used for in a LIKE statement?</summary>
+The % wildcard character represents any number of characters, including zero characters. For example, the pattern 'b%' would match any string that starts with the letter 'b', such as 'blue', 'big', and 'box'.
+</details>
+<details>
+<summary>25. What is the _ wildcard character used for in a LIKE statement?</summary>
+The _ wildcard character represents a single character. For example, the pattern 'a_c' would match any string that starts with the letter 'a', followed by any single character, and ends with the letter 'c', such as 'abc', 'arc', and 'alc'.
+</details>
+<details>
+<summary>26. What is the purpose of the SQL BETWEEN statement?</summary>
+The SQL BETWEEN statement is used to select values within a specified range. It allows you to retrieve all records whose value falls within the specified range, inclusive of the endpoints.
+</details>
+<details>
+<summary>27. What is the difference between using the SQL BETWEEN statement and the `>=` and `<=` operators?</summary>
+Using the SQL BETWEEN statement is equivalent to using the `>=` and `<=` operators. However, the SQL BETWEEN statement is more concise and easier to read, especially when the range is large.
+</details>
+<details>
+<summary>28. What is the purpose of SQL aliases?</summary>
+SQL aliases are used to give a table or column a temporary name in a SQL query. This makes the query more concise and easier to read.
+</details>
+<details>
+<summary>29. What is the purpose of an SQL inner join?</summary>
+An SQL inner join is used to combine rows from two or more tables based on a matching column. It only returns rows where the join condition is true for both tables.
+</details>
+<details>
+<summary>30. Explain LEFT JOIN?</summary>
+Imagine you have two tables of information, one with information about people and another with information about their pets. The people table has columns for their name and age, and the pets table has columns for the pet's name, type, and the owner's name.
+
+A LEFT JOIN looks at both tables and finds all the rows in the left table (in this case, the people table) and combines them with the matching rows from the right table (in this case, the pets table) based on a specified column (in this case, the owner's name).
+
+For example, if you wanted to see a list of all the people and their pets, even if some people don't have pets, you would use a LEFT JOIN to combine the people table with the pets table based on the owner's name. The resulting table would have all the people from the people table, and any pets that belong to them, but would also show NULL values for any people who don't have pets.
+
+So, a LEFT JOIN is like taking the left table and adding any matching rows from the right table, but also including any rows from the left table that don't have matches in the right table (and filling in NULL values for any missing information from the right table).
+
+</details>
+<details>
+<summary>31. What is a SQL LEFT JOIN?</summary>
+A SQL LEFT JOIN returns all rows from the left table and matching rows from the right table. If there is no matching row in the right table, NULL values are used for all the columns of the right table.
+</details>
+<details>
+<summary>32. What is the difference between a SQL LEFT JOIN and a SQL INNER JOIN?</summary>
+The difference between a SQL LEFT JOIN and a SQL INNER JOIN is that a LEFT JOIN returns all rows from the left table and matching rows from the right table, while an INNER JOIN only returns rows where there is a match between both tables.
+</details>
+<details>
+<summary>33. Can more than two tables be joined using a SQL LEFT JOIN?</summary>
+Yes, more than two tables can be joined using a SQL LEFT JOIN. For example, to join three tables "customers", "orders", and "products" based on the "customer_id" and "product_id" columns:
+```sql
+SELECT customers.customer_name, orders.order_id, products.product_name
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id
+LEFT JOIN products
+ON orders.product_id = products.product_id;
+```
+</details>
+<details>
+<summary>34. Explain RIGHT Join?</summary>
+You have two tables of information, One with information about people and another with information about their pets. The people table has columns for their name and age, and the pets table has columns for the pet's name, type, and owner's name.
+
+A RIGHT JOIN is similar to a LEFT JOIN, but it starts with the right table (in this case, the pets table) and combines it with the matching rows from the left table (in this case, the people table) based on a specified column (in this case, the owner's name).
+
+For example, if you wanted to see a list of all the pets and their owners, even if some pets don't have owners, you would use a RIGHT JOIN to combine the pets table with the people table based on the owner's name. The resulting table would have all the pets from the pets table, and any people that own them, but would also show NULL values for any pets that don't have owners.
+
+So, a RIGHT JOIN is like taking the right table and adding any matching rows from the left table, but also including any rows from the right table that don't have matches in the left table (and filling in NULL values for any missing information from the left table).
+
+</details>
+<details>
+<summary>35. Explain FULL OUTER JOIN?</summary>
+For Example, we have two tables of information, one with information about students and another with information about their grades. The student's table has columns for their name and grade level, and the grades table has columns for the student's name, subject, and grade.
+
+A FULL OUTER JOIN combines the left and right tables together based on a specified column (in this case, the student's name), but includes all rows from both tables, even if there are no matches.
+
+For example, if you wanted to see a list of all students and their grades, including any students who don't have grades and any grades that don't have students, you would use a FULL OUTER JOIN to combine the student's table with the grades table based on the student's name. The resulting table would have all the students from the student's table, and any grades that belong to them, but would also include any grades that don't have students and any students who don't have grades.
+
+So, a FULL OUTER JOIN combines the left and right tables together, showing all rows from both tables and filling in NULL values for any missing information. It's like taking a LEFT JOIN and a RIGHT JOIN and combining them together into one table.
+
+</details>
+<details>
+<summary>36. What is a SQL UNION?</summary>
+A SQL UNION is used to combine the results of two or more SELECT statements into a single result set.
+</details>
+<details>
+<summary>37. What is a SQL GROUP BY?</summary>
+A SQL GROUP BY clause is used to group rows that have the same values in a specific column or columns and then perform calculations or aggregations on those groups.
+
+For example, if you wanted to see the total sales for each customer, you would use a GROUP BY clause to group the rows in the orders table by the customer column. You could then use an aggregate function, such as SUM, to calculate the total amount of each customer's orders.
+
+</details>
+<details>
+<summary>37. What are SQL aggregate functions?</summary>
+SQL aggregate functions are functions used to perform calculations on a set of values and return a single value as a result. These functions are often used with the GROUP BY clause to calculate aggregate values for groups of rows.
+</details>
