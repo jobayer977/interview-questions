@@ -9,5 +9,7 @@
   "webrtc": "WebRTC",
   "nodejs": "Node.js",
   "websocket": "WebSocket",
-  "operating-system": "Operating System"
+  "operating-system": "Operating System",
+  "sql": "SQL",
+  "mongodb": "MongoDB"
 }
